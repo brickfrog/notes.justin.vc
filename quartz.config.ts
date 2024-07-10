@@ -8,23 +8,24 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🪴 Quartz 4.0",
+    pageTitle: "𝕟𝕠𝕥𝕖𝕤 justin.vc",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      // @ts-ignore
+      provider: "none",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "notes.justin.vc",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: "Open Sans",
+        body: "Open Sans",
+        code: "Roboto Mono",
       },
       colors: {
         lightMode: {
@@ -36,17 +37,27 @@ const config: QuartzConfig = {
           secondary: "#284b63",
           tertiary: "#84a59d",
           highlight: "rgba(143, 159, 169, 0.15)",
+          orgh2: "#4CAF50" /* Soft Green */,
+          orgh3: "#2196F3" /* Moderate Blue */,
+          orgh4: "#9C27B0" /* Medium Purple */,
+          orgh5: "#FF9800" /* Warm Orange */,
+          orgh6: "#795548" /* Soft Brown */,
           textHighlight: "#fff23688",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
+          light: "#1e1e2e", // background color (base)
+          lightgray: "#313244", // current line (surface0)
+          gray: "#6272a4", // comment (overlay0)
+          darkgray: "#f8f8f2", // foreground text (text)
+          dark: "#f8f8f2", // selection background (surface2)
+          secondary: "#cba6f7", // purple (mauve)
+          tertiary: "#f5c2e7", // pink (pink)
+          highlight: "rgba(108, 112, 134, 0.15)", // subtle highlight (based on overlay0)
+          orgh2: "#f38ba8" /* Light pink */,
+          orgh3: "#f4af84" /* Peach */,
+          orgh4: "#f9e2af" /* Pale yellow */,
+          orgh5: "#a6e3a1" /* Light green */,
+          orgh6: "#74c7ec" /* Sky blue */,
           textHighlight: "#b3aa0288",
         },
       },
@@ -54,26 +65,46 @@ const config: QuartzConfig = {
   },
   plugins: {
     transformers: [
+      // Transformations
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "filesystem"],
       }),
       Plugin.SyntaxHighlighting({
         theme: {
-          light: "github-light",
-          dark: "github-dark",
+          light: "catppuccin-latte",
+          dark: "tokyo-night",
         },
-        keepBackground: false,
+        keepBackground: true,
       }),
-      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
-      Plugin.GitHubFlavoredMarkdown(),
-      Plugin.TableOfContents(),
-      Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
+      Plugin.TableOfContents({
+        showByDefault: true,
+        collapseByDefault: false,
+        maxDepth: 6,
+        minEntries: 2,
+      }),
+      Plugin.OxHugoFlavouredMarkdown({
+        removePredefinedAnchor: true,
+        anchorTransformation: false,
+      }),
+      Plugin.ObsidianFlavoredMarkdown(),
+      Plugin.GitHubFlavoredMarkdown({
+        enableSmartyPants: true,
+        linkHeadings: true,
+      }),
+      Plugin.CrawlLinks({
+        openLinksInNewTab: true,
+        lazyLoad: false,
+      }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [Plugin.RemoveDrafts()],
+    filters: [
+      // Filters
+      Plugin.RemoveDrafts(),
+    ],
     emitters: [
+      // Emitters
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),

@@ -1,3 +1,368 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+/* Org-Mode Tags */
+
+.org-todo {
+  display: inline-block;
+  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+  border-radius: 2px;
+  font-size: 1rem;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0.2rem 0 0.2rem;
+}
+
+.org-todo.todo.TODO, .org-todo.todo.IDEA {
+  background: #B9DC87;
+  color: #000000;
+}
+
+.org-todo.todo.PROJ {
+  background: #939ED2;
+  color: #000000;
+}
+
+.org-todo.todo.WAIT {
+  background: #F0C674;
+  color: #000000;
+}
+
+.org-todo.todo.STRT {
+  background: #F3935C;
+  color: #000000;
+  font-weight: 1000;
+}
+
+.org-todo.done.DONE {
+  background: #303132;
+  color: #FFFFFF;
+}
+
+.org-todo.done.KILL, .org-todo.done.NO {
+  background: #F07178;
+  color: #FFFFFF;
+}
+
+.tag {
+  float: right;
+  font-size: 0.75rem;
+  color: var(--theme);
+}
+
+.tag::after {
+  content: ":";
+}
+
+.tag::before {
+  content: ":";
+}
+
+.tag span::before {
+  content: ":";
+}
+
+.tag span:first-child::before {
+  content: "";
+}
+
+.tag span::after {
+  content: "";
+}
+
+.toc span {
+  display: none;
+}
+
+/* Org - Timestamps */
+
+.timestamp-kwd {
+  color: var(--dark);
+  font-size: 0.8em;
+}
+
+p.timestamp-wrapper {
+  margin: 0;
+}
+
+.timestamp-kwd + .timestamp {
+  background-color: var(--theme);
+  color: var(--secondary);
+  font-size: 0.8em;
+}
+
+/* Org Mode Header Vibes */
+/* Variables */
+:root {
+  --base-indent: 20px;
+  --heading-indent: 15px;
+  --base-font-size: 1em;
+  --base-margin: 10px;
+  --base-padding: 5px;
+}
+
+/* Base styles */
+
+.jvc {
+  margin-left: var(--base-indent);
+}
+
+.jvc div.jvc {
+  margin-left: var(--base-padding);
+}
+
+/* Headings */
+.jvc h2, .jvc h3, .jvc h4, .jvc h5, .jvc h6 {
+  font-size: 1.0em;
+  margin-top: var(--base-margin);
+  margin-bottom: var(--base-margin);
+}
+
+.jvc h2 {
+  margin-left: 0;
+  padding-left: 0;
+  color: var(--orgh2);
+}
+.jvc h2::before {
+  content: "◉ ";
+}
+
+.jvc h3 {
+  margin-left: var(--heading-indent);
+  padding-left: 0;
+  color: var(--orgh3);
+}
+.jvc h3::before {
+  content: "◎ ";
+}
+
+/* Adjust content under h2 */
+
+.jvc h2 + ul {
+  margin-left: calc(var(--heading-indent) * 1);
+}
+
+
+/* Adjust content under h3 */
+.jvc h3 + p {
+  margin-left: calc(var(--heading-indent) * 1);
+}
+
+.jvc h3 + ul {
+  margin-left: calc(var(--heading-indent) * 2);
+}
+
+/* Adjust content under h4 */
+.jvc h4 {
+  margin-left: calc(var(--heading-indent) * 2);
+  padding-left: 0;
+  color: var(--orgh4);
+}
+.jvc h4::before {
+  content: "◈ ";
+}
+
+.jvc h4 + * {
+  margin-left: calc(var(--heading-indent) * 3);
+}
+
+.jvc h5 {
+  margin-left: calc(var(--heading-indent) * 3);
+  padding-left: 0;
+  color: var(--orgh5);
+}
+.jvc h5::before {
+  content: "❀ ";
+}
+
+.jvc h6 {
+  margin-left: calc(var(--heading-indent) * 4);
+  padding-left: 0;
+  color: var(--orgh6);
+}
+.jvc h6::before {
+  content: "◇ ";
+}
+
+/* Lists */
+.jvc ul, .jvc ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: calc(var(--base-indent) + 0px);
+  list-style-position: outside;
+}
+
+.jvc ul li, .jvc ol li {
+  margin-bottom: 0.3em;
+}
+
+.jvc ul ul, .jvc ul ol, .jvc ol ul, .jvc ol ol {
+  padding-left: var(--heading-indent);
+}
+
+/* Task lists */
+.jvc .contains-task-list {
+  padding-left: 0;
+  margin-left: calc(var(--heading-indent) * 2); /* Adjust this multiplier as needed */
+}
+
+.jvc .contains-task-list .task-list-item {
+  position: relative;
+  padding-left: 1.5em; /* Space for checkbox */
+  margin-bottom: 0.5em;
+}
+
+/* Nested task lists */
+.jvc .contains-task-list .contains-task-list {
+  margin-left: var(--heading-indent);
+}
+
+/* Paragraphs */
+.jvc > p {
+  padding-left: var(--heading-indent);
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.jvc > p::before {
+  content: "► ";
+  padding-right: 5px;
+  font-size: 12px;
+}
+
+
+.jvc li p::before {
+  content: '';
+}
+
+/* Outline-5 specific styles */
+.outline-5 ul, .outline-5 ol {
+  margin-left: -15px;
+}
+
+.outline-5 p::before {
+  content: "◆ ";
+  padding-right: 5px;
+  font-size: 8px;
+}
+
+.outline-5 ul p::before,
+.outline-5 ul ul p::before,
+.outline-5 ul ul ul p::before,
+.outline-5 ul ul ul ul p::before,
+.outline-5 ul ul ul ul ul p::before {
+  content: "◆ ";
+  font-size: 8px;
+}
+
+.outline-5 li {
+  list-style-type: none;
+}
+
+/* Superscript */
+sup {
+  margin-left: 2px;
+}
+
+/* EOF marker */
+article.popover-hint::after {
+  content: "— EOF —";
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 1em;
+  display: block;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+/* Metadata + Title */
+
+.article-title {
+  font-size: 1.15em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  }
+
+p.content-meta a {
+  color: var(--gray); 
+  text-decoration: underline;
+}
+
+/* Explorer */
+
+#explorer-content {
+  font-size: 0.9em;
+}
+
+/* Details */
+
+details {
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: var(--light);
+  transition: all 0.3s ease-in-out;
+}
+
+/* style the summary element */
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 0;
+  color: var(--darkgray);
+  outline: none;
+}
+
+/* add a transition effect for the summary element when focused */
+summary:focus {
+  color: var(--secondary);
+  outline: none;
+}
+
+/* add a hover effect for the summary element */
+summary:hover {
+  color: var(--secondary);
+}
+
+/* additional style for the details content */
+details[open] {
+  border-color: var(--secondary);
+  background-color: var(--highlight);
+}
+
+/* optional: add an icon before the summary text */
+summary::before {
+  content: "➕ ";
+  font-size: 0.8em;
+  margin-right: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* rotate the icon when the details element is open */
+details[open] summary::before {
+  transform: rotate(45deg);
+  content: "➖ ";
+}
+
+/* Content Meta */
+
+.content-meta {
+  font-weight: bold;
+  margin-top: 0.25em;
+  color: var(--gray);
+
+  &[show-comma="true"] {
+    > span:not(:last-child) {
+      margin-right: 0.75em;
+
+      &::after {
+        content: "·";
+        margin-left: 0.75em;
+      }
+    }
+  }
+}
