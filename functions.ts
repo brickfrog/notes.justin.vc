@@ -35,10 +35,10 @@ export const mapFn: Options["mapFn"] = (node) => {
 
   if (node.depth > 0) {
     if (node.file) {
-      if (node.file.relativePath?.includes("daily/")) {
-        node.displayName = "🗓️ " + node.displayName
-      }
-      if (node.file.relativePath?.includes("references/")) {
+      console.log(node.file.filePath)
+      if (node.file.filePath?.includes("daily/")) {
+        node.displayName = "🗓️ " + node.file.frontmatter?.title
+      } else if (node.file.relativePath?.includes("references/")) {
         const parts = node.file.frontmatter?.title?.split("::") ?? []
         node.displayName = "📚 " + (parts.length > 1 ? parts[1].trim() : parts[0]?.trim() || "")
       } else if (node.name == "movies") {
