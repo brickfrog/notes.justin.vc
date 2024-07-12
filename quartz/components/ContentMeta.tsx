@@ -98,7 +98,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       // Display link to backlinks if enabled
       if (options.showBacklinkLink) {
         const backlinkSegment = (
-          <a href="#backlinks" title="Convenience link to the footnotes.">
+          <a href="#backlinks" title="Convenience link to the backlinks.">
             backlinks
           </a>
         )
