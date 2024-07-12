@@ -26,6 +26,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.ArticleTitle(),
     Component.TagList(),
+    Component.CollapsibleHeaders(),
     Component.ContentMeta({
       showReadingTime: false,
       showFootnoteLink: true,
