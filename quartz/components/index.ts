@@ -19,7 +19,6 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
-import CollapsibleHeaders from "./CollapsibleHeaders"
 
 export {
   ArticleTitle,
@@ -43,5 +42,4 @@ export {
   RecentNotes,
   NotFound,
   Breadcrumbs,
-  CollapsibleHeaders,
 }
