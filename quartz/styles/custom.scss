@@ -223,6 +223,10 @@ p.timestamp-wrapper {
   padding-left: var(--heading-indent);
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  hyphens: auto;
+  -webkit-hyphens: auto; /* For older versions of WebKit browsers */
+  -moz-hyphens: auto; /* For older versions of Firefox */
+  word-wrap: break-word; /* Ensures words break properly */
 }
 
 .jvc > p::before {
