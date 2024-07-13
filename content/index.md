@@ -24,6 +24,8 @@ draft: false
 </div>
 <sup>(this is an excuse to test out quotebacks)</sup>
 
+<hr>
+
 ## Index
 
 <div class="outline-2 jvc">
@@ -35,9 +37,16 @@ Before this I was planning on doing some mass exports with a doomscript but I fo
 
 Most of these will be just random things I'm reading, I think. I still need to figure out a good way to do a slip-box. I have a org server extension I can send links to but I forget to do it. Same with pocket (non-open source reasons aside, the emacs package works well)
 
+### Sections
+
+<div class="outline-3 jvc">
+
 - [Daily Notes](/daily/)
+
 - [Main](/main/)
+
 - [References](/references/)
 
+</div>
 </div>
 </div>
