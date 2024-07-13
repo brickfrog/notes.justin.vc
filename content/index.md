@@ -1,9 +1,14 @@
 ---
 title: Index
+author: ["Justin"]
+date: 06-01-24
+draft: false
 ---
 
+<div class="outline-1 jvc">
+
 <div style="display: flex; align-items: flex-start; justify-content: space-between; width: 100%;">
-  <div style="flex: 4; min-width: 0; padding-right: 25px;">
+  <div style="flex: 3; min-width: 0; padding-right: 25px;">
     <blockquote class="quoteback" data-title="STUDY A GO!!GO!! 歌詞 GOLDEN GIRLS ふりがな付 - うたてん" data-author="@utaten" cite="https://soundcloud.com/softwarevibes/golden-boy-ost-ending">
       袖そでまくり たすきがけ
       鉢巻はちまきしめて がんばって<br>
@@ -17,8 +22,11 @@ title: Index
     <iframe src="https://global-mind.org/gcpdot/gcp.html" height="69" width="69" scrolling="no" frameborder="10" style="margin: auto;"></iframe>
   </div>
 </div>
+<sup>(this is an excuse to test out quotebacks)</sup>
 
-(this is an excuse to test out quotebacks)
+## Index
+
+<div class="outline-2 jvc">
 
 I haven't prettied it up yet, but plan on using this as a dumping ground for notes and media and such.
 The ideal would be then to utilize those for bigger articles on the [main site(?)](https://justin.vc) - we'll see how it goes. It's abit heavier on dependencies than I would like.
@@ -30,3 +38,6 @@ Most of these will be just random things I'm reading, I think. I still need to f
 - [Daily Notes](/daily/)
 - [Main](/main/)
 - [References](/references/)
+
+</div>
+</div>
