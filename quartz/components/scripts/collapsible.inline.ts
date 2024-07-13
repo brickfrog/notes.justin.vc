@@ -1,5 +1,3 @@
-document.addEventListener("DOMContentLoaded", setupCollapsibleHeaders)
-
 function setupCollapsibleHeaders(): void {
   const headers = document.querySelectorAll("h2, h3, h4, h5, h6")
 
@@ -10,12 +8,10 @@ function setupCollapsibleHeaders(): void {
     }
 
     const newListener = (event: MouseEvent) => toggleCollapse(event, header)
-    //@ts-ignore
+    // @ts-ignore
     header.addEventListener("click", newListener)
     ;(header as any).toggleCollapseListener = newListener
   })
-
-  setupObserver()
 }
 
 function toggleCollapse(event: MouseEvent, header: Element): void {
@@ -44,4 +40,15 @@ function setupObserver(): void {
     observer.observe(document.body, { childList: true, subtree: true })
     ;(window as any).headersObserver = observer
   }
+}
+
+// Initial setup
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    setupCollapsibleHeaders()
+    setupObserver()
+  })
+} else {
+  setupCollapsibleHeaders()
+  setupObserver()
 }
