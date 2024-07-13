@@ -13,9 +13,13 @@ const Body: QuartzComponent = ({ children }: QuartzComponentProps) => {
   return <div id="quartz-body">{children}</div>
 }
 
-Body.afterDOMLoaded = `
-  ${clipboardScript}
+// probably not great, but it works
+Body.beforeDOMLoaded = `
   ${collapsibleScript}
+`
+
+Body.afterDOMLoaded = `
+  ${clipboardScript} 
   ${quotebacksScript}
 `
 
