@@ -1,39 +1,47 @@
-document.addEventListener("nav", () => {
-  const setupCollapsibleHeaders = () => {
-    const headers = document.querySelectorAll("h2, h3, h4, h5, h6")
+document.addEventListener("DOMContentLoaded", setupCollapsibleHeaders)
 
-    headers.forEach((header) => {
-      const toggleCollapse = function (this: HTMLElement) {
-        this.classList.toggle("collapsed")
-        let currentElement = this.nextElementSibling as HTMLElement | null
+function setupCollapsibleHeaders(): void {
+  const headers = document.querySelectorAll("h2, h3, h4, h5, h6")
 
-        while (currentElement && !["H2", "H3", "H4", "H5", "H6"].includes(currentElement.tagName)) {
-          if (currentElement.style.display === "none") {
-            currentElement.style.display = ""
-          } else {
-            currentElement.style.display = "none"
-          }
-          currentElement = currentElement.nextElementSibling as HTMLElement | null
-        }
-      }
+  headers.forEach((header: Element) => {
+    // Remove previously attached listeners to avoid duplicates
+    if ((header as any).toggleCollapseListener) {
+      header.removeEventListener("click", (header as any).toggleCollapseListener)
+    }
 
-      header.addEventListener("click", toggleCollapse)
-      window.addCleanup(() => header.removeEventListener("click", toggleCollapse))
-    })
-  }
-
-  setupCollapsibleHeaders()
-
-  const observer = new MutationObserver(() => {
-    setupCollapsibleHeaders()
+    const newListener = (event: MouseEvent) => toggleCollapse(event, header)
+    //@ts-ignore
+    header.addEventListener("click", newListener)
+    ;(header as any).toggleCollapseListener = newListener
   })
 
-  observer.observe(document.body, { childList: true, subtree: true })
-  window.addCleanup(() => observer.disconnect())
+  setupObserver()
+}
 
-  window.addEventListener("popstate", setupCollapsibleHeaders)
-  window.addCleanup(() => window.removeEventListener("popstate", setupCollapsibleHeaders))
+function toggleCollapse(event: MouseEvent, header: Element): void {
+  const headerElement = header as HTMLElement
+  const rect = headerElement.getBoundingClientRect()
+  const relativeX = event.clientX - rect.left
 
-  document.addEventListener("turbolinks:load", setupCollapsibleHeaders)
-  window.addCleanup(() => document.removeEventListener("turbolinks:load", setupCollapsibleHeaders))
-})
+  if (relativeX <= 20) {
+    headerElement.classList.toggle("collapsed")
+
+    let currentElement = headerElement.nextElementSibling as HTMLElement | null
+    while (currentElement && !["H2", "H3", "H4", "H5", "H6"].includes(currentElement.tagName)) {
+      currentElement.style.display = currentElement.style.display === "none" ? "" : "none"
+      currentElement = currentElement.nextElementSibling as HTMLElement | null
+    }
+  }
+}
+
+function setupObserver(): void {
+  // Only set up observer once to avoid multiple instances
+  if (!(window as any).headersObserver) {
+    const observer = new MutationObserver(() => {
+      setupCollapsibleHeaders()
+    })
+
+    observer.observe(document.body, { childList: true, subtree: true })
+    ;(window as any).headersObserver = observer
+  }
+}

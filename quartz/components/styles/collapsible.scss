@@ -1,11 +1,19 @@
 h2, h3, h4, h5, h6 {
-    transition: opacity 0.3s;
-    cursor: pointer;
-  }
-  .collapsed + * {
-    display: none;
-  }
-  .collapsed {
-    opacity: 0.6;
-  }
-  
+  transition: opacity 0.3s;
+}
+
+h2::before, h3::before, h4::before, h5::before, h6::before {
+  cursor: crosshair;
+  content: "";
+  display: inline-block;
+  width: 20px; 
+  height: 100%; 
+}
+
+
+.collapsed + * {
+  display: none !important;
+}
+.collapsed {
+  opacity: 0.6;
+}

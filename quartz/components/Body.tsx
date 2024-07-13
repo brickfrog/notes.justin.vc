@@ -11,9 +11,7 @@ const Body: QuartzComponent = ({ children }: QuartzComponentProps) => {
   return <div id="quartz-body">{children}</div>
 }
 
-Body.afterDOMLoaded = clipboardScript
-Body.afterDOMLoaded = collapsibleScript
-Body.css = clipboardStyle
-Body.css = collapsibleStyle
+Body.afterDOMLoaded = clipboardScript + "\n" + collapsibleScript
+Body.css = clipboardStyle + "\n" + collapsibleStyle
 
 export default (() => Body) satisfies QuartzComponentConstructor
