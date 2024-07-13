@@ -3,7 +3,7 @@ h2, h3, h4, h5, h6 {
 }
 
 h2::before, h3::before, h4::before, h5::before, h6::before {
-  cursor: crosshair;
+  cursor: pointer;
   content: "";
   display: inline-block;
   width: 20px; 
