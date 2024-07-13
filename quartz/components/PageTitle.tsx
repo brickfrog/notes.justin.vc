@@ -8,7 +8,9 @@ const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzCompo
   const baseDir = pathToRoot(fileData.slug!)
   return (
     <h1 class={classNames(displayClass, "page-title")}>
-      <a href={baseDir}>{title}</a>
+      <a href={baseDir}>
+        𝕟𝕠𝕥𝕖𝕤<sup style="font-size:0.55em;"> . justin.vc</sup>
+      </a>
     </h1>
   )
 }
