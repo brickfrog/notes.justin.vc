@@ -36,7 +36,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    Component.Darkmode(),
+    Component.LinkList(),
     Component.DesktopOnly(
       Component.Explorer({
         title: "Notes",
@@ -59,7 +59,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
-    Component.Darkmode(),
+    Component.LinkList(),
     Component.DesktopOnly(
       Component.Explorer({
         mapFn: mapFn,

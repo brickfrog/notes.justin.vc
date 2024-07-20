@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+button#btn {
+  background-color: var(--light);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  font-size: large;
+
+  &:focus {
+    outline: none;
+  }
+}
