@@ -2,7 +2,7 @@
 title: "transcranial Direct Current stimulation (tDCS)"
 author: ["Justin"]
 date: 2024-07-20T14:35:00-04:00
-lastmod: 2024-07-21T03:43:34-04:00
+lastmod: 2024-07-21T17:01:41-04:00
 tags: ["neuro"]
 draft: false
 ---
@@ -64,7 +64,7 @@ batteries in bulk on Amazon.
     -   for example, using salt water and proper electrode placement
     -   electrical burns are difficult to notice when they're happening so if you
         bork things up you might get a small burn without noticing that's enough to
-        cause some scarring.
+        cause some scarring.[^fn:3]
 
 ## References
 
@@ -79,3 +79,6 @@ batteries in bulk on Amazon.
 
 [^fn:1]: (<a href="#citeproc_bib_item_2">Moirand et al. 2022</a>)
 [^fn:2]: (<a href="#citeproc_bib_item_1">“Accelerated Learning (DARPA) - Total tDCS Electrode Placement” n.d.</a>)
+[^fn:3]: I did zap myself once after forgetting to reup on salt but that was about
+    the worst of it. Basically red skin for an hour or two. Also I'm using this to
+    test out footnotes.
