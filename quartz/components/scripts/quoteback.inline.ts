@@ -297,7 +297,7 @@ document.addEventListener("visibilitychange", handleVisibilityChange)
 
 // MutationObserver to watch for dynamically added content
 // @ts-ignore
-const observer = new MutationObserver((mutations) => {
+const qobserver = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     if (mutation.type === "childList") {
       applyQuotebackStyles()
@@ -305,7 +305,7 @@ const observer = new MutationObserver((mutations) => {
   })
 })
 
-observer.observe(document.body, {
+qobserver.observe(document.body, {
   childList: true,
   subtree: true,
 })
