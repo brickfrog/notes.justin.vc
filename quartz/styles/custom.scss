@@ -360,7 +360,7 @@ hr { margin: 1rem auto !important; }
   margin-left: 0 !important;
   padding-left: 0 !important;
 
-  &::before { content: none; }
+  &::before { content: "-"; }
 }
 
 // CSL Bibliography Styling
@@ -382,6 +382,7 @@ hr { margin: 1rem auto !important; }
 // Footnotes Styling
 .footnotes {
   @include reference-styles;
+  margin-left: 25px;
 
   ol { padding-left: 1.5em; }
 
@@ -400,6 +401,41 @@ hr { margin: 1rem auto !important; }
     line-height: 0;
   }
 }
+
+.sr-only {
+  content: none !important;
+
+
+  &::before {
+    padding-right: 0px;
+    content: "-";
+  }
+}
+
+
+.backlinks {
+  position: relative;
+  margin-left: 25px;
+
+  & > h2 {
+
+    &::before {
+      content: "-";}
+  }
+
+  & > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+
+    & > li {
+      & > a {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
 
 // Adjust spacing when following a heading
 h2 + .csl-bib-body,
