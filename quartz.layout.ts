@@ -6,7 +6,7 @@ import { mapFn, sortFn } from "./functions.ts"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [Component.Backlinks()],
   footer: Component.Footer({
     links: {
       "justin.vc": "https://justin.vc",
@@ -45,11 +45,7 @@ export const defaultContentPageLayout: PageLayout = {
       }),
     ),
   ],
-  right: [
-    Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
-  ],
+  right: [Component.Graph(), Component.DesktopOnly(Component.TableOfContents())],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
