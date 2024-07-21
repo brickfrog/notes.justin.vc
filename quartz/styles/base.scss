@@ -97,13 +97,18 @@ a {
   }
 
   &.external .external-icon {
-    height: 1ex;
-    margin: 0 0.15em;
+    height: 1.5ex;
+    margin-left: 5px;
 
     > path {
-      fill: var(--dark);
+        fill: var(--dark);
+
+        &:nth-of-type(2) {
+            fill: var(--light);
+        }
     }
-  }
+}
+
 }
 
 .desktop-only {
@@ -505,7 +510,7 @@ div:has(> .overflow) {
 
 ul.overflow,
 ol.overflow {
-  max-height: 550;
+  max-height: 400;
   overflow-y: auto;
 
   // clearfix
