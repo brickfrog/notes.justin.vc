@@ -62,6 +62,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.LinkList(),
     Component.DesktopOnly(
       Component.Explorer({
+        title: "Notes",
         mapFn: mapFn,
         sortFn: sortFn,
       }),

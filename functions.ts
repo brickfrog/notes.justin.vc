@@ -33,7 +33,7 @@ const toTitleCase = (str: string): string => {
 export const mapFn: Options["mapFn"] = (node) => {
   node.displayName = node.displayName.toLowerCase()
 
-  if (node.depth > 0) {
+  if (node.depth >= 0) {
     if (node.file) {
       console.log(node.file.filePath)
       if (node.file.filePath?.includes("daily/")) {
@@ -43,6 +43,8 @@ export const mapFn: Options["mapFn"] = (node) => {
         node.displayName = "📚 " + (parts.length > 1 ? parts[1].trim() : parts[0]?.trim() || "")
       } else if (node.name == "movies") {
         node.displayName = "🎬 " + node.file.frontmatter?.title
+      } else if (node.name == "about") {
+        node.displayName = "📝 " + node.file.frontmatter?.title
       } else {
         node.displayName = "📄 " + node.file.frontmatter?.title
       }
@@ -84,7 +86,7 @@ export const sortFn: Options["sortFn"] = (a, b, order = "ASC") => {
   }
 
   if (a.file && !b.file) return 1
-  if (!a.file && b.file) return -1
+  if (!a.file && b.file) return 1
 
   return (
     a.name.localeCompare(b.name, undefined, {

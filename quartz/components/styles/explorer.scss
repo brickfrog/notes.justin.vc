@@ -62,6 +62,7 @@ button#explorer {
       transform 0.35s ease,
       opacity 0.2s ease;
     & li > a {
+      font-size: 0.85rem;
       color: var(--dark);
       opacity: 0.75;
       pointer-events: all;
@@ -86,7 +87,7 @@ svg {
   & div > a {
     color: var(--secondary);
     font-family: var(--headerFont);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: $semiBoldWeight;
     line-height: 1.5rem;
     display: inline-block;
@@ -109,7 +110,7 @@ svg {
     font-family: var(--headerFont);
 
     & span {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       display: inline-block;
       color: var(--secondary);
       font-weight: $semiBoldWeight;
