@@ -24,13 +24,11 @@ export const defaultContentPageLayout: PageLayout = {
       rootName: "Index",
       showCurrentPage: false,
     }),
-    Component.ArticleTitle(),
-    Component.TagList(),
-    Component.ContentMeta({
-      showReadingTime: false,
+    Component.Frontmatter({
+      showReadingTime: true,
       showFootnoteLink: true,
-      showComma: true,
     }),
+    Component.DesktopOnly(Component.Sidenote({ debug: true })),
   ],
   left: [
     Component.PageTitle(),
@@ -45,12 +43,15 @@ export const defaultContentPageLayout: PageLayout = {
       }),
     ),
   ],
-  right: [Component.Graph(), Component.DesktopOnly(Component.TableOfContents())],
+  right: [
+    Component.DesktopOnly(Component.Graph()),
+    Component.DesktopOnly(Component.TableOfContents()),
+  ],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [Component.Breadcrumbs(), Component.Frontmatter()],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
@@ -64,5 +65,8 @@ export const defaultListPageLayout: PageLayout = {
       }),
     ),
   ],
-  right: [],
+  right: [
+    Component.DesktopOnly(Component.Graph()),
+    Component.DesktopOnly(Component.TableOfContents()),
+  ],
 }

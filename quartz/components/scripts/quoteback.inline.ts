@@ -2,26 +2,26 @@ const editSVG = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xml
 
 const quoteStyle = `
 .quoteback-container {
-  --background-color: #eff1f5;  /* Latte Base */
-  --border-color-normal: #ccd0da;  /* Latte Surface0 */
-  --border-color-hover: #7287fd;  /* Latte Lavender */
-  --author-color: #4c4f69;  /* Latte Text */
-  --title-color: #1e66f5;  /* Latte Blue */
-  --gototext-color: #1e66f5;  /* Latte Blue */
-  --content-color: #4c4f69;  /* Latte Text */
-  --internal-blockquote-color: #8c8fa1;  /* Latte Subtext0 */
+  --background-color: #f0f0f0;
+  --border-color-normal: #e0e0e0;
+  --border-color-hover: #2979ff;
+  --author-color: #202020;
+  --title-color: #3a7ca5;
+  --gototext-color: #3a7ca5;
+  --content-color: #202020;
+  --internal-blockquote-color: #b0b0b0;
 }
 
 /* Dark mode colors */
 .quoteback-container.dark-theme {
-  --background-color: #2a2b3c;  /* Darker shade of blue-gray */
-  --border-color-normal: #45475a;  /* Mocha Surface1 */
-  --border-color-hover: #cba6f7;  /* Mocha Mauve */
-  --author-color: #f5e0dc;  /* Mocha Rosewater */
-  --title-color: #89dceb;  /* Mocha Sky blue */
-  --gototext-color: #89dceb;  /* Matching title color */
-  --content-color: #cdd6f4;  /* Mocha Text */
-  --internal-blockquote-color: #bac2de;  /* Mocha Subtext1 */
+  --background-color: #1a1a1a;
+  --border-color-normal: #252525;
+  --border-color-hover: #00ffff;
+  --author-color: #f0f0f0;
+  --title-color: #7fdd57;
+  --gototext-color: #7fdd57;
+  --content-color: #f0f0f0;
+  --internal-blockquote-color: #505050;
 }
 
 .quoteback-container {
@@ -296,7 +296,6 @@ window.addEventListener("pageshow", (event) => {
 document.addEventListener("visibilitychange", handleVisibilityChange)
 
 // MutationObserver to watch for dynamically added content
-// @ts-ignore
 const qobserver = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     if (mutation.type === "childList") {

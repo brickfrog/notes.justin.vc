@@ -15,11 +15,11 @@ const Body: QuartzComponent = ({ children }: QuartzComponentProps) => {
 
 // probably not great, but it works
 Body.beforeDOMLoaded = `
+  ${clipboardScript} 
   ${collapsibleScript}
 `
 
 Body.afterDOMLoaded = `
-  ${clipboardScript} 
   ${quotebacksScript}
 `
 

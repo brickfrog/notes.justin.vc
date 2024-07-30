@@ -5,6 +5,11 @@
   max-width: 13rem;
   flex-grow: 0.3;
 
+  @media (max-wdith: 450px) {
+    flex-grow: 0;
+    display: flex;
+  }
+
   & > #search-icon {
     background-color: var(--lightgray);
     border-radius: 400px;
@@ -14,20 +19,26 @@
     align-items: center;
     padding: 0 0.5rem;
     
-    @media (max-width: 400px) {
+    @media (max-width: 450px) {
       background-color: var(--light);
-      padding: 0px;
-      margin: 0px;
+      padding-right: 0px;
+      border: 0px;
+      border-radius: 0px;
     }
 
     &:hover {
       border: 1px solid var(--secondary); // Change this to your desired hover color
+      
+      @media (max-width: 450px) {
+        border: 0px;
+      }
+    
     }
 
     & .search-title {
       color: grey;
 
-      @media (max-width: 400px) {
+      @media (max-width: 450px) {
         display: none;
       }
     }
@@ -59,7 +70,7 @@
       padding-right: 0.5rem;
     
 
-    @media (max-width: $mobileBreakpoint) {
+    @media (max-width: $tabletBreakpoint) {
       display: none;
     }
     }

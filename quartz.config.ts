@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "𝕟𝕠𝕥𝕖𝕤 justin.vc",
+    pageTitle: "【ｎｏｔｅｓ．ｊｕｓｔｉｎ．ｖｃ】",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -23,42 +23,42 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Open Sans",
-        body: "Open Sans",
-        code: "Roboto Mono",
+        header: "Exo 2",
+        body: "Exo 2",
+        code: "IBM Plex Mono",
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          orgh2: "#4CAF50" /* Soft Green */,
-          orgh3: "#2196F3" /* Moderate Blue */,
-          orgh4: "#9C27B0" /* Medium Purple */,
-          orgh5: "#FF9800" /* Warm Orange */,
-          orgh6: "#795548" /* Soft Brown */,
-          textHighlight: "#fff23688",
+          light: "#f7f7f2",
+          lightgray: "#e8e8e3",
+          gray: "#b8b8b0",
+          darkgray: "#5a5a52",
+          dark: "#2d2d28",
+          secondary: "#3a7ca5", // Main link color (blue)
+          tertiary: "#81b29a", // Secondary link color (sage green)
+          highlight: "rgba(210, 215, 200, 0.3)",
+          orgh2: "#3a7ca5",
+          orgh3: "#81b29a",
+          orgh4: "#e07a5f",
+          orgh5: "#6d597a",
+          orgh6: "#b56576",
+          textHighlight: "#f2cc8f88",
         },
         darkMode: {
-          light: "#1e1e2e", // background color (base)
-          lightgray: "#313244", // current line (surface0)
-          gray: "#6272a4", // comment (overlay0)
-          darkgray: "#f8f8f2", // foreground text (text)
-          dark: "#f8f8f2", // selection background (surface2)
-          secondary: "#cba6f7", // purple (mauve)
-          tertiary: "#f5c2e7", // pink (pink)
-          highlight: "rgba(108, 112, 134, 0.15)", // subtle highlight (based on overlay0)
-          orgh2: "#f38ba8" /* Light pink */,
-          orgh3: "#f4af84" /* Peach */,
-          orgh4: "#f9e2af" /* Pale yellow */,
-          orgh5: "#a6e3a1" /* Light green */,
-          orgh6: "#74c7ec" /* Sky blue */,
-          textHighlight: "#b3aa0288",
+          light: "#1a1a1a",
+          lightgray: "#252525",
+          gray: "#505050",
+          darkgray: "#f5f5f5",
+          dark: "#f0f0f0",
+          secondary: "#7fdd57",
+          tertiary: "#7FFFFF",
+          highlight: "rgba(108, 112, 134, 0.15)",
+          orgh2: "#7FFFFF",
+          orgh3: "#7FDD57",
+          orgh4: "#66B2FF",
+          orgh5: "#FF884D",
+          orgh6: "#66FF66",
+          textHighlight: "#00ffff44",
         },
       },
     },
@@ -73,21 +73,24 @@ const config: QuartzConfig = {
       Plugin.SyntaxHighlighting({
         theme: {
           light: "catppuccin-latte",
-          dark: "tokyo-night",
+          dark: "aurora-x",
         },
         keepBackground: true,
       }),
       Plugin.TableOfContents({
         showByDefault: true,
         collapseByDefault: false,
-        maxDepth: 6,
+        maxDepth: 4,
         minEntries: 2,
       }),
       Plugin.OxHugoFlavouredMarkdown({
         removePredefinedAnchor: true,
+        // Github Flavored Markdown's Anchors work better
         anchorTransformation: false,
       }),
-      Plugin.ObsidianFlavoredMarkdown(),
+      Plugin.ObsidianFlavoredMarkdown({
+        enableCheckbox: false,
+      }),
       Plugin.GitHubFlavoredMarkdown({
         enableSmartyPants: true,
         linkHeadings: true,

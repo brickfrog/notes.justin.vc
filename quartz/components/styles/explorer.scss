@@ -1,24 +1,31 @@
 @use "../../styles/variables.scss" as *;
 
 button#explorer {
-  all: unset;
   background-color: transparent;
   border: none;
-  text-align: left;
   cursor: pointer;
   padding: 0;
   color: var(--dark);
   display: flex;
-  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  position: relative;
+  
+  &:hover {
+    background-color: var(--lightgray);
+  }
 
   & h1 {
-    font-size: 1rem;
-    display: inline-block;
+    font-size: 1.0rem;
     margin: 0;
+    font-weight: 600;
+    text-align: center; // Ensure text is centered within h1
   }
 
   & .fold {
-    margin-left: 0.5rem;
+    position: absolute; // Position the fold icon absolutely
+    padding: 5px;
+    right: 0; // Align to the right
     transition: transform 0.3s ease;
     opacity: 0.8;
   }
@@ -26,6 +33,10 @@ button#explorer {
   &.collapsed .fold {
     transform: rotateZ(-90deg);
   }
+}
+
+.folder-title {
+  font-size: 0.9rem;
 }
 
 .folder-outer {
@@ -45,7 +56,6 @@ button#explorer {
 #explorer-content {
   list-style: none;
   overflow: hidden;
-  max-height: none;
   transition: max-height 0.35s ease;
   margin-top: 0.5rem;
 
@@ -56,45 +66,46 @@ button#explorer {
   & ul {
     list-style: none;
     margin: 0.08rem 0;
-    padding: 0;
+    padding: 0 0 0 1rem;
     transition:
       max-height 0.35s ease,
       transform 0.35s ease,
       opacity 0.2s ease;
     & li > a {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--dark);
-      opacity: 0.75;
+      opacity: 0.8;
       pointer-events: all;
+      text-decoration: none;
+      font-size: 0.9rem;
+
+      &:hover {
+        color: var(--secondary);
+      }
     }
   }
 }
 
-svg {
-  pointer-events: all;
-
-  & > polyline {
-    pointer-events: none;
-  }
-}
-
 .folder-container {
+  margin: 0;
   flex-direction: row;
   display: flex;
   align-items: center;
   user-select: none;
+  margin-bottom: 0rem;
 
   & div > a {
     color: var(--secondary);
     font-family: var(--headerFont);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: $semiBoldWeight;
     line-height: 1.5rem;
     display: inline-block;
-  }
-
-  & div > a:hover {
-    color: var(--tertiary);
+    text-decoration: none;
+    
+    &:hover {
+      color: var(--tertiary);
+    }
   }
 
   & div > button {
@@ -110,7 +121,7 @@ svg {
     font-family: var(--headerFont);
 
     & span {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       display: inline-block;
       color: var(--secondary);
       font-weight: $semiBoldWeight;
@@ -137,13 +148,22 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   color: var(--tertiary);
 }
 
-.no-background::after {
-  background: none !important;
-}
+// Styles for the scrollbar
+#explorer-ul {
+  scrollbar-width: thin;
+  scrollbar-color: var(--lightgray) var(--light);
 
-#explorer-end {
-  // needs height so IntersectionObserver gets triggered
-  height: 4px;
-  // remove default margin from li
-  margin: 0;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--light);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--lightgray);
+    border-radius: 4px;
+    border: 2px solid var(--light);
+  }
 }

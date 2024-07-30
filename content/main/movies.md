@@ -2,8 +2,8 @@
 title: "movies"
 author: ["Justin"]
 date: 2024-07-02T04:05:00-04:00
-lastmod: 2024-07-03T15:00:18-04:00
-tags: ["movies"]
+lastmod: 2024-07-24T00:20:50-04:00
+tags: ["aggregation"]
 draft: false
 ---
 
@@ -17,7 +17,7 @@ Testing something out. Beep.
 
 ### I Saw the TV Glow {#i-saw-the-tv-glow}
 
-[I Saw the TV Glow - Wikipedia](https://en.wikipedia.org/wiki/I_Saw_the_TV_Glow) - 2024 film, I wandered into this because of Rotten Tomatoes,
+[I Saw the TV Glow](https://en.wikipedia.org/wiki/I_Saw_the_TV_Glow) - 2024 film, I wandered into this because of Rotten Tomatoes,
 I think. I liked it, the audience score is higher than I thought given
 the themes (suburbia, conformity, identity). I could see someone being
 disappointed if they came into it purely as a 'horror' fan.
@@ -55,12 +55,32 @@ disappointed if they came into it purely as a 'horror' fan.
 
 ### Robot Dreams {#robot-dreams}
 
-[Robot Dreams (film) - Wikipedia](https://en.wikipedia.org/wiki/Robot_Dreams_(film)) - I liked this. Excluding music lyrics, it's
+[Robot Dreams (film)](https://en.wikipedia.org/wiki/Robot_Dreams_(film)) - I liked this. Excluding music lyrics, it's
 silent. Vibes heavy and full of NYC references. You can see the Guardian
 Angels on the subway, and things like that. Came to my surprise that it was a
 Spanish director/studio that made this. I don't have any deep thoughts on the
 themes but it was wholesome. Some of the meta stuff in the middle felt a bit off
 but it didn't detract too much.
+
+</div>
+
+<div class="outline-2 jvc">
+
+### Summer Wars <span class="tag"><span class="anime">anime</span></span> {#summer-wars}
+
+[Summer Wars](https://en.wikipedia.org/wiki/Summer_Wars) was interesting. Another 'family is important' movie. Due to the
+short run time in movie vs. full series you tend to have more trouble getting
+attached to larger casts of characters, but I enjoyed the brief moment spent
+with most of the family.
+
+I loved the tech vibe though, captured the era quite well (and kind of gave me
+sleazy NFT game vibes in the intro) - Of course, a lot of that kind of stuff
+wasn't new, you had Habbo hotel and Second Life and such, but still. I'm not
+sure how I would've felt about it back then, but a DARPA funded rogue AI not
+being able to win at a card game is ???.
+
+Maybe it's just me getting older, but I feel like an entire season of the family
+futzing about without AI shenanigans would've been a fun time.
 
 </div>
 

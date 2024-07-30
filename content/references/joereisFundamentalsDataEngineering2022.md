@@ -2,7 +2,7 @@
 title: "Joe Reis and Matt Housley :: Fundamentals of Data Engineering"
 author: ["Justin"]
 date: 2024-07-19T15:32:00-04:00
-lastmod: 2024-07-20T03:16:19-04:00
+lastmod: 2024-07-23T18:22:52-04:00
 draft: false
 ---
 

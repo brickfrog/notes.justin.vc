@@ -35,18 +35,19 @@ export const mapFn: Options["mapFn"] = (node) => {
 
   if (node.depth >= 0) {
     if (node.file) {
-      console.log(node.file.filePath)
       if (node.file.filePath?.includes("daily/")) {
-        node.displayName = "🗓️ " + node.file.frontmatter?.title
+        node.displayName = "✦ " + node.file.frontmatter?.title
       } else if (node.file.relativePath?.includes("references/")) {
         const parts = node.file.frontmatter?.title?.split("::") ?? []
-        node.displayName = "📚 " + (parts.length > 1 ? parts[1].trim() : parts[0]?.trim() || "")
+        node.displayName = "✵ " + (parts.length > 1 ? parts[1].trim() : parts[0]?.trim() || "")
       } else if (node.name == "movies") {
-        node.displayName = "🎬 " + node.file.frontmatter?.title
+        node.displayName = "➣ " + node.file.frontmatter?.title
+      } else if (node.name == "television") {
+        node.displayName = "➣ " + node.file.frontmatter?.title
       } else if (node.name == "about") {
         node.displayName = "📝 " + node.file.frontmatter?.title
       } else {
-        node.displayName = "📄 " + node.file.frontmatter?.title
+        node.displayName = "✧ " + node.file.frontmatter?.title
       }
     } else {
       node.displayName = "📁 " + toTitleCase(node.displayName)

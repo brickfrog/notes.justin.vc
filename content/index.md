@@ -5,15 +5,13 @@ date: 06-01-24
 draft: false
 ---
 
-<div class="outline-1 jvc">
-
 <div style="display: flex; align-items: flex-start; justify-content: space-between; width: 100%;">
   <div style="flex: 3; min-width: 0; padding-right: 25px;">
     <blockquote class="quoteback" data-title="STUDY A GO!!GO!! 歌詞 GOLDEN GIRLS ふりがな付 - うたてん" data-author="@utaten" cite="https://soundcloud.com/softwarevibes/golden-boy-ost-ending">
-      袖そでまくり たすきがけ
+      袖そでまくり たすきがけ<br>
       鉢巻はちまきしめて がんばって<br>
-      疲つかれたら お茶ちゃにして
-      少すこしずつ良よくなるよ お勉強べんきょう
+      疲つかれたら お茶ちゃにして<br>
+      少すこしずつ良よくなるよ お勉強べんきょう<br>
       <footer>@utaten<cite> <a href="https://utaten.com/lyric/to16060309/">https://utaten.com/lyric/to16060309/</a></cite></footer>
     </blockquote>
   </div>
@@ -24,18 +22,14 @@ draft: false
 </div>
 <sup>(this is an excuse to test out quotebacks)</sup>
 
-<hr>
+<div class="outline-1 jvc">
 
-## Index
+
+## Index {#index}
 
 <div class="outline-2 jvc">
 
-I haven't prettied it up yet, but plan on using this as a dumping ground for notes and media and such.
-The ideal would be then to utilize those for bigger articles on the [main site(?)](https://justin.vc) - we'll see how it goes. It's abit heavier on dependencies than I would like.
-
-Before this I was planning on doing some mass exports with a doomscript but I found quartz to be a easier solution, with a bonus that it kind of looks like (which I'm sure it was originally meant for) a host-yourself variant of obsidian publish.
-
-Most of these will be just random things I'm reading, I think. I still need to figure out a good way to do a slip-box. I have a org server extension I can send links to but I forget to do it. Same with pocket (non-open source reasons aside, the emacs package works well)
+Just my notes n' such
 
 ### Sections
 
@@ -46,6 +40,8 @@ Most of these will be just random things I'm reading, I think. I still need to f
 - [Main](/main/)
 
 - [References](/references/)
+
+- [Tags](/tags/)
 
 </div>
 </div>

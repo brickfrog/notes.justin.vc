@@ -131,7 +131,7 @@ p.timestamp-wrapper {
     padding-left: 0;
     @include heading-style(--orgh2, "◉ ");
     
-    & + p, & + ul, & + ol {
+    & ~ p, & ~ ul, & ~ ol {
       margin-left: var(--heading-indent);
     }
   }
@@ -141,7 +141,7 @@ p.timestamp-wrapper {
     padding-left: 0;
     @include heading-style(--orgh3, "◎ ");
     
-    & + p, & + ul, & + ol {
+    & ~ p, & ~ ul, & ~ ol {
       margin-left: calc(var(--heading-indent) * 2);
     }
   }
@@ -151,7 +151,7 @@ p.timestamp-wrapper {
     padding-left: 0;
     @include heading-style(--orgh4, "◈ ");
     
-    & + p, & + ul, & + ol {
+    & ~ p, & ~ ul, & ~ ol {
       margin-left: calc(var(--heading-indent) * 3);
     }
   }
@@ -161,7 +161,7 @@ p.timestamp-wrapper {
     padding-left: 0;
     @include heading-style(--orgh5, "❀ ");
     
-    & + p, & + ul, & + ol {
+    & ~ p, & ~ ul, & ~ ol {
       margin-left: calc(var(--heading-indent) * 4);
     }
   }
@@ -171,7 +171,7 @@ p.timestamp-wrapper {
     padding-left: 0;
     @include heading-style(--orgh6, "◇ ");
     
-    & + p, & + ul, & + ol {
+    & ~ p, & ~ ul, & ~ ol {
       margin-left: calc(var(--heading-indent) * 5);
     }
   }
@@ -205,12 +205,17 @@ p.timestamp-wrapper {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     word-wrap: break-word;
-
-    &::before {
-      padding-right: 5px;
-      font-size: 12px;
-    }
   }
+  
+  &::before {
+    padding-right: 5px;
+    font-size: 12px;
+  }
+  
+  > p:not(:first-of-type) {
+    text-indent: 2.5em;
+  }
+  
 
   > ul, > ol {
     margin-left: var(--heading-indent);
@@ -250,7 +255,7 @@ p.timestamp-wrapper {
 sup { margin-left: 2px; }
 
 // EOF marker
-article.popover-hint::after {
+.page-footer::after {
   content: "— EOF —";
   font-family: 'Courier New', monospace;
   font-size: 0.9em;
@@ -263,10 +268,23 @@ article.popover-hint::after {
 }
 
 // Metadata + Title
+
+.popover .article-title {
+  font-size: 1em;
+}
+
 .article-title {
-  font-size: 1.15em;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1em;
+  margin-top: 0.75rem;
+  font-family: 'Fira Code', monospace;
+}
+
+.article-title::before {
+  font-size: 0.80em;
+  font-weight: 400;
+  color: var(--darkgray);
+  font-family: 'Fira Code', monospace;
+  content: "𝙏 ";
 }
 
 p.content-meta a {
@@ -275,10 +293,11 @@ p.content-meta a {
 }
 
 // Explorer
-#explorer-content { font-size: 0.9em; }
+#explorer-content { 
+  font-size: 0.8em; }
 
 // Details
-details {
+.jvc details {
   border: 1px solid var(--lightgray);
   border-radius: 4px;
   padding: 10px;
@@ -292,7 +311,7 @@ details {
   }
 }
 
-summary {
+.jvc summary {
   font-weight: bold;
   cursor: pointer;
   padding: 5px 0;
@@ -340,12 +359,14 @@ footer {
 hr { margin: 1rem auto !important; }
 
 // References
+
+
 #references,
 .jvc #references {
   border-top: 1px solid var(--lightgray);
   margin-top: 2rem;
   padding-top: 1rem;
-  font-size: 1.4rem;
+  font-size: 1rem !important;
   font-weight: bold;
   margin-left: 0;
   padding-left: 0;
@@ -380,9 +401,15 @@ hr { margin: 1rem auto !important; }
 }
 
 // Footnotes Styling
+#footnote-label {
+  margin-top: 1rem;
+  font-size: 1rem !important;
+}
+
 .footnotes {
   @include reference-styles;
   margin-left: 25px;
+  margin-bottom: 2rem;
 
   ol { padding-left: 1.5em; }
 
@@ -403,6 +430,7 @@ hr { margin: 1rem auto !important; }
 }
 
 .sr-only {
+  font-size: 1rem !important;
   content: none !important;
 
 
@@ -412,6 +440,10 @@ hr { margin: 1rem auto !important; }
   }
 }
 
+#backlinks {
+  font-size: 1rem !important;
+  margin-top: 1rem;
+}
 
 .backlinks {
   position: relative;
@@ -436,9 +468,212 @@ hr { margin: 1rem auto !important; }
   }
 }
 
-
-// Adjust spacing when following a heading
 h2 + .csl-bib-body,
 h2 + .footnotes {
   margin-top: 1rem;
+}
+
+/* CUSTOM LLM CSS */
+
+aside {
+  background-color: var(--primary);  
+  border-left: 4px solid var(--secondary); 
+  padding: 10px 0px 10px 25px; 
+  margin: 25px;  
+  font-family: 'Fira Code', monospace;  
+  font-size: 0.75em;  
+  color: #333;  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  border-radius: 5px;  
+
+  h2 {
+    font-size: 1.2em;  
+    margin-top: 0;  
+    color: #007acc;  
+  }
+
+  p {
+    margin-bottom: 1em; 
+    line-height: 1.5;  
+  }
+
+  a {
+    color: #007acc;  
+    text-decoration: none; 
+    border-bottom: 1px dotted #007acc; 
+    &:hover {
+      text-decoration: underline;  
+    }
+  }
+
+  ul, ol {
+    margin: 0;  // Reset margin
+    padding-left: 20px;  // Space for list items
+    list-style-position: outside;  // Standard list styling
+  }
+
+  blockquote {
+    margin: 1em 0;  // Space around the blockquote
+    padding-left: 1em;  // Indentation for the blockquote
+    border-left: 4px solid #ccc;  // Grey left border
+    color: #666;  // Slightly lighter text color
+  }
+}
+
+
+/* Graph Button */
+
+.graph {
+  button#graph {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: var(--dark);
+    display: flex;
+    width: 100%;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    padding: 0;
+
+    &:hover {
+      background-color: var(--lightgray);
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .fold {
+      margin-left: auto;
+      transition: transform 0.3s ease;
+      opacity: 0.8;
+    }
+  }
+
+  .graph-outer,
+  #global-graph-outer {
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+    opacity: 1;
+    max-height: 1000px; /* Adjust this value based on your graph's maximum height */
+    overflow: hidden;
+  }
+
+  &.collapsed {
+    button#graph .fold {
+      transform: rotate(-90deg);
+    }
+
+    .graph-outer,
+    #global-graph-outer {
+      opacity: 0;
+      max-height: 0;
+    }
+  }
+}
+
+/* TOC EDITS */
+
+.toc {
+  background-color: var(--light) !important;
+}
+
+.graph {
+  background-color: var(--light) !important;
+}
+
+
+/* FOOTNOTE REORDERING */
+
+/* Target the container that holds references, footnotes, and backlinks */
+.page-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Move references to the end */
+.page-footer > div:has(h2:contains("References")) {
+  order: 3;
+}
+
+/* Keep footnotes before references */
+.page-footer > section.footnotes {
+  order: 2;
+}
+
+/* Keep backlinks at the bottom */
+.page-footer > div:has(h2:contains("Backlinks")) {
+  order: 4;
+}
+
+/* Ensure other content stays at the top */
+.page-footer > *:not(:has(h2:contains("References"))):not(section.footnotes):not(:has(h2:contains("Backlinks"))) {
+  order: 1;
+}
+
+/* Optional: Add some spacing between sections */
+.page-footer > * {
+  margin-bottom: 2em;
+}
+
+
+/* TITLE FANCY */
+
+.page-title::after {
+  content: "_";
+  animation: blink 2s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+/* PRIORITIES */
+
+// General styles for priorities
+.org-priority {
+  font-weight: bold;
+  padding: 0px 5px;
+  margin-right: 3px;
+}
+
+// Mixin for priority styles
+@mixin priority-style($color) {
+  background-color: rgba($color, 0.1);
+  color: $color;
+}
+
+// Specific priority styles
+.priority-A, .priority-1 {
+  @include priority-style(#d9534f);  // Red
+}
+
+.priority-B, .priority-2 {
+  @include priority-style(#f0ad4e);  // Orange
+}
+
+.priority-C, .priority-3 {
+  @include priority-style(#5bc0de);  // Blue
+}
+
+// Additional priorities if needed
+@for $i from 4 through 9 {
+  .priority-#{$i} {
+    @include priority-style(#5cb85c);  // Green
+  }
+}
+
+
+// Removing strikethrough for checkboxes
+
+.page {
+  & article {
+
+    & li:has(> input[type="checkbox"]:checked) {
+      text-decoration: none;
+    }
+  }
 }

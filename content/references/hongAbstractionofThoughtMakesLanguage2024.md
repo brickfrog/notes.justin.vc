@@ -2,14 +2,15 @@
 title: "Hong, Ruixin and Zhang, Hongming and Pan, Xiaoman and Yu, Dong and Zhang, Changshui :: Abstraction-of-Thought Makes Language Models Better Reasoners"
 author: ["Justin"]
 date: 2024-07-08T09:29:00-04:00
-lastmod: 2024-07-08T16:15:51-04:00
+lastmod: 2024-07-30T05:07:45-04:00
 tags: ["machine-learning", "prompting"]
 draft: false
+creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 ---
 
 <div class="outline-1 jvc">
 
-## Paper {#paper}
+## <span class="org-priority priority-A">[#A]</span><span class="org-todo todo TODO">TODO</span> Paper {#paper}
 
 Abstraction-of-Thought (AoT) is a novel structured reasoning format designed to
 enhance language models' abstract reasoning capabilities. Unlike the
@@ -22,7 +23,7 @@ problems at varying levels of abstraction before delving into concrete details.
 
 ## Implementation {#implementation}
 
-These are various implementations I've created or wandered into.
+These are some implementations I've created or wandered into.
 
 <details>
 <summary>Python</summary>

@@ -9,7 +9,7 @@ const PageTitle: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzCompo
   return (
     <h1 class={classNames(displayClass, "page-title")}>
       <a href={baseDir}>
-        𝕟𝕠𝕥𝕖𝕤<sup style="font-size:0.55em;"> . justin.vc</sup>
+        𝕟𝕠𝕥𝕖𝕤<sup style="font-size:0.55em;">.justin.vc</sup>
       </a>
     </h1>
   )

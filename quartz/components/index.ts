@@ -20,6 +20,8 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import LinkList from "./LinkList"
+import Frontmatter from "./Frontmatter"
+import Sidenote from "./Sidenote"
 
 export {
   ArticleTitle,
@@ -44,4 +46,6 @@ export {
   NotFound,
   Breadcrumbs,
   LinkList,
+  Frontmatter,
+  Sidenote,
 }

@@ -10,10 +10,18 @@ h2::before, h3::before, h4::before, h5::before, h6::before {
   height: 100%; 
 }
 
-
+.jvc {
 .collapsed + * {
   display: none !important;
 }
+
 .collapsed {
   opacity: 0.6;
+}
+
+.collapsed::before {
+  content: "▾\A ";
+  white-space: pre;
+
+}
 }

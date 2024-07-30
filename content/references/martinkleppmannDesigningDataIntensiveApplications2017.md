@@ -2,7 +2,7 @@
 title: "Martin Kleppmann :: Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems"
 author: ["Justin"]
 date: 2024-07-17T19:55:00-04:00
-lastmod: 2024-07-20T03:16:12-04:00
+lastmod: 2024-07-23T18:22:32-04:00
 draft: false
 ---
 

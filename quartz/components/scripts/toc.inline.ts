@@ -1,45 +1,143 @@
-const bufferPx = 150
-const observer = new IntersectionObserver((entries) => {
-  for (const entry of entries) {
-    const slug = entry.target.id
-    const tocEntryElement = document.querySelector(`a[data-for="${slug}"]`)
-    const windowHeight = entry.rootBounds?.height
-    if (windowHeight && tocEntryElement) {
-      if (entry.boundingClientRect.y < windowHeight) {
+;(function () {
+  let tocContent: Element | null = null
+  let lastActiveLink: Element | null = null
+
+  function initializeToc() {
+    tocContent = document.getElementById("toc-content")
+    if (!tocContent) return
+
+    const headings = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]")
+    const tocLinks = tocContent.querySelectorAll("a")
+
+    // Additional initialization if needed
+  }
+
+  function updateToc() {
+    if (!tocContent) return
+
+    const headers = Array.from(
+      document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]"),
+    )
+    const scrollPosition = window.scrollY
+
+    let activeHeader: Element | null = null
+    for (let i = headers.length - 1; i >= 0; i--) {
+      const header = headers[i]
+      const headerTop = header.getBoundingClientRect().top + window.scrollY
+      if (headerTop <= scrollPosition + 100) {
+        activeHeader = header
+        break
+      }
+    }
+
+    if (activeHeader) {
+      const id = activeHeader.id
+      const tocEntryElement = tocContent.querySelector(`a[href="#${id}"]`)
+
+      if (tocEntryElement instanceof Element && tocEntryElement !== lastActiveLink) {
+        if (lastActiveLink instanceof Element) {
+          lastActiveLink.classList.remove("in-view")
+        }
         tocEntryElement.classList.add("in-view")
-      } else {
-        tocEntryElement.classList.remove("in-view")
+        scrollTocToView(tocEntryElement)
+        lastActiveLink = tocEntryElement
       }
     }
   }
-})
 
-function toggleToc(this: HTMLElement) {
-  this.classList.toggle("collapsed")
-  const content = this.nextElementSibling as HTMLElement | undefined
-  if (!content) return
-  content.classList.toggle("collapsed")
-  content.style.maxHeight = content.style.maxHeight === "0px" ? content.scrollHeight + "px" : "0px"
-}
+  function scrollTocToView(element: Element) {
+    if (!tocContent) return
 
-function setupToc() {
-  const toc = document.getElementById("toc")
-  if (toc) {
-    const collapsed = toc.classList.contains("collapsed")
-    const content = toc.nextElementSibling as HTMLElement | undefined
-    if (!content) return
-    content.style.maxHeight = collapsed ? "0px" : content.scrollHeight + "px"
-    toc.addEventListener("click", toggleToc)
-    window.addCleanup(() => toc.removeEventListener("click", toggleToc))
+    const tocRect = tocContent.getBoundingClientRect()
+    const elementRect = element.getBoundingClientRect()
+
+    const relativeTop = elementRect.top - tocRect.top
+    const relativeBottom = elementRect.bottom - tocRect.top
+
+    if (relativeTop < 0 || relativeBottom > tocRect.height) {
+      const scrollTarget =
+        tocContent.scrollTop + relativeTop - tocRect.height / 2 + elementRect.height / 2
+
+      requestAnimationFrame(() => {
+        tocContent?.scrollTo({
+          top: scrollTarget,
+          behavior: "smooth",
+        })
+      })
+    }
   }
-}
 
-window.addEventListener("resize", setupToc)
-document.addEventListener("nav", () => {
-  setupToc()
+  function updateProgressBar() {
+    const progressBar = document.querySelector(".toc-progress-bar") as HTMLElement
+    if (!progressBar) return
 
-  // update toc entry highlighting
-  observer.disconnect()
-  const headers = document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]")
-  headers.forEach((header) => observer.observe(header))
-})
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    const scrollHeight =
+      document.documentElement.scrollHeight - document.documentElement.clientHeight
+    const scrollPercentage = (scrollTop / scrollHeight) * 100
+    progressBar.style.width = `${scrollPercentage}%`
+  }
+
+  function toggleToc() {
+    const toc = document.querySelector(".toc") as HTMLElement
+    if (toc) {
+      toc.classList.toggle("collapsed")
+    }
+  }
+
+  function setupEventListeners() {
+    window.removeEventListener("scroll", scrollHandler)
+    window.addEventListener("scroll", scrollHandler)
+
+    const tocButton = document.getElementById("toc")
+    if (tocButton) {
+      tocButton.removeEventListener("click", toggleToc)
+      tocButton.addEventListener("click", toggleToc)
+    }
+  }
+
+  function scrollHandler() {
+    requestAnimationFrame(() => {
+      updateToc()
+      updateProgressBar()
+    })
+  }
+
+  function observeDOM() {
+    const observer = new MutationObserver((mutations) => {
+      let shouldUpdate = false
+      mutations.forEach((mutation) => {
+        //@ts-ignore
+        if (mutation.type === "childList" || mutation.type === "subtree") {
+          shouldUpdate = true
+        }
+      })
+      if (shouldUpdate) {
+        initializeToc()
+        updateToc()
+        updateProgressBar()
+        setupEventListeners()
+      }
+    })
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    })
+  }
+
+  function init() {
+    initializeToc()
+    updateToc()
+    updateProgressBar()
+    setupEventListeners()
+    observeDOM()
+  }
+
+  // Run the function when the DOM is fully loaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init)
+  } else {
+    init()
+  }
+})()

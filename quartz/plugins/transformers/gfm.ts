@@ -1,8 +1,11 @@
 import remarkGfm from "remark-gfm"
 import smartypants from "remark-smartypants"
 import { QuartzTransformerPlugin } from "../types"
-import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import GithubSlugger from "github-slugger"
+import { visit } from "unist-util-visit"
+import { Plugin } from "unified"
+import { Root } from "hast"
 
 export interface Options {
   enableSmartyPants: boolean
@@ -12,6 +15,35 @@ export interface Options {
 const defaultOptions: Options = {
   enableSmartyPants: true,
   linkHeadings: true,
+}
+
+// Custom slugger
+const slugger = new GithubSlugger()
+
+// Custom function to generate slugs
+const customSlugify = (text: string): string => {
+  // Remove TODO, DONE, priority tags, and other org-mode specific content
+  const cleanedText = text
+    .replace(/^(?:\[#[A-Z]\])?\s*(?:TODO|DONE)\s+/, "")
+    .replace(/<span[^>]*>(?:\[#[A-Z]\]|TODO|DONE)<\/span>\s*/g, "")
+  return slugger.slug(cleanedText)
+}
+
+// Custom rehype plugin to replace rehype-slug
+const customRehypeSlug: Plugin<[], Root> = () => {
+  return (tree: Root) => {
+    visit(tree, "element", (node) => {
+      if (node.tagName[0] === "h" && /^h[1-6]$/.test(node.tagName)) {
+        let text = ""
+        visit(node, "text", (textNode) => {
+          text += textNode.value
+        })
+        const id = customSlugify(text)
+        node.properties = node.properties || {}
+        node.properties.id = id
+      }
+    })
+  }
 }
 
 export const GitHubFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> | undefined> = (
@@ -26,7 +58,7 @@ export const GitHubFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> | 
     htmlPlugins() {
       if (opts.linkHeadings) {
         return [
-          rehypeSlug,
+          customRehypeSlug,
           [
             rehypeAutolinkHeadings,
             {
