@@ -43,7 +43,7 @@
     height: 3px;
     background-color: var(--secondary);
     transition: width 0.3s ease;
-    margin: 0.5rem 0;
+    margin: 0.25rem 0;
   }
 
   button#toc {
@@ -83,21 +83,78 @@
       margin: 0;
     }
 
+    
+    li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.25rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.7em;
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: var(--lightgray);
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0.2rem;
+        top: 0;
+        bottom: -0.5em;
+        width: 1px;
+        background-color: var(--lightgray);
+        transition: background-color 0.3s ease;
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+
+      // Styles for when the nested <a> is in view
+      &:has(> a.in-view) {
+        &::before,
+        &::after {
+          background-color: var(--secondary);
+        }
+
+        & + li::before,
+        & + li::after {
+          background-color: var(--secondary);
+        }
+      }
+    }
+
     a {
       color: var(--dark);
       text-decoration: none;
       opacity: 0.7;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease, color 0.3s ease;
       display: block;
-      &:hover,
+
       &.in-view {
         opacity: 1;
+        color: var(--secondary);
       }
     }
 
+
+
     @for $i from 0 through 5 {
       .depth-#{$i} {
-        padding-left: #{$i * 0.5}rem;
+        a {
+          padding-left: #{$i * 0.5}rem;
+        }
+
+        &::before {
+          width: #{0.5 - $i * 0.025}rem;
+          height: #{0.5 - $i * 0.025}rem;
+        }
       }
     }
   }

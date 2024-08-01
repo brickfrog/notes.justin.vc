@@ -18,7 +18,7 @@ export interface Options {
 const defaultOptions: Options = {
   wikilinks: true,
   removePredefinedAnchor: true,
-  removeHugoShortcode: true,
+  removeHugoShortcode: false,
   replaceFigureWithMdImg: true,
   replaceOrgLatex: true,
   anchorTransformation: false,
@@ -60,7 +60,12 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options> |
         src = src.toString()
         src = src.replaceAll(relrefRegex, (value, ...capture) => {
           const [text, link] = capture
-          return `[${text}](${link})`
+
+          // If the link is just a filename (no slashes), prepend 'main/'
+          // I don't know why it wasn't doing this already
+          const fullLink = link.includes("/") ? link : `main/${link}`
+
+          return `[${text}](${fullLink})`
         })
       }
 

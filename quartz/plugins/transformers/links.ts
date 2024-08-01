@@ -66,7 +66,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                   let viewBox = "0 0 512 512"
 
                   if (node.properties.href.includes("wikipedia.org")) {
-                    // Wikipedia icon (unchanged)
+                    // Wikipedia icon
                     iconContent.push({
                       type: "element",
                       tagName: "path",
@@ -96,7 +96,6 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                     })
                     viewBox = "0 0 28.57 20"
                   } else if (node.properties.href.includes("github.com")) {
-                    // Default external link icon
                     iconContent.push({
                       type: "element",
                       tagName: "path",
@@ -106,6 +105,49 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options> | undefined> =
                       children: [],
                     })
                     viewBox = "0 0 24 16"
+                  } else if (node.properties.href.includes("plato.stanford.edu")) {
+                    // Stanford Encyclopedia of Philosophy icon
+                    iconContent.push({
+                      type: "element",
+                      tagName: "path",
+                      properties: {
+                        d: "M151.9 6.73c-2.35.78-10.42 1.47-25.25 14s-16.65 40.27-7.81 39.23 10.93-1.56 20.3-3.12 18.32-2.13 19.15-1.31-2.49 6-8.74 16.4-11.84 22.51-10.55 23.16 17.31 4.91 17.29 1.83-9-5-4.69-13.53 14.06-20.31 16.66-25.51 3.53-8.08-.63-11.2-15.5-1.82-29 .27-12.23 2.34-14.84-.78.51-16.66 13.53-26.56 13.79-6.77 19.35-8.42",
+                        fill: "#8c191c",
+                        transform: "translate(-160, 0) scale(1.2)", // Move left by 20 units and scale up by 20%
+                      },
+                      children: [],
+                    })
+                    iconContent.push({
+                      type: "element",
+                      tagName: "path",
+                      properties: {
+                        d: "M144.42 23.94q-3.18 2.4-3.16 5.52c0 2.09 1.1 4.43 3.25 7l4.71-8.41a31.8 31.8 0 0 0 3.28-7.55 15.87 15.87 0 0 0-8.08 3.42m21.2 14.33a26.56 26.56 0 0 1-12.07 5.36 15.69 15.69 0 0 1-11.86-2.71q-5.85-4.24-6.53-9.58-.75-5.82 5.21-10.32a26.12 26.12 0 0 1 8.32-4.4q4.91-1.41 8.12.93q2.25 1.62 1.16 5.18a40.3 40.3 0 0 1-3 6l-5.88 10.44a17.46 17.46 0 0 0 6.45-.69 19.41 19.41 0 0 0 6-3.13 22 22 0 0 0 3.64-3.61q2.32-2.85 2-4.39a2.1 2.1 0 0 1 .7-2.3 4.13 4.13 0 0 1 2.22-.8 3 3 0 0 1 2.1.47q2.49 1.8-.36 6.62a24.29 24.29 0 0 1-6.23 7",
+                        fill: "#8c191c",
+                        transform: "translate(-160, 0) scale(1.2)", // Move left by 20 units and scale up by 20%
+                      },
+                      children: [],
+                    })
+                    iconContent.push({
+                      type: "element",
+                      tagName: "path",
+                      properties: {
+                        d: "M144.42 24.33q-3.18 2.4-3.16 5.52c0 2.09 1.1 4.43 3.25 7l4.71-8.41a31.8 31.8 0 0 0 3.28-7.55 15.87 15.87 0 0 0 -8.08 3.42m21.2 14.33a26.56 26.56 0 0 1 -12.07 5.36 15.69 15.69 0 0 1 -11.86-2.71q-5.85-4.24-6.53-9.58-.75-5.82 5.21-10.32a26.12 26.12 0 0 1 8.32-4.4q4.91-1.41 8.12.93 2.25 1.62 1.16 5.18a40.3 40.3 0 0 1 -3 6l-5.88 10.44a17.46 17.46 0 0 0 6.45-.69 19.41 19.41 0 0 0 6-3.13 22 22 0 0 0 3.64-3.61q2.32-2.85 2-4.39a2.1 2.1 0 0 1 .7-2.3 4.13 4.13 0 0 1 2.22-.8 3 3 0 0 1 2.1.47q2.49 1.8-.36 6.62a24.29 24.29 0 0 1 -6.23 7",
+                        fill: "#8c191c",
+                        transform: "translate(-160, 0) scale(1.2)", // Move left by 20 units and scale up by 20%
+                      },
+                      children: [],
+                    })
+                    iconContent.push({
+                      type: "element",
+                      tagName: "path",
+                      properties: {
+                        d: "M163.83 4.79a13.9 13.9 0 0 0-3.65 2.93 16.25 16.25 0 0 0-2.06 3.27q3.1 2.63 6.17 5.73a31.23 31.23 0 0 0 6-2.65c2.08-1.21 3.3-2.53 3.64-3.94a3.54 3.54 0 0 0-1.15-3.44 9.1 9.1 0 0 0-4.45-2.74 6.2 6.2 0 0 0-4.48.84m8.88 11.82a44.83 44.83 0 0 1-5.9 2.81l5.8 6a1.07 1.07 0 0 1 .2 1.3 3.3 3.3 0 0 1-1.42 1.37 4.62 4.62 0 0 1-2.11.68 2 2 0 0 1-1.58-.49l-4.82-5-4.89-5q-2.76-2.69-5.27-4.74l-2.86-2.31a2.42 2.42 0 0 1-.82-1.87 2.45 2.45 0 0 1 1.45-2 4.46 4.46 0 0 1 2-.61 1.87 1.87 0 0 1 1.49.45 2.65 2.65 0 0 1 .33.46 7.58 7.58 0 0 0 .53.81 23 23 0 0 1 3.07-3.52 19.28 19.28 0 0 1 3.47-2.6q5.13-3 9.75-2.1a12.27 12.27 0 0 1 6.54 3.64 5.54 5.54 0 0 1 1.46 6.11q-1.28 3.61-6.42 6.61",
+                        fill: "#8c191c",
+                        transform: "translate(-160, 0) scale(1.2)", // Move left by 20 units and scale up by 20%
+                      },
+                      children: [],
+                    })
+                    viewBox = "0 0 153.54 121.75" // This is half the original size, making the icon appear twice as large
                   } else {
                     // Default external link icon
                     iconContent.push({

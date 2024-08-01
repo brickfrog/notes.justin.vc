@@ -12,16 +12,16 @@ const quoteStyle = `
   --internal-blockquote-color: #b0b0b0;
 }
 
-/* Dark mode colors */
+/* Dark mode colors - Tokyo Night theme */
 .quoteback-container.dark-theme {
-  --background-color: #1a1a1a;
-  --border-color-normal: #252525;
-  --border-color-hover: #00ffff;
-  --author-color: #f0f0f0;
-  --title-color: #7fdd57;
-  --gototext-color: #7fdd57;
-  --content-color: #f0f0f0;
-  --internal-blockquote-color: #505050;
+  --background-color: #1a1b26;  /* Tokyo Night background */
+  --border-color-normal: #24283b;  /* Tokyo Night darker background */
+  --border-color-hover: #7aa2f7;  /* Tokyo Night blue */
+  --author-color: #c0caf5;  /* Tokyo Night bright foreground */
+  --title-color: #7aa2f7;  /* Tokyo Night blue */
+  --gototext-color: #9ece6a;  /* Tokyo Night green */
+  --content-color: #a9b1d6;  /* Tokyo Night lighter foreground */
+  --internal-blockquote-color: #565f89;  /* Tokyo Night foreground */
 }
 
 .quoteback-container {
@@ -219,7 +219,6 @@ const quoteStyle = `
 }
 
 .quoteback-content img {
-  width: 100%;
   height: auto;
   margin: .5em 0em;
 }

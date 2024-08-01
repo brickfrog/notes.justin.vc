@@ -2,7 +2,7 @@
 title: "About (Notes)"
 author: ["Justin"]
 date: 2024-07-19T19:23:00-04:00
-lastmod: 2024-07-30T05:58:26-04:00
+lastmod: 2024-08-01T03:31:27-04:00
 draft: false
 creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 ---
@@ -50,11 +50,11 @@ looked good and some of the other ones did not seem to work out-of-the-box with 
 
 <div class="outline-3 jvc">
 
-#### <span class="org-todo todo TODO">TODO</span> Sidenote / Footnote <code>[0/3]</code> {#sidenote-footnote}
+#### <span class="org-todo todo TODO">TODO</span> Body {#body}
 
--   [ ] If in same viewport, change visibility of sidenotes as to not duplicate
--   [ ] Figure more elegant way of having ToC un-minimized + sidenotes?
--   [ ] Figure out how to swap references and footnotes? Maybe emacs side
+-   [X] Anchors seem to affix TODO's, etc. to the #
+    -   Had to modify the rehype slugger for gfm
+-   [X] priority doesn't seem to export
 
 </div>
 
@@ -64,6 +64,14 @@ looked good and some of the other ones did not seem to work out-of-the-box with 
 
 -   [ ] Get really fancy with the map, maybe different folders based on
     categories or something
+
+</div>
+
+<div class="outline-3 jvc">
+
+#### <span class="org-todo todo TODO">TODO</span> 'Frontmatter' {#frontmatter}
+
+-   [ ] Conditionally remove the search stuff when on an index/tag page
 
 </div>
 
@@ -86,11 +94,11 @@ looked good and some of the other ones did not seem to work out-of-the-box with 
 
 <div class="outline-3 jvc">
 
-#### <span class="org-todo todo TODO">TODO</span> Body {#body}
+#### <span class="org-todo todo TODO">TODO</span> Sidenote / Footnote <code>[0/3]</code> {#sidenote-footnote}
 
--   [X] Anchors seem to affix TODO's, etc. to the #
-    -   Had to modify the rehype slugger for gfm
--   [X] priority doesn't seem to export
+-   [ ] If in same viewport, change visibility of sidenotes as to not duplicate
+-   [ ] Figure more elegant way of having ToC un-minimized + sidenotes?
+-   [ ] Figure out how to swap references and footnotes? Maybe emacs side
 
 </div>
 
@@ -106,13 +114,14 @@ looked good and some of the other ones did not seem to work out-of-the-box with 
 
 <div class="outline-2 jvc">
 
-### <span class="org-todo todo IDEA">IDEA</span> New Features <code>[0/3]</code> {#new-features}
+### <span class="org-todo todo IDEA">IDEA</span> New Features <code>[0/4]</code> {#new-features}
 
 -   [ ] Comments? Giscus was added on mainline, not sure if too useful - maybe
     for specific notes only?
 -   [ ] Menu sidebar for mobile (hamburger menu, etc.)
 -   [ ] LLM integration with Frontmatter - this is more of an emacs side thing
     but I'll make a note of it here
+-   [ ] Button in LinkList that increases/decreases fonts - lets you change it?
 
 </div>
 

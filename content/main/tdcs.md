@@ -2,7 +2,7 @@
 title: "transcranial Direct Current stimulation (tDCS)"
 author: ["Justin"]
 date: 2024-07-20T14:35:00-04:00
-lastmod: 2024-07-30T02:36:17-04:00
+lastmod: 2024-07-30T13:56:36-04:00
 tags: ["neuro"]
 draft: false
 creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
@@ -23,7 +23,7 @@ you're reading this and you're considering tDCS and **don't** exercise, maybe tr
 that first).
 
 There's also still studies going on, such as using it for
-depression.(<a href="#citeproc_bib_item_2">Moirand et al. 2022</a>) I'd like to read more about it even
+depression.<a href="#citeproc_bib_item_1">[1]</a> I'd like to read more about it even
 though my main use-case is memorization/learning.
 
 </div>
@@ -44,9 +44,9 @@ Amazon.
 ### DARPA's "Accelerated Learning" {#darpa-s-accelerated-learning}
 
 -   Specifically, I use the DARPA "accelerated learning"
-    montage(<a href="#citeproc_bib_item_1">“Accelerated Learning (DARPA) - Total tDCS Electrode Placement,” n.d.</a>) for ~30 minutes a day at 2.0mA,
+    montage for ~30 minutes a day at 2.0mA,
     usually before doing my language studies or tinkering around with new code /
-    reading a new codebase.
+    reading a new codebase.<a href="#citeproc_bib_item_2">[2]</a>
 -   All of the DARPA tDCS studies were meant for acquisition of new skills related
     for military use (of course) - sniping/shooting skills, etc. You can see more
     information about it in the following
@@ -67,15 +67,20 @@ Amazon.
 -   The wikipedia article covers most of the concerns but I'd also like to
     reiterate if you wander across this and try it to follow all the instructions.
     -   for example, using salt water and proper electrode placement
-    -   burns are difficult to notice when they're happening so if you
-        bork things up you might get a small burn without noticing that's enough to
-        cause some scarring.[^fn:2]
+    -   gradual burns are difficult to notice when they're happening so if you
+        bork things up you might get a small burn without noticing - there's the
+        potential for scarring.[^fn:2]
 
 ## References
 
-<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
-  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>“Accelerated Learning (DARPA) - Total tDCS Electrode Placement.” n.d. <i>Total Tdcs</i>. Accessed July 20, 2024.</div>
-  <div class="csl-entry"><a id="citeproc_bib_item_2"></a>Moirand, Rémi, Laetitia Imbert, Frédéric Haesebaert, Gabrielle Chesnoy, Benoit Bediou, Emmanuel Poulet, and Jérôme Brunelin. 2022. “Ten Sessions of 30 Min tDCS over 5 Days to Achieve Remission in Depression: A Randomized Pilot Study.” <i>Journal of Clinical Medicine</i> 11 (3): 782. <a href="https://doi.org/10.3390/jcm11030782">https://doi.org/10.3390/jcm11030782</a>.</div>
+<style>.csl-left-margin{float: left; padding-right: 0em;}
+ .csl-right-inline{margin: 0 0 0 1em;}</style><div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>
+    <div class="csl-left-margin">[1]</div><div class="csl-right-inline">R. Moirand <i>et al.</i>, “Ten Sessions of 30 Min tDCS over 5 Days to Achieve Remission in Depression: A Randomized Pilot Study,” <i>Journal of clinical medicine</i>, vol. 11, no. 3, p. 782, Jan. 2022, doi: <a href="https://doi.org/10.3390/jcm11030782">10.3390/jcm11030782</a>.</div>
+  </div>
+  <div class="csl-entry"><a id="citeproc_bib_item_2"></a>
+    <div class="csl-left-margin">[2]</div><div class="csl-right-inline">“Accelerated Learning (DARPA) - Total tDCS Electrode Placement.”</div>
+  </div>
 </div>
 
 </div>

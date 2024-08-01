@@ -38,7 +38,7 @@ TagList.css = `
   margin-bottom: 0.25rem;
   background-color: var(--light);
   color: var(--darkgray);
-  font-family: 'Fira Code', monospace;
+  font-family: var(--codeFont);
 }
 
 .tags::before {
@@ -57,7 +57,7 @@ TagList.css = `
 }
 
 a.internal.tag-link {
-  font-family: 'Fira Code', monospace !important;
+  font-family: var(--codeFont);
   border-radius: 8px;
   padding: 0.2rem 0.4rem;
   margin: 0 0.1rem;

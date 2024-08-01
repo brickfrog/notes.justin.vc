@@ -13,6 +13,9 @@ export interface ColorScheme {
   orgh4: string
   orgh5: string
   orgh6: string
+  todo1: string
+  todo2: string
+  todo3: string
 }
 
 interface Colors {
@@ -66,6 +69,11 @@ ${stylesheet.join("\n\n")}
   --orgh4: ${theme.colors.lightMode.orgh4};
   --orgh5: ${theme.colors.lightMode.orgh5};
   --orgh6: ${theme.colors.lightMode.orgh6};
+
+  --todo1: ${theme.colors.lightMode.todo1};
+  --todo2: ${theme.colors.lightMode.todo2};
+  --todo3: ${theme.colors.lightMode.todo3};
+
 }
 
 :root[saved-theme="dark"] {
@@ -84,5 +92,9 @@ ${stylesheet.join("\n\n")}
   --orgh4: ${theme.colors.darkMode.orgh4};
   --orgh5: ${theme.colors.darkMode.orgh5};
   --orgh6: ${theme.colors.darkMode.orgh6};
+
+  --todo1: ${theme.colors.darkMode.todo1};
+  --todo2: ${theme.colors.darkMode.todo2};
+  --todo3: ${theme.colors.darkMode.todo3};
 `
 }

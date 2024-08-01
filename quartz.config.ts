@@ -43,22 +43,28 @@ const config: QuartzConfig = {
           orgh5: "#6d597a",
           orgh6: "#b56576",
           textHighlight: "#f2cc8f88",
+          todo1: "#f2cc8f", // Warm yellow for todo, idea
+          todo2: "#81b29a", // Sage green for hold, wait
+          todo3: "#e07a5f", // Coral red for kill, cancel
         },
         darkMode: {
-          light: "#1a1a1a",
-          lightgray: "#252525",
-          gray: "#505050",
-          darkgray: "#f5f5f5",
-          dark: "#f0f0f0",
-          secondary: "#7fdd57",
-          tertiary: "#7FFFFF",
-          highlight: "rgba(108, 112, 134, 0.15)",
-          orgh2: "#7FFFFF",
-          orgh3: "#7FDD57",
-          orgh4: "#66B2FF",
-          orgh5: "#FF884D",
-          orgh6: "#66FF66",
-          textHighlight: "#00ffff44",
+          light: "#1a1b26", // Tokyo Night background
+          lightgray: "#24283b", // Tokyo Night darker background
+          gray: "#565f89", // Tokyo Night foreground
+          darkgray: "#ccd3f0", // Lightened version of Tokyo Night lighter foreground
+          dark: "#e0e3ff", // Lightened version of Tokyo Night bright foreground
+          secondary: "#7aa2f7", // Tokyo Night blue, for main links
+          tertiary: "#bb9af7", // Tokyo Night purple, for secondary links
+          highlight: "rgba(41, 46, 66, 0.5)", // Subtle highlight
+          orgh2: "#7aa2f7", // Blue for main headers
+          orgh3: "#9ece6a", // Green for subheaders
+          orgh4: "#f7768e", // Red for h4
+          orgh5: "#e0af68", // Orange for h5
+          orgh6: "#7aa2f7", // repeat
+          textHighlight: "#41a6b525", // Subtle text highlight
+          todo1: "#e0af68", // Muted orange for todo, idea
+          todo2: "#9ece6a", // Bright green for hold, wait
+          todo3: "#f7768e", // Vibrant pink for kill, cancel
         },
       },
     },
@@ -73,7 +79,7 @@ const config: QuartzConfig = {
       Plugin.SyntaxHighlighting({
         theme: {
           light: "catppuccin-latte",
-          dark: "aurora-x",
+          dark: "tokyo-night",
         },
         keepBackground: true,
       }),
@@ -84,6 +90,7 @@ const config: QuartzConfig = {
         minEntries: 2,
       }),
       Plugin.OxHugoFlavouredMarkdown({
+        wikilinks: true,
         removePredefinedAnchor: true,
         // Github Flavored Markdown's Anchors work better
         anchorTransformation: false,

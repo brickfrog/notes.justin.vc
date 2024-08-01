@@ -74,6 +74,7 @@ export default ((userOpts?: Partial<SidenoteOptions>) => {
     )
   }
 
+  // Note that this is only tested working for ieee csl
   Sidenote.css = style
   Sidenote.afterDOMLoaded = `
   (() => {
@@ -141,39 +142,51 @@ export default ((userOpts?: Partial<SidenoteOptions>) => {
         });
       });
     };
-
-    const setupReferences = () => {
-      const referenceEntries = document.querySelectorAll('.csl-entry');
-      referenceEntries.forEach((entry, index) => {
-        const anchor = document.createElement('a');
-        anchor.id = \`reference-\${index + 1}\`;
-        entry.insertBefore(anchor, entry.firstChild);
-      });
-    };
-
-    const setupFootnoteLinks = () => {
-      const footnoteLinks = document.querySelectorAll('.footnotes li a[href^="#citeproc_bib_item_"]');
-      
-      footnoteLinks.forEach((link, index) => {
-        const refNumber = index + 1;
-        const refAnchor = \`#reference-\${refNumber}\`;
-        link.setAttribute('href', refAnchor);
+    
+  const setupFootnoteLinks = () => {
+    const citationLinks = document.querySelectorAll('a[href^="#citeproc_bib_item_"]');
+    
+    citationLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
         
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const refElement = document.querySelector(refAnchor);
-          if (refElement) {
-            refElement.scrollIntoView({ behavior: 'smooth' });
-            refElement.closest('.csl-entry').classList.add('highlight');
-            setTimeout(() => refElement.closest('.csl-entry').classList.remove('highlight'), 2000);
+        // Find the references container at the bottom
+        const referencesContainer = document.querySelector('.csl-bib-body');
+        
+        if (referencesContainer) {
+          // Find the specific reference within the container
+          const targetElement = referencesContainer.querySelector(\`a[id="\${targetId}"]\`);
+          
+          if (targetElement) {
+            // Scroll to the element
+            const yOffset = -50; // Adjust this value to fine-tune the scroll position
+            const y = referencesContainer.offsetTop + targetElement.offsetTop + yOffset;
+            
+            window.scrollTo({top: y, behavior: 'smooth'});
+            
+            // Fallback for browsers that don't support smooth scrolling
+            setTimeout(() => {
+              window.scrollTo(0, y);
+            }, 500);
+
+            const cslEntry = targetElement.closest('.csl-entry');
+            if (cslEntry) {
+              cslEntry.classList.add('highlight');
+              setTimeout(() => cslEntry.classList.remove('highlight'), 2000);
+            }            
+          } else {
+            console.error('Specific reference not found:', targetId);
           }
-        });
+        } else {
+          console.error('References container not found');
+        }
       });
-    };
+    });
+  };
   
     // Run setup on initial load
     setupSidenotes();
-    setupReferences();
     setupFootnoteLinks();
   
     // Adjust on scroll and resize
@@ -183,7 +196,6 @@ export default ((userOpts?: Partial<SidenoteOptions>) => {
     // Re-run setup when Quartz navigates to a new page
     document.addEventListener('nav', () => {
       setupSidenotes();
-      setupReferences();
       setupFootnoteLinks();
     });
   })()

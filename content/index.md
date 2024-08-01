@@ -35,6 +35,8 @@ Just my notes n' such
 
 <div class="outline-3 jvc">
 
+- [About](/about)
+
 - [Daily Notes](/daily/)
 
 - [Main](/main/)

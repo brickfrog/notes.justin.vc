@@ -10,7 +10,7 @@
   padding: 0px;
   margin: 5px 0 25px;
   transition: all 0.3s ease-in-out;
-  font-family: 'Fira Code', monospace;
+  font-family: var(--codeFont);
  
   summary {
     font-weight: 500;
@@ -34,7 +34,7 @@
   background-color: var(--light);
   color: var(--darkgray);
   margin-bottom: 1.5rem;
-  font-family: 'Fira Code', monospace;
+  font-family: var(--codeFont);
   transition: all 0.3s ease;
 
   .meta-column {
@@ -94,7 +94,7 @@
   margin-bottom: 0.25rem;
   background-color: var(--light);
   color: var(--darkgray);
-  font-family: 'Fira Code', monospace;
+  font-family: var(--codeFont);
 }
 
 .tags::before {
@@ -114,7 +114,7 @@
 }
 
 a.internal.tag-link {
-  font-family: 'Fira Code', monospace !important;
+  font-family: var(--codeFont);
   border-radius: 8px;
   padding: 0.2rem 0.4rem;
   margin: 0 0.1rem;
