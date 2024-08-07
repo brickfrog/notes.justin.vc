@@ -88,6 +88,13 @@ a {
       border-radius: 0;
       padding: 0;
     }
+    
+    &.category-link {
+      &::before {
+        content: "@";
+      }
+    }
+
     &.tag-link {
       &::before {
         content: "#";
@@ -346,22 +353,53 @@ h6 {
 figure[data-rehype-pretty-code-figure] {
   margin: 0;
   position: relative;
-  line-height: 1.6rem;
-  position: relative;
+  line-height: 1.2rem;
+
+  &::before {
+    font-size: small;
+    content: ":SRC";
+    width: 30px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--orgh3);
+    color: var(--light);
+    padding: 0px 8px;
+    font-weight: bold;
+    border-bottom-right-radius: 5px;
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, var(--orgh3), var(--orgh4), var(--orgh5));
+    z-index: 1;
+  }
 
   & > [data-rehype-pretty-code-title] {
     font-family: var(--codeFont);
     font-size: 0.9rem;
     padding: 0.1rem 0.5rem;
-    border: 1px solid var(--lightgray);
+    border: 1px solid var(--gray);
     width: max-content;
     border-radius: 5px;
     margin-bottom: -0.5rem;
-    color: var(--darkgray);
+    color: var(--dark);
+    background-color: var(--lightgray);
+    position: relative;
+    z-index: 2;
   }
 
   & > pre {
     padding: 0;
+    border-radius: 5px;
+    overflow: hidden;
   }
 }
 
@@ -370,8 +408,9 @@ pre {
   padding: 0 0.5rem;
   border-radius: 5px;
   overflow-x: auto;
-  border: 1px solid var(--lightgray);
+  border: 1px solid var(--gray);
   position: relative;
+  background-color: var(--lightgray);
 
   &:has(> code.mermaid) {
     border: none;
@@ -384,8 +423,9 @@ pre {
     counter-reset: line;
     counter-increment: line 0;
     display: grid;
-    padding: 0.5rem 0;
-    overflow-x: scroll;
+    padding: 1.5rem 0;
+    overflow-x: auto;
+    color: var(--dark);
 
     & [data-highlighted-chars] {
       background-color: var(--highlight);
@@ -409,7 +449,7 @@ pre {
         margin-right: 1rem;
         display: inline-block;
         text-align: right;
-        color: rgba(115, 138, 148, 0.6);
+        color: var(--gray);
       }
     }
 
@@ -424,12 +464,7 @@ pre {
 }
 
 code {
-  font-size: 0.9em;
-  color: var(--dark);
   font-family: var(--codeFont);
-  border-radius: 5px;
-  padding: 0.1rem 0.2rem;
-  background: var(--lightgray);
 }
 
 tbody,

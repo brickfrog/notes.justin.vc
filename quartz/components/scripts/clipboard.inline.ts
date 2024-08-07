@@ -5,8 +5,18 @@
   const svgCheck =
     '<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true"><path fill-rule="evenodd" fill="rgb(63, 185, 80)" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg>'
 
-  function addCopyButton(codeBlock: HTMLElement) {
-    if (codeBlock && !codeBlock.parentElement?.querySelector(".clipboard-button")) {
+  function shouldAddCopyButton(codeBlock: HTMLElement): boolean {
+    // Check if the code block is inside a figure element with the specific attribute
+    const figure = codeBlock.closest("figure[data-rehype-pretty-code-figure]")
+    return figure !== null
+  }
+
+  function addCopyButton(codeBlock: HTMLElement): void {
+    if (
+      codeBlock &&
+      shouldAddCopyButton(codeBlock) &&
+      !codeBlock.parentElement?.querySelector(".clipboard-button")
+    ) {
       const button = document.createElement("button")
       button.className = "clipboard-button"
       button.type = "button"
@@ -29,14 +39,14 @@
     }
   }
 
-  function addCopyButtonsToCodeBlocks() {
+  function addCopyButtonsToCodeBlocks(): void {
     const codeBlocks = document.getElementsByTagName("code")
     for (let i = 0; i < codeBlocks.length; i++) {
       addCopyButton(codeBlocks[i])
     }
   }
 
-  function observeDOM() {
+  function observeDOM(): void {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.type === "childList") {
@@ -58,7 +68,7 @@
     })
   }
 
-  function init() {
+  function init(): void {
     addCopyButtonsToCodeBlocks()
     observeDOM()
   }

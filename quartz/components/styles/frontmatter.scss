@@ -79,7 +79,8 @@
   }
 }
 
-.tags {
+.fm-tags,
+.fm-categories {
   list-style: none;
   display: flex;
   padding-left: 0;
@@ -93,15 +94,13 @@
   color: var(--darkgray);
 }
 
-.tags::before {
-  content: "tags:";
-}
-
-.section-li > .section > .tags {
+.section-li > .section > .fm-tags,
+.section-li > .section > .fm-categories {
   justify-content: flex-end;
 }
   
-.tags > li {
+.fm-tags > li,
+.fm-categories > li {
   display: inline-block;
   white-space: nowrap;
   margin: 0;
@@ -109,9 +108,62 @@
   line-height: 1.3;
 }
 
-a.internal.tag-link {
-  font-family: 'IBM Plex Mono' !important;
+a.internal.tag-link,
+a.internal.category-link {
+  font-family: var(--codeFont) !important;
   border-radius: 8px;
   padding: 0.2rem 0.4rem;
   margin: 0 0.1rem;
+}
+
+.fm-tags::before {
+  content: "tags:";
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+.fm-categories::before {
+  content: "categories:";
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+summary.fm-title {
+  font-size: 1em;
+}
+
+.fm-title::before {
+  content: "title: ";
+  font-size: 0.8rem;
+  color: var(--tertiary);
+}
+
+.fm-author::before {
+  content: "author: ";
+  font-size: 0.8rem;
+  color: var(--darkgray);
+}
+
+.fm-created::before {
+  content: "created: ";
+  font-size: 0.8rem;
+  color: var(--darkgray);
+}
+
+.fm-modified::before {
+  content: "modified: ";
+  font-size: 0.8rem;
+  color: var(--darkgray);
+}
+
+.fm-reading::before {
+  content: "reading: ";
+  font-size: 0.8rem;
+  color: var(--darkgray);
+}
+
+.fm-status::before {
+  content: "status: ";
+  font-size: 0.8rem;
+  color: var(--darkgray);
 }

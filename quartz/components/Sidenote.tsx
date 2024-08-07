@@ -116,19 +116,44 @@ export default ((userOpts?: Partial<SidenoteOptions>) => {
   
     const setupSidenotes = () => {
       insertAnchorElements();
-      adjustSidenotes();
       
-      document.querySelectorAll('a[data-footnote-ref]').forEach((ref) => {
-        const id = ref.getAttribute('href').replace('#user-content-fn-fn:', 'sidenote-fn:');
-        const sidenote = document.getElementById(id);
+      const sidenoteContainer = document.querySelector('.sidenote-container');
+      if (!sidenoteContainer) return;
+  
+      // Clear existing sidenotes
+      sidenoteContainer.innerHTML = '';
+  
+      document.querySelectorAll('a[data-footnote-ref]').forEach((ref, index) => {
+        const footnoteId = ref.getAttribute('href').substring(1);
+        const footnote = document.getElementById(footnoteId);
+  
+        if (footnote) {
+          const sidenote = document.createElement('div');
+          sidenote.id = \`sidenote-\${index}\`;
+          sidenote.className = 'sidenote-item';
+          
+          // Clone the content of the footnote, preserving links
+          const footnoteContent = footnote.querySelector('p').cloneNode(true);
+          
+          // Remove the backref link from the sidenote
+          const backref = footnoteContent.querySelector('.data-footnote-backref');
+          if (backref) {
+            backref.remove();
+          }
+          
+          sidenote.appendChild(footnoteContent);
+          sidenoteContainer.appendChild(sidenote);
+        }
   
         ref.addEventListener('mouseenter', () => {
+          const sidenote = document.getElementById(\`sidenote-\${index}\`);
           if (sidenote) {
             sidenote.classList.add('highlight');
           }
         });
   
         ref.addEventListener('mouseleave', () => {
+          const sidenote = document.getElementById(\`sidenote-\${index}\`);
           if (sidenote) {
             sidenote.classList.remove('highlight');
           }
@@ -136,54 +161,57 @@ export default ((userOpts?: Partial<SidenoteOptions>) => {
   
         ref.addEventListener('click', (e) => {
           e.preventDefault();
+          const sidenote = document.getElementById(\`sidenote-\${index}\`);
           if (sidenote) {
             sidenote.scrollIntoView({ behavior: 'smooth' });
           }
         });
       });
+  
+      adjustSidenotes();
     };
-    
-  const setupFootnoteLinks = () => {
-    const citationLinks = document.querySelectorAll('a[href^="#citeproc_bib_item_"]');
-    
-    citationLinks.forEach((link) => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        
-        // Find the references container at the bottom
-        const referencesContainer = document.querySelector('.csl-bib-body');
-        
-        if (referencesContainer) {
-          // Find the specific reference within the container
-          const targetElement = referencesContainer.querySelector(\`a[id="\${targetId}"]\`);
+  
+    const setupFootnoteLinks = () => {
+      const citationLinks = document.querySelectorAll('a[href^="#citeproc_bib_item_"]');
+      
+      citationLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
           
-          if (targetElement) {
-            // Scroll to the element
-            const yOffset = -50; // Adjust this value to fine-tune the scroll position
-            const y = referencesContainer.offsetTop + targetElement.offsetTop + yOffset;
+          // Find the references container at the bottom
+          const referencesContainer = document.querySelector('.csl-bib-body');
+          
+          if (referencesContainer) {
+            // Find the specific reference within the container
+            const targetElement = referencesContainer.querySelector(\`a[id="\${targetId}"]\`);
             
-            window.scrollTo({top: y, behavior: 'smooth'});
-            
-            // Fallback for browsers that don't support smooth scrolling
-            setTimeout(() => {
-              window.scrollTo(0, y);
-            }, 500);
-
-            const cslEntry = targetElement.closest('.csl-entry');
-            if (cslEntry) {
-              cslEntry.classList.add('highlight');
-              setTimeout(() => cslEntry.classList.remove('highlight'), 2000);
-            }            
+            if (targetElement) {
+              // Scroll to the element
+              const yOffset = -50; // Adjust this value to fine-tune the scroll position
+              const y = referencesContainer.offsetTop + targetElement.offsetTop + yOffset;
+              
+              window.scrollTo({top: y, behavior: 'smooth'});
+              
+              // Fallback for browsers that don't support smooth scrolling
+              setTimeout(() => {
+                window.scrollTo(0, y);
+              }, 500);
+  
+              const cslEntry = targetElement.closest('.csl-entry');
+              if (cslEntry) {
+                cslEntry.classList.add('highlight');
+                setTimeout(() => cslEntry.classList.remove('highlight'), 2000);
+              }            
+            } else {
+              console.error('Specific reference not found:', targetId);
+            }
           } else {
-            console.error('Specific reference not found:', targetId);
+            console.error('References container not found');
           }
-        } else {
-          console.error('References container not found');
-        }
+        });
       });
-    });
-  };
+    };
   
     // Run setup on initial load
     setupSidenotes();

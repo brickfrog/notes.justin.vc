@@ -26,7 +26,7 @@ button#explorer {
     position: absolute; // Position the fold icon absolutely
     padding: 5px;
     right: 0; // Align to the right
-    transition: transform 0.3s ease;
+    transition: transform 0.1s ease;
     opacity: 0.8;
   }
 
@@ -42,7 +42,7 @@ button#explorer {
 .folder-outer {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease-in-out;
+  transition: grid-template-rows 0.1s ease-in-out;
 }
 
 .folder-outer.open {

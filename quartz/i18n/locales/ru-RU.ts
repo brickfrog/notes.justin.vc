@@ -82,6 +82,16 @@ export default {
         `Показыва${getForm(count, "ется", "ются", "ются")} ${count} тег${getForm(count, "", "а", "ов")}`,
       totalTags: ({ count }) => `Всего ${count} тег${getForm(count, "", "а", "ов")}`,
     },
+    categoryContent: {
+      category: "Категория",
+      categoryIndex: "Индекс категорий",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        `в этой категории ${count} элемент${getForm(count, "", "а", "ов")}`,
+      showingFirst: ({ count }: { count: number }) =>
+        `Показыва${getForm(count, "ется", "ются", "ются")} ${count} категори${getForm(count, "я", "и", "й")}`,
+      totalCategories: ({ count }: { count: number }) =>
+        `Всего ${count} категори${getForm(count, "я", "и", "й")}`,
+    },
   },
 } as const satisfies Translation
 

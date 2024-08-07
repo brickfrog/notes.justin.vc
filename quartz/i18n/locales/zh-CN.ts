@@ -78,5 +78,13 @@ export default {
       showingFirst: ({ count }) => `显示前${count}个标签。`,
       totalTags: ({ count }) => `总共有${count}个标签。`,
     },
+    categoryContent: {
+      category: "分类",
+      categoryIndex: "分类索引",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "此分类下有1个项目" : `此分类下有${count}个项目`,
+      showingFirst: ({ count }: { count: number }) => `显示前${count}个分类`,
+      totalCategories: ({ count }: { count: number }) => `共有${count}个分类`,
+    },
   },
 } as const satisfies Translation

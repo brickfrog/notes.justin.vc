@@ -104,7 +104,7 @@ const config: QuartzConfig = {
       }),
       Plugin.CrawlLinks({
         openLinksInNewTab: true,
-        lazyLoad: false,
+        lazyLoad: true,
       }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
@@ -120,6 +120,7 @@ const config: QuartzConfig = {
       Plugin.ContentPage(),
       Plugin.FolderPage(),
       Plugin.TagPage(),
+      Plugin.CategoryPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,
         enableRSS: true,

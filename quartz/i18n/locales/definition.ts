@@ -80,5 +80,12 @@ export interface Translation {
       showingFirst: (variables: { count: number }) => string
       totalTags: (variables: { count: number }) => string
     }
+    categoryContent: {
+      category: string
+      categoryIndex: string
+      itemsUnderCategory: (variables: { count: number }) => string
+      showingFirst: (variables: { count: number }) => string
+      totalCategories: (variables: { count: number }) => string
+    }
   }
 }

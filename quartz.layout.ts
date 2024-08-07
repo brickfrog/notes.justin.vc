@@ -7,14 +7,7 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [Component.Backlinks()],
-  footer: Component.Footer({
-    links: {
-      "justin.vc": "https://justin.vc",
-      "org-roam": "https://orgroam.com",
-      "ox-hugo": "https://ox-hugo.scripter.co/",
-      "GNU Emacs": "https://www.gnu.org/software/emacs/",
-    },
-  }),
+  footer: Component.Footer(),
 }
 
 // components for pages that display a single page (e.g. a single note)

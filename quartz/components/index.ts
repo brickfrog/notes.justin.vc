@@ -1,4 +1,5 @@
 import Content from "./pages/Content"
+import CategoryContent from "./pages/CategoryContent"
 import TagContent from "./pages/TagContent"
 import FolderContent from "./pages/FolderContent"
 import NotFound from "./pages/404"
@@ -26,6 +27,7 @@ import Sidenote from "./Sidenote"
 export {
   ArticleTitle,
   Content,
+  CategoryContent,
   TagContent,
   FolderContent,
   Darkmode,

@@ -1,5 +1,5 @@
 ---
-title: Index
+title: Home
 author: ["Justin"]
 date: 06-01-24
 draft: false
@@ -15,36 +15,61 @@ draft: false
       <footer>@utaten<cite> <a href="https://utaten.com/lyric/to16060309/">https://utaten.com/lyric/to16060309/</a></cite></footer>
     </blockquote>
   </div>
-  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
-    <p style="width: 100%; text-align: center; margin-bottom: 10px; font-weight: 1000;">Please don't strongly interpret the dot!</p>
-    <iframe src="https://global-mind.org/gcpdot/gcp.html" height="69" width="69" scrolling="no" frameborder="10" style="margin: auto;"></iframe>
-  </div>
+<div class="tromp">
+<pre>
+        Int L[A],m,b,*D=A,
+        *c,*a=L,C,*U=L,u;s
+         (_){u--&amp;&amp;s(a=*a);}
+          char*B,I,O;S(){b=b
+           --?b:m|read(0,&amp;I,1
+            )-1;return~I&gt;&gt;b&amp;1;
+             }k(l,u){for(;l&lt;=u;
+              U-L&lt;A?*U++=46^l++[
+               &quot;-,&amp;,,/.--/,:-,&#39;/&quot;
+               &quot;.-,-,,/.-,*,//..&quot;,
+              ]:exit(5));}p(Int*m){
+             return!*U?*m=S()?U++,!S
+            ()?m[1]=p(++U),2:3:1,p(U)
+           :S()?U+=2:p(U[1]++),U-m;}x(
+          c){k(7*!b,9);*U++=b&amp;&amp;S();c&amp;&amp;x
+         (b);}d(Int*l){--l[1]||d(l[d(*l),
+        *l=B,B=l,2]);}main(e){for(k(10,33
+       ),a[4]-=m=e-2&amp;7,a[23]=p(U),b=0;;e-2
+      ?e?e-3?s(D=a),C=a  [3],++1[a=a[2]],d(
+     D):c?D=c,c=*D,*D=    a,a=D:exit(L[C+1])
+    :C--&lt;23?C=u+m&amp;1?O      =O+O|C&amp;1,9:write(m
+   ||(O=C+28),&amp;O,1)+        1:(S(),x(0&lt;b++?k(0,
+  6),U[-5]=96:0)):(          D=B?B:calloc(4,X))
+ ?B=*D,*D=c,c=D,D[            2]=a,a[++D[1]]++,D
+[3]=++C+u:exit(6)              )e=L[C++],u=L[C];}
+</pre>
+
+<a style="font-size:8px;" href="https://dgopstein.github.io/articles/ioccc-ascii-art/">credit: IOCCC - 2012 - tromp[^fn:1]</a> 
 </div>
-<sup>(this is an excuse to test out quotebacks)</sup>
+</div>
 
 <div class="outline-1 jvc">
 
+This is the home to my notes that I export using [org-roam](https://www.orgroam.com). I've been trying to use the daily notes as the jumping off point for accountability re: me reading/doing more things. Additionally, it's meant for me to tinker around with typescript. Check the [about](/about) page for more details on the site itself. I plan to keep most design notes there. 
 
-## Index {#index}
+Most of the design is based on person aesthetics vs. readability, @ me if you think I should change things. Some of this is intrinsic to quartz and I've been kind of tinkering off-and-on.
 
 <div class="outline-2 jvc">
 
-Just my notes n' such
-
-### Sections
+## Other Sections
 
 <div class="outline-3 jvc">
 
-- [About](/about)
+- [Daily Notes](/daily/) - exports built from org-roam 'dailies', latest month [link.](/daily/2024/08/)
+- [References](/references/) - specific references built from zotero, so anything here has a citar reference attached to it, generally used for academic papers and book notes.
+- [Main](/main/) - everything else falls into this bucket
 
-- [Daily Notes](/daily/)
-
-- [Main](/main/)
-
-- [References](/references/)
-
-- [Tags](/tags/)
+- [Categories](/categories/) - Similar idea to tags, but higher level, broader topic assignment e.g. "@music"
+- [Tags](/tags/) - Standard blog fare, topic based, e.g. "#database"
 
 </div>
 </div>
 </div>
+
+
+[^fn:1]: Seriously, go check out the IOCCC [winners](https://www.ioccc.org/years.html). This is some amazing stuff. I originally wanted to post the ['Sonny Boy' ASCII](https://github.com/mame/sonny-boy-nankai) by mame but I wasn't sure that was kosher since it's owned by the investment committee for the anime. Also, 'Golden Boy' and 'Sonny Boy', both good anime.
