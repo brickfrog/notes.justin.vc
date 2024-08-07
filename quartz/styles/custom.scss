@@ -973,12 +973,12 @@ pre {
 
 /* tromp */
 
-.tromp {
+div.tromp {
   > pre
   {
     border: none;
     background-color: var(--light);
-    font-size: 0.3rem;
+    font-size: 0.3rem !important;
 }
 }
 
