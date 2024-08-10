@@ -2,12 +2,15 @@
 title: "movies"
 author: ["Justin"]
 date: 2024-07-02T04:05:00-04:00
-lastmod: 2024-07-24T00:20:50-04:00
+lastmod: 2024-08-08T14:37:59-04:00
 tags: ["aggregation"]
 draft: false
+creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 ---
 
-Testing something out. Beep.
+Testing something out. I think I'll use this as a master aggregation list for
+film and if I ever want to spin it off into an individual note, I can just
+refile it.
 
 <div class="outline-1 jvc">
 
@@ -81,6 +84,38 @@ being able to win at a card game is ???.
 
 Maybe it's just me getting older, but I feel like an entire season of the family
 futzing about without AI shenanigans would've been a fun time.
+
+</div>
+
+<div class="outline-2 jvc">
+
+### Mind Games <span class="tag"><span class="anime">anime</span></span> {#mind-games}
+
+[Mind Game (film)](https://en.wikipedia.org/wiki/Mind_Game_(film)) - This was a trip. I love experimental films, and generally
+anything with the overarching theme of not living with regret.
+
+</div>
+
+<div class="outline-2 jvc">
+
+### Penguin Highway <span class="tag"><span class="anime">anime</span></span> {#penguin-highway}
+
+[Penguin Highway](https://en.wikipedia.org/wiki/Penguin_Highway) - I guess this was originally a novel that got adapted. I'd like
+to read it, I'm curious if it's a 1:1 adaptation. I enjoyed the beginning and
+end the most, essentially a slice of life just hanging with your friends and
+someone  you have a crush on. That'll always be a trope that gets me, of
+the mysterious mentor-figure that <span class="spoiler"> eventually has to leave you </span> .
+Also, I like the notebooks he keeps. I need to get the new years [HOBONICHI](https://www.1101.com/hoboid/en/). Also
+I need to start drawing again.
+
+<div class="outline-3 jvc">
+
+#### <span class="org-todo todo IDEA">IDEA</span> Notebooks {#notebooks}
+
+An idea would maybe write more stuff in my physical notebooks then translate
+them to notes via LLM-based formatting.
+
+</div>
 
 </div>
 

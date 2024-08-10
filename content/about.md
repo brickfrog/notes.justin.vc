@@ -2,7 +2,7 @@
 title: "About (Notes)"
 author: ["Justin"]
 date: 2024-07-19T19:23:00-04:00
-lastmod: 2024-08-07T06:39:53-04:00
+lastmod: 2024-08-10T07:04:19-04:00
 draft: false
 creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 ---
@@ -50,6 +50,11 @@ colors, same headers, etc. - in some component design I'm inspired by both
 <https:gwern.net> and uh... there's another person, I forget. I thought I followed
 them on github, maybe not. Karli something. Not the model who spammed Wix
 websites.
+
+I've tried to put most of the fancy things only into components that load when
+when the screen is big enough as to not hamper mobile users but I admit most of
+my testing is done on my computer with occasional checks of mobile mode in the
+dev menu.
 
 Also I've moved away from using it, but a big inspiration was [TiddlyWiki — a
 non-linear personal web notebook](https://tiddlywiki.com) and [sobjornstad (Soren Bjornstad)](https://github.com/sobjornstad)
@@ -158,6 +163,10 @@ General Public License v3.0 - GNU Project - Free Software Foundation](https://ww
 <div class="outline-2 jvc">
 
 ### TODOs {#todos}
+
+This is just an area to keep up with things I need to fix, there's a couple
+weird lingering issues that can be fixed with a refresh, I think maybe due to
+the DOM loading order / inline scripts.
 
 <div class="outline-3 jvc">
 
