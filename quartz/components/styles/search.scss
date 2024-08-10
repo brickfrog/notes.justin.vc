@@ -5,12 +5,12 @@
   max-width: 13rem;
   flex-grow: 0.3;
 
-  @media (max-wdith: 450px) {
+  @media (max-width: 450px) {
     flex-grow: 0;
     display: flex;
   }
 
-  & > .search-button {
+  & > #search-button {
     background-color: var(--lightgray);
     border-radius: 400px;
     border: 1px solid var(--light);
@@ -32,26 +32,17 @@
     }
 
     &:hover {
-      border: 1px solid var(--secondary); // Change this to your desired hover color
+      border: 1px solid var(--secondary);
       
       @media (max-width: 450px) {
         border: 0px;
       }
-    
     }
     text-align: inherit;
     cursor: pointer;
     white-space: nowrap;
     width: 100%;
     justify-content: space-between;
-
-    & .search-title {
-      color: grey;
-
-      @media (max-width: 450px) {
-        display: none;
-      }
-    }
 
     & svg {
       cursor: pointer;
@@ -66,11 +57,16 @@
       }
     }
 
-    & > p {
+    & .search-title {
+      color: grey;
       display: inline;
       padding: 0 0.25rem;
       margin: 0;
       flex-grow: 1;
+
+      @media (max-width: 450px) {
+        display: none;
+      }
     }
 
     & .search-keys {
@@ -79,10 +75,9 @@
       gap: 6px;
       padding-right: 0.5rem;
     
-
-    @media (max-width: $tabletBreakpoint) {
-      display: none;
-    }
+      @media (max-width: $tabletBreakpoint) {
+        display: none;
+      }
     }
     
     & .search-key {
@@ -104,7 +99,7 @@
       height: 15px;
       padding: 0 3px;
       position: relative;
-      top: -2px; // Slight raise effect
+      top: -2px;
       transition: all 0.1s ease;
     
       &:active {
@@ -119,8 +114,8 @@
     & .search-key:first-child {
       padding: 0 0 0 0;
     }
-    
-}
+  }
+
 
   & > #search-container {
     position: fixed;
@@ -185,6 +180,7 @@
         &[data-preview] > #results-container {
           flex: 0 0 min(30%, 450px);
         }
+
 
         @media all and (min-width: $tabletBreakpoint) {
           &[data-preview] {
