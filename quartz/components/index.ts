@@ -23,6 +23,7 @@ import Breadcrumbs from "./Breadcrumbs"
 import LinkList from "./LinkList"
 import Frontmatter from "./Frontmatter"
 import Sidenote from "./Sidenote"
+import Comments from "./Comments"
 
 export {
   ArticleTitle,
@@ -50,4 +51,5 @@ export {
   LinkList,
   Frontmatter,
   Sidenote,
+  Comments,
 }
