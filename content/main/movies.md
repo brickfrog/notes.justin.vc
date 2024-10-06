@@ -2,7 +2,7 @@
 title: "movies"
 author: ["Justin"]
 date: 2024-07-02T04:05:00-04:00
-lastmod: 2024-08-08T14:37:59-04:00
+lastmod: 2024-08-15T16:26:09-04:00
 tags: ["aggregation"]
 draft: false
 creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
@@ -114,6 +114,24 @@ I need to start drawing again.
 
 An idea would maybe write more stuff in my physical notebooks then translate
 them to notes via LLM-based formatting.
+
+</div>
+
+</div>
+
+<div class="outline-2 jvc">
+
+### Sword of the Stranger <span class="tag"><span class="anime">anime</span></span> {#sword-of-the-stranger}
+
+[Sword of the Stranger](https://en.wikipedia.org/wiki/Sword_of_the_Stranger) - I liked it, not too much to ponder on - fun sword film
+with pretty animation, nice with upscaling. Interesting thing that it was
+submitted for an Academy Award and the slots got taken up by Kung-Fu Panda and
+Bolt(?). Man, the academy really hated / hates anime, huh.
+
+<div class="outline-3 jvc">
+
+#### Goals {#goals}
+
 
 </div>
 

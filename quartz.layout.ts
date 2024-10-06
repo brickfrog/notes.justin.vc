@@ -32,6 +32,10 @@ export const defaultContentPageLayout: PageLayout = {
       Component.Explorer({
         title: "Notes",
         mapFn: mapFn,
+        filterFn: (node) => {
+          const omit = new Set(["categories", "tags", "hosting"])
+          return !omit.has(node.name.toLowerCase())
+        },
         sortFn: sortFn,
       }),
     ),
@@ -54,6 +58,10 @@ export const defaultListPageLayout: PageLayout = {
       Component.Explorer({
         title: "Notes",
         mapFn: mapFn,
+        filterFn: (node) => {
+          const omit = new Set(["categories", "tags", "hosting"])
+          return !omit.has(node.name.toLowerCase())
+        },
         sortFn: sortFn,
       }),
     ),

@@ -2,8 +2,10 @@
 title: "Joe Reis and Matt Housley :: Fundamentals of Data Engineering"
 author: ["Justin"]
 date: 2024-07-19T15:32:00-04:00
-lastmod: 2024-07-23T18:22:52-04:00
+lastmod: 2024-08-15T23:15:54-04:00
+tags: ["book", "data-engineering", "oreilly"]
 draft: false
+creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 ---
 
 [O'reilly]({{< relref "../main/o_reilly.md" >}})  book from 2022. I haven't heard as much praise (or anything at all,

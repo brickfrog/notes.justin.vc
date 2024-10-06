@@ -87,13 +87,12 @@ const config: QuartzConfig = {
         showByDefault: true,
         collapseByDefault: false,
         maxDepth: 4,
-        minEntries: 2,
+        minEntries: 5,
       }),
       Plugin.OxHugoFlavouredMarkdown({
         wikilinks: true,
         removePredefinedAnchor: true,
-        // Github Flavored Markdown's Anchors work better
-        anchorTransformation: false,
+        anchorTransformation: true,
       }),
       Plugin.ObsidianFlavoredMarkdown({
         enableCheckbox: false,
@@ -104,7 +103,7 @@ const config: QuartzConfig = {
       }),
       Plugin.CrawlLinks({
         openLinksInNewTab: true,
-        lazyLoad: true,
+        lazyLoad: false,
       }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),

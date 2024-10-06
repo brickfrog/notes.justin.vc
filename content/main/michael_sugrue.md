@@ -2,7 +2,7 @@
 title: "Michael Sugrue"
 author: ["Justin"]
 date: 2024-08-04T13:10:00-04:00
-lastmod: 2024-08-04T14:10:36-04:00
+lastmod: 2024-08-15T22:59:28-04:00
 tags: ["person", "professor", "educator", "academic", "youtuber"]
 draft: false
 creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
@@ -30,7 +30,7 @@ His full list of vidoes: [Michael Sugrue](https://www.youtube.com/@dr.michaelsug
 
 <div class="outline-3 jvc">
 
-#### <span class="org-todo todo TODO">TODO</span> Watch his video(s) {#watch-his-video--s}
+#### <span class="org-priority priority-C">[#C]</span><span class="org-todo todo TODO">TODO</span> Watch his video(s) {#watch-his-video--s}
 
 
 </div>

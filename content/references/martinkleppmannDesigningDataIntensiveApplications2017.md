@@ -2,10 +2,14 @@
 title: "Martin Kleppmann :: Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems"
 author: ["Justin"]
 date: 2024-07-17T19:55:00-04:00
-lastmod: 2024-08-05T11:44:15-04:00
+lastmod: 2024-08-15T23:16:40-04:00
+tags: ["oreilly", "software-architecture", "software-engineering", "book"]
 draft: false
 creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 ---
+
+Apparently this is getting a second edition soon(?) - so will wait off on doing
+notes for the first edition.
 
 <div class="outline-1 jvc">
 

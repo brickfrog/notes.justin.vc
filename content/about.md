@@ -2,7 +2,7 @@
 title: "About (Notes)"
 author: ["Justin"]
 date: 2024-07-19T19:23:00-04:00
-lastmod: 2024-08-10T07:04:19-04:00
+lastmod: 2024-08-15T22:56:13-04:00
 draft: false
 creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 ---
@@ -115,8 +115,9 @@ example would be like thus:
 
 <div class="outline-5 jvc">
 
-###### <span class="org-priority priority-B">[#B]</span><span class="org-todo todo TODO">TODO</span> Do a thing! {#do-a-thing}
+###### <span class="org-priority priority-B">[#B]</span><span class="org-todo done DONE">DONE</span> Do a thing! {#do-a-thing}
 
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">[2024-08-15 Thu 22:56]</span></span></p>
 
 </div>
 

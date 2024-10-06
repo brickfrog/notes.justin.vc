@@ -60,7 +60,7 @@ Most of the design is based on person aesthetics vs. readability, @ me if you th
 
 <div class="outline-3 jvc">
 
-- [Daily Notes](/daily/) - exports built from org-roam 'dailies', latest month [link.](/daily/2024/08/)
+- [Log](/log/) - exports built from org-roam yearly file - a monolithic file for the year that exports subheading based on the week, latest month ordered by [week of year.](/log/2024/)
 - [References](/references/) - specific references built from zotero, so anything here has a citar reference attached to it, generally used for academic papers and book notes.
 - [Main](/main/) - everything else falls into this bucket
 

@@ -3,7 +3,6 @@
 @use "./callouts.scss";
 
 html {
-  scroll-behavior: smooth;
   text-size-adjust: none;
   overflow-x: hidden;
   width: 100vw;
@@ -355,33 +354,6 @@ figure[data-rehype-pretty-code-figure] {
   position: relative;
   line-height: 1.2rem;
 
-  &::before {
-    font-size: small;
-    content: ":SRC";
-    width: 30px;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: var(--orgh3);
-    color: var(--light);
-    padding: 0px 8px;
-    font-weight: bold;
-    border-bottom-right-radius: 5px;
-    z-index: 1;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 5px;
-    background: linear-gradient(to bottom, var(--orgh3), var(--orgh4), var(--orgh5));
-    z-index: 1;
-  }
-
   & > [data-rehype-pretty-code-title] {
     font-family: var(--codeFont);
     font-size: 0.9rem;
@@ -433,7 +405,7 @@ pre {
     }
 
     & > [data-line] {
-      padding: 0 0.25rem;
+      padding: 0 1rem;
       box-sizing: border-box;
       border-left: 3px solid transparent;
 
@@ -443,8 +415,6 @@ pre {
       }
 
       &::before {
-        content: counter(line);
-        counter-increment: line;
         width: 1rem;
         margin-right: 1rem;
         display: inline-block;

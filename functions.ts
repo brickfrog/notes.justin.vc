@@ -44,8 +44,6 @@ export const mapFn: Options["mapFn"] = (node) => {
         node.displayName = "⦿ " + node.file.frontmatter?.title
       } else if (node.name == "television") {
         node.displayName = "⦿ " + node.file.frontmatter?.title
-      } else if (node.name == "about") {
-        node.displayName = "📝 " + node.file.frontmatter?.title
       } else {
         node.displayName = "○ " + node.file.frontmatter?.title
       }

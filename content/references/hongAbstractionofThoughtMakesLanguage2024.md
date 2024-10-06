@@ -2,8 +2,8 @@
 title: "Hong, Ruixin and Zhang, Hongming and Pan, Xiaoman and Yu, Dong and Zhang, Changshui :: Abstraction-of-Thought Makes Language Models Better Reasoners"
 author: ["Justin"]
 date: 2024-07-08T09:29:00-04:00
-lastmod: 2024-07-30T05:07:45-04:00
-tags: ["machine-learning", "prompting"]
+lastmod: 2024-08-15T23:14:46-04:00
+tags: ["machine-learning", "prompting", "paper"]
 draft: false
 creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 ---

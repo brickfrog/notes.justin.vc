@@ -1,8 +1,8 @@
 ---
-title: "spaced repetition / software (srs)"
+title: "spaced repetition"
 author: ["Justin"]
 date: 2024-08-05T11:53:00-04:00
-lastmod: 2024-08-07T05:48:39-04:00
+lastmod: 2024-08-25T19:20:07-04:00
 tags: ["srs", "learning", "productivity"]
 categories: ["test"]
 draft: false
@@ -13,7 +13,7 @@ creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 
 ## Index {#index}
 
-[Spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition) is an extremely useful tool for learning. There's not much
+[Spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition) is a useful tool for learning. There's not much
 that hasn't been said so I'll be using this more as a place to assemble
 resources on it. My favorite software to use for spaced repetition is [anki.](https://apps.ankiweb.net) I
 pretty much use it for anything I want/have to remember.
@@ -44,4 +44,4 @@ Just a list of things I think are worth reading on it.
 
 </div>
 
-[^fn:1]: If you're here and haven't read Gwern, then... c'mon.
+[^fn:1]: If you're here and haven't read Gwern, then... c'mon

@@ -65,7 +65,7 @@
     padding-left: 0;
     @include heading-style(--orgh2, "◉ ");
     
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div {
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
       margin-left: var(--heading-indent);
     }
   }
@@ -75,7 +75,7 @@
     padding-left: 0;
     @include heading-style(--orgh3, "◎ ");
     
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div {
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
       margin-left: calc(var(--heading-indent) * 2);
     }
   }
@@ -85,7 +85,7 @@
     padding-left: 0;
     @include heading-style(--orgh4, "◈ ");
     
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div {
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
       margin-left: calc(var(--heading-indent) * 3);
     }
   }
@@ -95,7 +95,7 @@
     padding-left: 0;
     @include heading-style(--orgh5, "❀ ");
     
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div {
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
       margin-left: calc(var(--heading-indent) * 4);
     }
   }
@@ -105,7 +105,7 @@
     padding-left: 0;
     @include heading-style(--orgh6, "◇ ");
     
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div {
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
       margin-left: calc(var(--heading-indent) * 5);
     }
   }
@@ -809,12 +809,13 @@ aside {
 
 /* Styling for Org mode results */
 .results {
+  font-family: monospace;
+  white-space: pre-wrap;
   background-color: var(--lightgray);
   border: 1px solid var(--gray);
   border-radius: 5px;
   padding: 15px;
   margin: 15px 0;
-  font-family: monospace;
   position: relative;
   overflow: hidden;
 }
@@ -839,7 +840,6 @@ aside {
   right: 0;
   bottom: 0;
   width: 5px;
-  background: linear-gradient(to bottom, var(--orgh3), var(--orgh4), var(--orgh5));
 }
 
 .results p {
@@ -865,19 +865,87 @@ li > code {
 
 // The rehype code fixes
 
-figure[data-rehype-pretty-code-figure] > pre::after {
-  content: attr(data-language);
-  font-weight: bold;
-  position: absolute;
-  top: 0;
-  left: 50px;  /* Adjust this value based on the width of your ":SRC" label */
-  background-color: var(--orgh5);
-  color: var(--light);
-  padding: 0px 8px;
-  font-size: 0.75em;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  z-index: 1;
+figure[data-rehype-pretty-code-figure] {
+  margin: 0;
+  position: relative;
+  line-height: 1.2rem;
+
+  &::before {
+    font-family: var(--codeFont);
+    font-size: 0.75em;
+    content: ":SRC";
+    width: 30px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--orgh1);
+    color: var(--dark);
+    padding: 0px 8px;
+    font-weight: bold;
+    border-bottom-right-radius: 5px;
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--tertiary), var(--secondary));
+    z-index: 1;
+  }
+  
+  > pre {
+    &::after {
+      content: attr(data-language);
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      left: 45px;
+      background-color: var(--orgh5);
+      color: var(--dark);
+      padding: 0px 8px;
+      font-size: 0.75em;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      z-index: 1;
+    }
+
+    &[data-language="python"]::after {
+      background-color: #3572A5 !important;
+    }
+
+    &[data-language="text"]::after {
+      background-color: #ccc !important;
+    }
+
+    &[data-language="shell"]::after {
+      background-color: #89e051 !important;
+    }
+
+    &[data-language="elisp"]::after {
+      background-color: #c065db !important;
+    }
+
+    &[data-language="emacs-lisp"]::after {
+      background-color: #c065db !important;
+    }
+
+    &[data-language="r"]::after {
+      background-color: #198CE7 !important;
+    }
+
+    &[data-language="markdown"]::after {
+      background-color: #083fa1 !important;
+    }
+
+    &[data-language="org"]::after {
+      background-color: #77AA99 !important;
+    }
+  }
 }
 
 
@@ -1056,4 +1124,80 @@ ol.overflow {
 .spoiler:active::before,
 .spoiler:focus::before {
   opacity: 0;
+}
+
+
+/* TABLE stuff */
+
+.table-container {
+  overflow-x: auto;
+  margin: 1rem 0;
+  background: var(--light);
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+
+  & > table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+
+    th,
+    td {
+      min-width: auto;
+      line-height: 1.6;
+    }
+  }
+}
+
+th {
+  background-color: var(--lightgray);
+  color: var(--secondary);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--gray);
+}
+
+td {
+  color: var(--darkgray);
+  border-bottom: 1px solid var(--lightgray);
+}
+
+tr {
+  &:hover {
+    background-color: var(--highlight);
+  }
+  &:last-child td {
+    border-bottom: none;
+  }
+}
+
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5) {
+  text-align: center;
+}
+
+td:nth-child(5) {
+  font-weight: bold;
+  font-size: 1.75em;
+}
+
+/* Progress bar styling */
+td:last-child {
+  .progress-bar {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 2px;
+    background-color: var(--lightgray);
+    border-radius: 2px;
+
+    &.filled {
+      background-color: var(--secondary);
+    }
+  }
 }

@@ -2,7 +2,7 @@
 title: "ankigen"
 author: ["Justin"]
 date: 2024-08-05T11:48:00-04:00
-lastmod: 2024-08-06T11:28:45-04:00
+lastmod: 2024-08-15T14:37:28-04:00
 tags: ["learning"]
 categories: ["project"]
 draft: false
@@ -11,7 +11,7 @@ creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 
 <div class="outline-1 jvc">
 
-## About {#about}
+## <span class="org-todo todo TODO">TODO</span> About {#about}
 
 This is my first 'project' note page I'm trying. The idea is to put the entire
 process down as I ponder and work on things.
@@ -51,7 +51,7 @@ graph TD
     E2 --> F
     E3 --> F
     F -->|"Review for quality"| G[LLM: Review and Refine Questions]:::LLM
-    G -->|"Prepare for import"| H[Create CSV File]:::Process
+    G -->|"Prepare for import"| H[Create CSV File / org-file structured for Anki]:::Process
     H -->|"Import to Anki"| I[Generate Anki Deck]:::Process
     I -->|"Ready for study"| J[Final Anki Deck on SQL]:::End
 
@@ -70,10 +70,15 @@ graph TD
 High level I could possibly do this inside emacs itself, then keep up the
 generation as an artifact for people to wander into and maybe leave
 comments.[^fn:2] I'm not entirely sure if it would just be all babel-blocks or
-maybe a package that builds on something like [gptel.](https://github.com/karthink/gptel/blob/master/gptel-ollama.el) It's also worth pondering
-the usage of something like gpt4o-mini. While it's not free, it's cheap enough
-that I think the cost of an entire deck on a topic would be less than a dollar
-or two. I certainly spend money on dumber things.
+maybe a package that builds on something like [gptel.](https://github.com/karthink/gptel/blob/master/gptel-ollama.el)
+
+ It's also worth pondering the usage of something like gpt4o-mini. While it's
+not free, it's cheap enough that I think the cost of an entire deck on a topic
+would be less than a dollar or two. I certainly spend money on dumber things.
+
+ I could do this more easily in Python, I suppose, but I kind of wanted to
+tinker around with elisp more. Maybe use it to interact with the anki packages
+that exist.
 
 </div>
 
@@ -170,49 +175,25 @@ for the end. Maybe Claude?
     final-answer))
 
 ;; Example usage
-(gptel-chain-of-thought "How would I efficiently sort a large list of integers \
-in Java and I'm not allowed to use built-in sorts?")
+(gptel-chain-of-thought "I'm making an anki deck for SQL, what are 10 sub-topics to study")
 ```
 
 <div class="results">
 
-Based on my thoughts, here's the final solution:
+Based on our conversation:
 
-To efficiently sort a large list of integers without using built-in sorts in
-Java, you can implement QuickSort as follows:
-
-This implementation partitions the list around the pivot, recursively sorts the sublists, and then merges them back together in sorted order.
+1.  Data types (int, varchar, datetime)
+2.  Table operations (CREATE, ALTER, DROP)
+3.  Querying (SELECT, FROM, WHERE, JOIN)
+4.  Data manipulation (INSERT, UPDATE, DELETE)
+5.  Views and subqueries
+6.  Indexes and optimization techniques
+7.  SQL functions and aggregations (e.g., SUM, AVG, COUNT)
+8.  Common errors and pitfalls to avoid
+9.  Advanced SQL topics (e.g., window functions, common table expressions)
+10. Best practices for writing efficient and readable SQL code
 
 </div>
-
-```java
-public static void quick_sort(int[] arr) {
-    if (arr.length <= 1) return; // base case: already sorted or empty
-
-    int pivot = arr[0]; // choose first element as pivot
-    int[] left = new int[0];
-    int[] right = new int[arr.length - 1];
-
-    for (int i = 1; i < arr.length; i++) {
-        if (arr[i] <= pivot) {
-            left = Arrays.copyOf(left, left.length + 1);
-            left[left.length] = arr[i];
-        } else {
-            right = Arrays.copyOf(right, right.length + 1);
-            right[right.length] = arr[i];
-        }
-    }
-
-    quick_sort(left); // recursive sort left sublist
-    quick_sort(right); // recursive sort right sublist
-
-    int i = 0;
-    for (int j = 0; j < left.length + right.length; j++) {
-        if (j < left.length) arr[i++] = left[j];
-        else arr[i++] = right[j - left.length];
-    }
-}
-```
 
 </div>
 
@@ -221,7 +202,9 @@ public static void quick_sort(int[] arr) {
 #### More Experiments with Chain/Analysis of Thought {#more-experiments-with-chain-analysis-of-thought}
 
 Now that we know it's simple to chain prompts in gptel, let's try
-using it for the initial part of my idea.
+using it for the initial part of my idea.[^fn:3]
+
+Maybe let's try it in Python just for ease..
 
 </div>
 
@@ -237,3 +220,6 @@ using it for the initial part of my idea.
     totally wrong! Here's why!" - They say that expertise is knowing all the
     footguns, but I've also noticed people will closely guard things that give them
     an edge: "It's not my job to educate you!"
+[^fn:3]: Okay, so uh, I had some trouble with callbacks and such for emacs based llms,
+    might just continue this in Python but keeping the previous parts for posterity
+    / showing my chain of thought
