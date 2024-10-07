@@ -129,17 +129,6 @@ function setupGraphToggle() {
       manuallyCollapsed = !manuallyCollapsed;
       toggleGraphVisibility(graphDiv);
     });
-
-    // Add scroll event listener
-    window.addEventListener('scroll', () => {
-      const scrollPercentage = (window.scrollY / window.innerHeight) * 100;
-      
-      if (scrollPercentage > 10 && !graphDiv.classList.contains('collapsed')) {
-        toggleGraphVisibility(graphDiv, true);
-      } else if (scrollPercentage <= 10 && graphDiv.classList.contains('collapsed') && !manuallyCollapsed) {
-        toggleGraphVisibility(graphDiv, false);
-      }
-    });
   }
 }
 
