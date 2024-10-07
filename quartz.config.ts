@@ -29,45 +29,45 @@ const config: QuartzConfig = {
         code: "IBM Plex Mono",
       },
       colors: {
-        lightMode: {
-          light: "#f7f7f2",
-          lightgray: "#e8e8e3",
-          gray: "#b8b8b0",
-          darkgray: "#5a5a52",
-          dark: "#2d2d28",
-          secondary: "#3a7ca5", // Main link color (blue)
-          tertiary: "#81b29a", // Secondary link color (sage green)
-          highlight: "rgba(210, 215, 200, 0.3)",
-          orgh2: "#3a7ca5",
-          orgh3: "#81b29a",
-          orgh4: "#e07a5f",
-          orgh5: "#6d597a",
-          orgh6: "#b56576",
-          textHighlight: "#f2cc8f88",
-          todo1: "#f2cc8f", // Warm yellow for todo, idea
-          todo2: "#81b29a", // Sage green for hold, wait
-          todo3: "#e07a5f", // Coral red for kill, cancel
+        lightMode: {  // Catppuccin Latte
+          light: "#eff1f5",       // Base background (Base)
+          lightgray: "#e6e9ef",   // Surface (Surface0)
+          gray: "#ccd0da",        // Subtle foreground (Surface2)
+          darkgray: "#6c6f85",    // Lavender for darker text
+          dark: "#4c4f69",        // Dark foreground (Text)
+          secondary: "#1e66f5",   // Blue for main links
+          tertiary: "#179299",    // Teal for secondary links
+          highlight: "rgba(148, 192, 248, 0.3)",  // Subtle highlight (Blue)
+          orgh2: "#1e66f5",       // Blue for main headers
+          orgh3: "#179299",       // Teal for subheaders
+          orgh4: "#d20f39",       // Red for h4
+          orgh5: "#e9b143",       // Yellow for h5
+          orgh6: "#40a02b",       // Green for h6
+          textHighlight: "#e9b14388",  // Yellow text highlight
+          todo1: "#e9b143",       // Yellow for todo, idea
+          todo2: "#40a02b",       // Green for hold, wait
+          todo3: "#d20f39",       // Red for kill, cancel
         },
-        darkMode: {
-          light: "#1a1b26", // Tokyo Night background
-          lightgray: "#24283b", // Tokyo Night darker background
-          gray: "#565f89", // Tokyo Night foreground
-          darkgray: "#ccd3f0", // Lightened version of Tokyo Night lighter foreground
-          dark: "#e0e3ff", // Lightened version of Tokyo Night bright foreground
-          secondary: "#7aa2f7", // Tokyo Night blue, for main links
-          tertiary: "#bb9af7", // Tokyo Night purple, for secondary links
-          highlight: "rgba(41, 46, 66, 0.5)", // Subtle highlight
-          orgh2: "#7aa2f7", // Blue for main headers
-          orgh3: "#9ece6a", // Green for subheaders
-          orgh4: "#f7768e", // Red for h4
-          orgh5: "#e0af68", // Orange for h5
-          orgh6: "#7aa2f7", // repeat
-          textHighlight: "#41a6b525", // Subtle text highlight
-          todo1: "#e0af68", // Muted orange for todo, idea
-          todo2: "#9ece6a", // Bright green for hold, wait
-          todo3: "#f7768e", // Vibrant pink for kill, cancel
+        darkMode: {  // Catppuccin Mocha
+          light: "#1e1e2e",       // Base background (Base)
+          lightgray: "#313244",   // Surface (Surface0)
+          gray: "#45475a",        // Subtle foreground (Surface2)
+          darkgray: "#b4befe",    // Lavender foreground (Text)
+          dark: "#cdd6f4",        // Slightly brighter text
+          secondary: "#89b4fa",   // Blue for main links
+          tertiary: "#b4befe",    // Lavender for secondary links
+          highlight: "rgba(49, 52, 68, 0.5)",  // Overlay0
+          orgh2: "#89b4fa",       // Blue for main headers
+          orgh3: "#a6e3a1",       // Green for subheaders
+          orgh4: "#f38ba8",       // Red for h4
+          orgh5: "#f9e2af",       // Yellow for h5
+          orgh6: "#b4befe",       // Lavender for h6
+          textHighlight: "#94e2d525",  // Subtle text highlight (Teal)
+          todo1: "#f9e2af",       // Yellow for todo, idea
+          todo2: "#a6e3a1",       // Green for hold, wait
+          todo3: "#f38ba8",       // Red for kill, cancel
         },
-      },
+      },      
     },
   },
   plugins: {

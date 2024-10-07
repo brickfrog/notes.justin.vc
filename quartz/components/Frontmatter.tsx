@@ -28,7 +28,7 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
   const options: ContentMetaOptions = { ...defaultOptions, ...opts }
 
   function getGithubLink(filePath: string): string {
-    const githubBaseUrl = "https://raw.githubusercontent.com/brickfrog/notes.justin.vc/v4/"
+    const githubBaseUrl = "https://raw.githubusercontent.com/brickfrog/notes.justin.vc/master/"
     return `${githubBaseUrl}${filePath}`
   }
 

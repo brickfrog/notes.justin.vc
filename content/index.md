@@ -7,7 +7,7 @@ draft: false
 
 <div style="display: flex; align-items: flex-start; justify-content: space-between; width: 100%;">
   <div style="flex: 3; min-width: 0; padding-right: 25px;">
-    <blockquote class="quoteback" data-title="STUDY A GO!!GO!! 歌詞 GOLDEN GIRLS ふりがな付 - うたてん" data-author="@utaten" cite="https://soundcloud.com/softwarevibes/golden-boy-ost-ending">
+    <blockquote class="quoteback" data-title="STUDY A GO!!GO!! 歌詞 GOLDEN GIRLS ふりがな付 - うたてん" data-author="@utaten / soundcloud" cite="https://soundcloud.com/softwarevibes/golden-boy-ost-ending">
       袖そでまくり たすきがけ<br>
       鉢巻はちまきしめて がんばって<br>
       疲つかれたら お茶ちゃにして<br>
@@ -50,9 +50,9 @@ draft: false
 
 <div class="outline-1 jvc">
 
-This is the home to my notes that I export using [org-roam](https://www.orgroam.com). I've been trying to use the daily notes as the jumping off point for accountability re: me reading/doing more things. Additionally, it's meant for me to tinker around with typescript. Check the [about](/about) page for more details on the site itself. I plan to keep most design notes there. 
+This is the home to my notes that I export using [org-roam](https://www.orgroam.com). It's primarily meant for just jotting down notes with a secondary purpose allowing me to tinker around with typescript. Check the [about](/about) page for more details on the site itself. I plan to keep most design notes there. Or you can go back to my main site [here](https://justin.vc).
 
-Most of the design is based on person aesthetics vs. readability, @ me if you think I should change things. Some of this is intrinsic to quartz and I've been kind of tinkering off-and-on.
+Most of the design is based on person aesthetics vs. readability, @ me if you think I should change things. Some of this is intrinsic to quartz and I've been kind of tinkering off-and-on. I also primarily operate it in dark mode on my desktop so things are generally tested more stringently against that.
 
 <div class="outline-2 jvc">
 
@@ -72,4 +72,4 @@ Most of the design is based on person aesthetics vs. readability, @ me if you th
 </div>
 
 
-[^fn:1]: Seriously, go check out the IOCCC [winners](https://www.ioccc.org/years.html). This is some amazing stuff. I originally wanted to post the ['Sonny Boy' ASCII](https://github.com/mame/sonny-boy-nankai) by mame but I wasn't sure that was kosher since it's owned by the investment committee for the anime. Also, 'Golden Boy' and 'Sonny Boy', both good anime.
+[^fn:1]: A e s t h e t i c. Go check out the IOCCC [winners](https://www.ioccc.org/years.html).

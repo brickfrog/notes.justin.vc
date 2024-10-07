@@ -2,8 +2,6 @@
   position: sticky;
   font-size: 0.9rem;
   top: 20px;
-  max-height: calc(100vh - 40px);
-  overflow-y: auto;
   border-radius: 8px;
   padding: 0.5rem;
   transition: max-height 0.3s ease, box-shadow 0.3s ease;
@@ -73,8 +71,9 @@
   }
 
   #toc-content {
+    height: calc(100vh - 40px);
+    max-height: calc(100vh - 400px);
     overflow-y: auto;
-    max-height: calc(100vh - 120px);
     padding: 0.25rem;
 
     ul {
