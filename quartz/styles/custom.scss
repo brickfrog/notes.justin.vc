@@ -218,7 +218,7 @@
 }
 
 // Mobile responsiveness
-@media screen and (max-width: $mobileBreakpoint) {
+@media screen and ($mobile) {
   :root {
     --base-indent: 5px;
     --heading-indent: 5px;

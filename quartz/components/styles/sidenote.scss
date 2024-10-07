@@ -42,7 +42,7 @@
 }
 
 // Media query to handle responsiveness
-@media all and (max-width: $fullPageWidth) {
+@media all and ($desktop) {
   .sidenote-container {
     position: static;
     width: 100%;
