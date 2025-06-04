@@ -66,47 +66,26 @@
       });
     }
   }
-  // Bring in v4 TOC toggle setup.
-  function toggleToc(this: HTMLElement) {
-    this.classList.toggle("collapsed");
-    this.setAttribute(
-      "aria-expanded",
-      this.getAttribute("aria-expanded") === "true" ? "false" : "true"
-    );
-    const content = this.nextElementSibling as HTMLElement | undefined;
-    if (!content) return;
-    content.classList.toggle("collapsed");
-  }
-  function setupToc() {
-    const toc = document.getElementById("toc");
+  function setupTocToggle() {
+    const toc = document.getElementById("toc")
     if (toc) {
-      const collapsed = toc.classList.contains("collapsed");
-      const content = toc.nextElementSibling as HTMLElement | undefined;
-      if (!content) return;
-      toc.addEventListener("click", toggleToc);
-      window.addCleanup(() => toc.removeEventListener("click", toggleToc));
+      const collapsed = toc.classList.contains("collapsed")
+      const content = toc.nextElementSibling as HTMLElement | undefined
+      if (!content) return
+      toc.addEventListener("click", toggleTocHandler)
+      window.addCleanup(() => toc.removeEventListener("click", toggleTocHandler))
     }
   }
-function toggleToc(this: HTMLElement) {
-  this.classList.toggle("collapsed")
-  this.setAttribute(
-    "aria-expanded",
-    this.getAttribute("aria-expanded") === "true" ? "false" : "true",
-  )
-  const content = this.nextElementSibling as HTMLElement | undefined
-  if (!content) return
-  content.classList.toggle("collapsed")
-}
 
-function setupToc() {
-  const toc = document.getElementById("toc")
-  if (toc) {
-    const collapsed = toc.classList.contains("collapsed")
-    const content = toc.nextElementSibling as HTMLElement | undefined
+  function toggleTocHandler(this: HTMLElement) {
+    this.classList.toggle("collapsed")
+    this.setAttribute(
+      "aria-expanded",
+      this.getAttribute("aria-expanded") === "true" ? "false" : "true",
+    )
+    const content = this.nextElementSibling as HTMLElement | undefined
     if (!content) return
-    toc.addEventListener("click", toggleToc)
-    window.addCleanup(() => toc.removeEventListener("click", toggleToc))
->>>>>>> v4
+    content.classList.toggle("collapsed")
   }
 
   function updateProgressBar() {
@@ -120,22 +99,10 @@ function setupToc() {
     progressBar.style.width = `${scrollPercentage}%`
   }
 
-  function toggleToc() {
-    const toc = document.querySelector(".toc") as HTMLElement
-    if (toc) {
-      toc.classList.toggle("collapsed")
-    }
-  }
-
   function setupEventListeners() {
     window.removeEventListener("scroll", scrollHandler)
     window.addEventListener("scroll", scrollHandler)
-
-    const tocButton = document.getElementById("toc")
-    if (tocButton) {
-      tocButton.removeEventListener("click", toggleToc)
-      tocButton.addEventListener("click", toggleToc)
-    }
+    setupTocToggle()
   }
 
   function scrollHandler() {

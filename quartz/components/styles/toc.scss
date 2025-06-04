@@ -26,7 +26,6 @@ button#toc {
   color: var(--dark);
   display: flex;
   align-items: center;
->>>>>>> v4
 
   // Styles for the scrollbar
   & #toc-content ul {
@@ -179,7 +178,6 @@ button#toc {
       max-height 0.35s ease,
       visibility 0s linear 0.35s;
     visibility: hidden;
->>>>>>> v4
   }
 
   .toc-progress-bar {
@@ -302,9 +300,7 @@ button#toc {
       }
     }
   }
-<<<<<<< HEAD
-}
-=======
+
   > ul.overflow {
     max-height: none;
     width: 100%;
@@ -316,4 +312,3 @@ button#toc {
     }
   }
 }
->>>>>>> v4
