@@ -80,5 +80,13 @@ export default {
       showingFirst: ({ count }) => `Показ перших ${count} міток.`,
       totalTags: ({ count }) => `Всього знайдено міток: ${count}.`,
     },
+    categoryContent: {
+      category: "Категорія",
+      categoryIndex: "Індекс категорій",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "1 елемент у цій категорії" : `${count} елементів у цій категорії`,
+      showingFirst: ({ count }: { count: number }) => `Показано перші ${count} категорій`,
+      totalCategories: ({ count }: { count: number }) => `Всього ${count} категорій`,
+    },
   },
 } as const satisfies Translation

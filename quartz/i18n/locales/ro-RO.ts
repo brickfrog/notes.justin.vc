@@ -81,5 +81,13 @@ export default {
       showingFirst: ({ count }) => `Se afișează primele ${count} etichete.`,
       totalTags: ({ count }) => `Au fost găsite ${count} etichete în total.`,
     },
+    categoryContent: {
+      category: "Categorie",
+      categoryIndex: "Index de categorii",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "1 element în această categorie" : `${count} elemente în această categorie`,
+      showingFirst: ({ count }: { count: number }) => `Se afișează primele ${count} categorii`,
+      totalCategories: ({ count }: { count: number }) => `Există ${count} categorii în total`,
+    },
   },
 } as const satisfies Translation

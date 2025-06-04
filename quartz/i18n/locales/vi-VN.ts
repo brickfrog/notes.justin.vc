@@ -80,5 +80,13 @@ export default {
       showingFirst: ({ count }) => `Hiển thị trước ${count} thẻ.`,
       totalTags: ({ count }) => `Tìm thấy ${count} thẻ tổng cộng.`,
     },
+    categoryContent: {
+      category: "Danh mục",
+      categoryIndex: "Chỉ mục danh mục",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "1 mục trong danh mục này" : `${count} mục trong danh mục này`,
+      showingFirst: ({ count }: { count: number }) => `Hiển thị ${count} danh mục đầu tiên`,
+      totalCategories: ({ count }: { count: number }) => `Có tổng cộng ${count} danh mục`,
+    },
   },
 } as const satisfies Translation

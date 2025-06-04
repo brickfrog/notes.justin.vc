@@ -31,9 +31,18 @@ TagList.css = `
   display: flex;
   padding-left: 0;
   gap: 0.4rem;
-  margin: 1rem 0;
   flex-wrap: wrap;
   justify-self: end;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  background-color: var(--light);
+  color: var(--darkgray);
+  font-family: var(--codeFont);
+}
+
+.tags::before {
+  content: "tags:";
 }
 
 .section-li > .section > .tags {
@@ -48,8 +57,8 @@ TagList.css = `
 }
 
 a.internal.tag-link {
+  font-family: var(--codeFont);
   border-radius: 8px;
-  background-color: var(--highlight);
   padding: 0.2rem 0.4rem;
   margin: 0 0.1rem;
 }

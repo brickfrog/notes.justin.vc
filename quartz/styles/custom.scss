@@ -1,3 +1,1203 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
-// put your custom CSS here!
+// Variables
+:root {
+  --base-indent: 15px;
+  --heading-indent: 10px;
+  --base-font-size: 1em;
+  --base-margin: 8px;
+  --base-padding: 4px;
+}
+
+// Mixins (unchanged)
+@mixin todo-style($bg-color, $text-color: #000000, $font-weight: 600) {
+  background: $bg-color;
+  color: $text-color;
+  font-weight: $font-weight;
+}
+
+@mixin heading-style($color, $symbol) {
+  color: var(#{$color});
+  &::before {
+    content: $symbol;
+  }
+}
+
+@mixin reference-styles {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      text-decoration: underline;
+      color: var(--secondary);
+    }
+  }
+
+  i {
+    font-style: italic;
+    color: var(--text-muted);
+  }
+}
+
+// Org Mode Header Vibes
+.jvc {
+  margin-left: var(--base-indent);
+  
+  div.jvc {
+    margin-left: var(--base-padding);
+  }
+  
+  h2, h3, h4, h5, h6 {
+    font-size: 1.0em;
+    margin-top: var(--base-margin);
+    margin-bottom: var(--base-margin);
+  }
+  
+  h2 {
+    margin-left: 0;
+    padding-left: 0;
+    @include heading-style(--orgh2, "◉ ");
+    
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+      margin-left: var(--heading-indent);
+    }
+  }
+  
+  h3 {
+    margin-left: var(--heading-indent);
+    padding-left: 0;
+    @include heading-style(--orgh3, "◎ ");
+    
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+      margin-left: calc(var(--heading-indent) * 2);
+    }
+  }
+  
+  h4 {
+    margin-left: calc(var(--heading-indent) * 2);
+    padding-left: 0;
+    @include heading-style(--orgh4, "◈ ");
+    
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+      margin-left: calc(var(--heading-indent) * 3);
+    }
+  }
+  
+  h5 {
+    margin-left: calc(var(--heading-indent) * 3);
+    padding-left: 0;
+    @include heading-style(--orgh5, "❀ ");
+    
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+      margin-left: calc(var(--heading-indent) * 4);
+    }
+  }
+  
+  h6 {
+    margin-left: calc(var(--heading-indent) * 4);
+    padding-left: 0;
+    @include heading-style(--orgh6, "◇ ");
+    
+    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+      margin-left: calc(var(--heading-indent) * 5);
+    }
+  }
+  
+  // Lists
+  ul, ol {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-left: var(--base-indent);
+    list-style-position: outside;
+    
+    li {
+      margin-bottom: 0.3em;
+      
+      p {
+        margin-left: 0;
+      }
+    }
+    
+    ul, ol {
+      padding-left: var(--heading-indent);
+    }
+  }
+  
+  // Paragraphs
+  > p {
+    padding-left: var(--heading-indent);
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    word-wrap: break-word;
+  }
+  
+  &::before {
+    padding-right: 4px;
+    font-size: 12px;
+  }
+  
+  > p:not(:first-of-type) {
+    text-indent: 2em;
+  }
+  
+  > ul, > ol {
+    margin-left: var(--heading-indent);
+    padding-left: var(--base-indent);
+    
+    > li {
+      margin-bottom: 0.5em;
+      
+      > p {
+        margin-left: 0;
+      }
+    }
+  }
+
+  // Code blocks
+  figure[data-rehype-pretty-code-figure] {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    pre {
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+
+    code {
+      display: block;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+
+    .clipboard-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 4px;
+      color: inherit;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+// Outline-5 specific styles
+.outline-5 {
+  ul, ol { margin-left: -10px; }
+  
+  p::before {
+    content: "◆ ";
+    padding-right: 4px;
+    font-size: 8px;
+  }
+  
+  ul, ul ul, ul ul ul, ul ul ul ul, ul ul ul ul ul {
+    p::before {
+      content: "◆ ";
+      font-size: 8px;
+    }
+  }
+  
+  li { list-style-type: none; }
+}
+
+// Mobile responsiveness
+@media screen and ($mobile) {
+  :root {
+    --base-indent: 5px;
+    --heading-indent: 5px;
+    --base-margin: 5px;
+    --base-padding: 2px;
+  }
+
+  .jvc {
+    margin-left: 0;
+
+    div.jvc {
+      margin-left: 0;
+    }
+
+    h2, h3, h4, h5, h6 {
+      margin-left: 0;
+      padding-left: 0;
+
+      & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div {
+        margin-left: var(--base-indent);
+      }
+    }
+
+    > p {
+      padding-left: 0;
+    }
+
+    > p:not(:first-of-type) {
+      text-indent: 1em;
+    }
+
+    > ul, > ol {
+      margin-left: var(--base-indent);
+      padding-left: var(--base-indent);
+    }
+
+    // Adjust code blocks for mobile
+    figure[data-rehype-pretty-code-figure] {
+      margin-left: 0;
+      margin-right: 0;
+
+      pre {
+        border-radius: 0;
+      }
+
+      code {
+        padding: 0.5em;
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  .outline-5 {
+    ul, ol { 
+      margin-left: 0; 
+    }
+  }
+}
+
+// Org-Mode Tags
+.org-todo {
+  display: inline-block;
+  padding: 0.05rem 0.3rem;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0.2rem;
+  position: relative;
+  top: -0.5em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+
+  &.todo {
+    &.TODO, &.IDEA { @include todo-style(var(--todo1)); }
+    &.PROJ { @include todo-style(#939ED2); }
+    &.WAIT, &.HOLD { @include todo-style(var(--todo2)); }
+    &.STRT { @include todo-style(#F3935C, #000000, 1000); }
+  }
+
+  &.done {
+    &.DONE { @include todo-style(#303132, #FFFFFF); }
+    &.KILL, &.NO { @include todo-style(var(--todo3)); }
+  }
+}
+
+@mixin todo-style($bg-color, $text-color: #FFFFFF, $font-weight: 600) {
+  background-color: $bg-color;
+  color: $text-color;
+  font-weight: $font-weight;
+}
+
+// Tags
+.tag {
+  float: right;
+  font-size: 0.6rem;
+  color: var(--tertiary);
+  max-width: 150px;
+  white-space: normal;
+  word-wrap: break-word;
+  font-family: monospace;
+
+  > span {
+    display: inline-block;
+    
+    &::before,
+    &::after {
+      content: ':';
+    }
+    
+  }
+  
+  // Ensure colons are not separated from content on line breaks
+  > span,
+  > span::before,
+  > span::after {
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+
+// Org - Timestamps
+.timestamp-kwd {
+  color: var(--dark);
+  font-size: 0.8em;
+}
+
+p.timestamp-wrapper {
+  margin: 0;
+}
+
+.timestamp-kwd + .timestamp {
+  background-color: var(--theme);
+  color: var(--secondary);
+  font-size: 0.8em;
+}
+
+// Superscript
+sup { margin-left: 2px; }
+
+// EOF marker
+.page-footer::after {
+  content: "— EOF —";
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 1em;
+  display: block;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+// Metadata + Title
+
+.popover .article-title {
+  font-size: 1em;
+}
+
+.article-title {
+  font-size: 1em;
+  margin-top: 0.75rem;
+  font-family: var(--codeFont);
+}
+
+.article-title::before {
+  font-size: 0.80em;
+  font-weight: 400;
+  color: var(--darkgray);
+  font-family: var(--codeFont);
+  content: "𝙏 ";
+}
+
+p.content-meta a {
+  color: var(--gray); 
+  text-decoration: underline;
+}
+
+// Explorer
+#explorer-content { 
+  font-size: 0.8em; }
+
+// Details
+.jvc details {
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: var(--light);
+  transition: all 0.3s ease-in-out;
+
+  &[open] {
+    border-color: var(--secondary);
+    background-color: var(--highlight);
+  }
+}
+
+.jvc summary {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 0;
+  color: var(--darkgray);
+  outline: none;
+
+  &:focus, &:hover { color: var(--secondary); }
+}
+
+// Content Meta
+.content-meta {
+  font-weight: bold;
+  margin-top: 0.25em;
+  color: var(--gray);
+
+  &[show-comma="true"] {
+    > span:not(:last-child) {
+      margin-right: 0.75em;
+
+      &::after {
+        content: "·";
+        margin-left: 0.75em;
+      }
+    }
+  }
+}
+
+// Footer Fixes
+.footer-small { font-size: 0.8em; }
+
+footer {
+  text-align: center;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 0;
+  }
+}
+
+hr { margin: 1rem auto !important; }
+
+// References
+
+
+[id^="references"],
+.jvc [id^="references"] {
+  border-top: 1px solid var(--lightgray);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 1rem !important;
+  font-weight: bold;
+  margin-left: 0;
+  padding-left: 0;
+  color: var(--dark);
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+}
+
+.jvc [id^="references"] {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+[id^="references"]::before {
+  content: "";
+}
+
+.jvc [id^="references"]::before {
+  content: "-";
+}
+
+
+// CSL Bibliography Styling
+.csl-left-margin {
+  margin-right: 5px;
+}
+
+.csl-bib-body {
+  @include reference-styles;
+
+  .csl-entry {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: normal;
+    color: var(--text-normal);
+    transition: background-color 0.3s ease; // Smooth transition for highlight effect
+
+    &:last-child { border-bottom: none; }
+
+    a[id^="citeproc_bib_item_"] { display: none; }
+
+    &.highlight {
+      background-color: var(--highlight); // Yellow highlight with fallback
+      border-radius: 4px; // Optional: rounds the corners of the highlight
+    }
+  }
+}
+
+// Footnotes Styling
+#footnote-label {
+  margin-top: 1rem;
+  font-size: 1rem !important;
+}
+
+.footnotes {
+  @include reference-styles;
+  margin-left: 25px;
+  margin-bottom: 2rem;
+
+  ol { padding-left: 1.5em; }
+
+  li {
+    font-weight: normal;
+    color: var(--secondary);
+
+    &:last-child { border-bottom: none; }
+  }
+
+  a[id^="user-content-fn-"] { display: none; }
+
+  .data-footnote-backref {
+    font-size: 0.8em;
+    vertical-align: super;
+    line-height: 0;
+  }
+}
+
+.sr-only {
+  font-size: 1rem !important;
+  content: none !important;
+
+
+  &::before {
+    padding-right: 0px;
+    content: "-";
+  }
+}
+
+#backlinks {
+  font-size: 1rem !important;
+  margin-top: 1rem;
+}
+
+.backlinks {
+  position: relative;
+  margin-left: 25px;
+
+  & > h2 {
+
+    &::before {
+      content: "-";}
+  }
+
+  & > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+
+    & > li {
+      & > a {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+h2 + .csl-bib-body,
+h2 + .footnotes {
+  margin-top: 1rem;
+}
+
+/* CUSTOM LLM CSS */
+
+aside {
+  background-color: var(--primary);  
+  border-left: 4px solid var(--secondary); 
+  padding: 10px 0px 10px 25px; 
+  margin: 25px;  
+  font-family: var(--codeFont);  
+  font-size: 0.75em;  
+  color: #333;  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  border-radius: 5px;  
+
+  h2 {
+    font-size: 1.2em;  
+    margin-top: 0;  
+    color: #007acc;  
+  }
+
+  p {
+    margin-bottom: 1em; 
+    line-height: 1.5;  
+  }
+
+  a {
+    color: #007acc;  
+    text-decoration: none; 
+    border-bottom: 1px dotted #007acc; 
+    &:hover {
+      text-decoration: underline;  
+    }
+  }
+
+  ul, ol {
+    margin: 0;  // Reset margin
+    padding-left: 20px;  // Space for list items
+    list-style-position: outside;  // Standard list styling
+  }
+
+  blockquote {
+    margin: 1em 0;  // Space around the blockquote
+    padding-left: 1em;  // Indentation for the blockquote
+    border-left: 4px solid #ccc;  // Grey left border
+    color: #666;  // Slightly lighter text color
+  }
+}
+
+
+/* Graph Button */
+
+.graph {
+  button#graph {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: var(--dark);
+    display: flex;
+    width: 100%;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    padding: 0;
+
+    &:hover {
+      background-color: var(--lightgray);
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .fold {
+      margin-left: auto;
+      transition: transform 0.3s ease;
+      opacity: 0.8;
+    }
+  }
+
+  .graph-outer,
+  #global-graph-outer {
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+    opacity: 1;
+    max-height: 1000px; /* Adjust this value based on your graph's maximum height */
+    overflow: hidden;
+  }
+
+  &.collapsed {
+    button#graph .fold {
+      transform: rotate(-90deg);
+    }
+
+    .graph-outer,
+    #global-graph-outer {
+      opacity: 0;
+      max-height: 0;
+    }
+  }
+}
+
+/* TOC EDITS */
+
+.toc {
+  background-color: var(--light) !important;
+}
+
+.graph {
+  background-color: var(--light) !important;
+}
+
+
+/* FOOTNOTE REORDERING */
+
+/* Target the container that holds references, footnotes, and backlinks */
+.page-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Move references to the end */
+.page-footer > div:has(h2:contains("References")) {
+  order: 3;
+}
+
+/* Keep footnotes before references */
+.page-footer > section.footnotes {
+  order: 2;
+}
+
+/* Keep backlinks at the bottom */
+.page-footer > div:has(h2:contains("Backlinks")) {
+  order: 4;
+}
+
+/* Ensure other content stays at the top */
+.page-footer > *:not(:has(h2:contains("References"))):not(section.footnotes):not(:has(h2:contains("Backlinks"))) {
+  order: 1;
+}
+
+/* Optional: Add some spacing between sections */
+.page-footer > * {
+  margin-bottom: 2em;
+}
+
+/* PRIORITIES */
+
+// General styles for priorities
+.org-priority {
+  font-weight: bold;
+  padding: 0.05rem 0.2rem;
+  margin-right: 0.2rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  line-height: 1;
+  display: inline-block;
+  position: relative;
+  top: -0.5em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+// Mixin for priority styles
+@mixin priority-style($color) {
+  background-color: rgba($color, 0.2);
+  color: darken($color, 10%);
+}
+
+// Specific priority styles
+.priority-A, .priority-1 {
+  @include priority-style(#d9534f);  // Red
+}
+
+.priority-B, .priority-2 {
+  @include priority-style(#f0ad4e);  // Orange
+}
+
+.priority-C, .priority-3 {
+  @include priority-style(#5bc0de);  // Blue
+}
+
+// Additional priorities if needed
+@for $i from 4 through 9 {
+  .priority-#{$i} {
+    @include priority-style(#5cb85c);  // Green
+  }
+}
+
+
+// Removing strikethrough for checkboxes
+
+.page {
+  & article {
+
+    & li:has(> input[type="checkbox"]:checked) {
+      text-decoration: none;
+    }
+  }
+}
+
+
+.org-indent {
+  margin-left: calc(var(--heading-indent) * 3)
+}
+
+
+// Results!
+
+/* Styling for Org mode results */
+.results {
+  font-family: monospace;
+  white-space: pre-wrap;
+  background-color: var(--lightgray);
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  padding: 15px;
+  margin: 15px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.results::before {
+  content: ":RESULTS";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--secondary);
+  color: var(--light);
+  padding: 2px 8px;
+  font-weight: bold;
+  border-bottom-right-radius: 5px;
+}
+
+.results::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5px;
+}
+
+.results p {
+  margin: 0;
+  padding: 5px 0;
+  color: var(--dark);
+}
+
+.results p:first-of-type {
+  margin-top: 20px;
+}
+
+/* Codeblock Edits */
+
+// Generic Code using for ~
+
+p > code,
+li > code {
+  color: var(--tertiary);
+  font-size: smaller;
+}
+
+
+// The rehype code fixes
+
+figure[data-rehype-pretty-code-figure] {
+  margin: 0;
+  position: relative;
+  line-height: 1.2rem;
+
+  &::before {
+    font-family: var(--codeFont);
+    font-size: 0.75em;
+    content: ":SRC";
+    width: 30px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--orgh1);
+    color: var(--dark);
+    padding: 0px 8px;
+    font-weight: bold;
+    border-bottom-right-radius: 5px;
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--tertiary), var(--secondary));
+    z-index: 1;
+  }
+  
+  > pre {
+    &::after {
+      content: attr(data-language);
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      left: 45px;
+      background-color: var(--orgh5);
+      color: var(--dark);
+      padding: 0px 8px;
+      font-size: 0.75em;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      z-index: 1;
+    }
+
+    &[data-language="python"]::after {
+      background-color: #3572A5 !important;
+    }
+
+    &[data-language="text"]::after {
+      background-color: #ccc !important;
+    }
+
+    &[data-language="shell"]::after {
+      background-color: #89e051 !important;
+    }
+
+    &[data-language="elisp"]::after {
+      background-color: #c065db !important;
+    }
+
+    &[data-language="emacs-lisp"]::after {
+      background-color: #c065db !important;
+    }
+
+    &[data-language="r"]::after {
+      background-color: #198CE7 !important;
+    }
+
+    &[data-language="markdown"]::after {
+      background-color: #083fa1 !important;
+    }
+
+    &[data-language="org"]::after {
+      background-color: #77AA99 !important;
+    }
+  }
+}
+
+
+/* Fixing Tags */
+
+.tags {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-self: end;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  background-color: var(--light);
+  color: var(--darkgray);
+}
+
+.section-li > .section > .tags {
+  justify-content: flex-end;
+}
+  
+.tags > li {
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0;
+  overflow-wrap: normal;
+  line-height: 1.3;
+}
+
+a.internal.tag-link {
+  font-family: var(--codeFont) !important;
+  border-radius: 8px;
+  padding: 0.2rem 0.4rem;
+  margin: 0 0.1rem;
+}
+
+/* Mermaid */
+
+pre {
+  &:has(> code.mermaid) {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    & > code.mermaid {
+      background: none;
+      padding: 0;
+      overflow: visible;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+
+      svg {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 500px;
+        max-height: 80vh;
+
+        // Override default styles
+        .node rect,
+        .node circle,
+        .node ellipse,
+        .node polygon,
+        .node path {
+          fill: var(--lightgray) !important;
+          stroke: var(--gray) !important;
+        }
+
+        .edgePath .path {
+          stroke: var(--gray) !important;
+        }
+
+        .cluster rect {
+          fill: var(--light) !important;
+          stroke: var(--gray) !important;
+        }
+
+        .label {
+          color: var(--dark);
+          fill: var(--dark) !important;
+        }
+
+        // Specific node colors
+        .node#flowchart-A-0 rect,
+        .node[id^="flowchart-"][id$="-0"] rect { fill: var(--tertiary) !important; } // Start node: Purple
+        .node#flowchart-J-25 rect,
+        .node[id^="flowchart-"][id$="-25"] rect { fill: var(--orgh3) !important; } // End node: Green
+        .node[id^="flowchart-"]:not([id$="-0"]):not([id$="-25"]) rect { fill: var(--secondary) !important; } // Process nodes: Blue
+        .node#flowchart-D-5 polygon,
+        .node polygon { fill: var(--orgh5) !important; } // Decision node: Orange
+
+        // Ensure text is visible
+        .nodeLabel {
+          color: var(--light) !important;
+          fill: var(--light) !important;
+        }
+      }
+    }
+  }
+}
+
+// Media query for larger screens
+@media (min-width: 1200px) {
+  pre:has(> code.mermaid) > code.mermaid > svg {
+    min-height: 700px;
+  }
+}
+
+
+/* tromp */
+
+div.tromp {
+  > pre
+  {
+    border: none;
+    background-color: var(--light);
+    font-size: 0.3rem !important;
+}
+}
+
+/* overflow edits */
+
+ul#explorer.overflow,
+ol.overflow {
+  max-height: 60vh !important;
+  overflow-y: auto;
+}
+
+/* Spoiler */
+
+.spoiler {
+  background-color: #2c3e50;
+  color: transparent;
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.spoiler::before {
+  content: "spoiler";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ecf0f1;
+  font-size: 0.8em;
+  font-weight: bold;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.spoiler:hover {
+  background-color: #34495e;
+}
+
+.spoiler:hover::before {
+  opacity: 1;
+}
+
+.spoiler:active,
+.spoiler:focus {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.spoiler:active::before,
+.spoiler:focus::before {
+  opacity: 0;
+}
+
+
+/* TABLE stuff */
+
+.table-container {
+  overflow-x: auto;
+  margin: 1rem 0;
+  background: var(--light);
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+
+  & > table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+
+    th,
+    td {
+      min-width: auto;
+      line-height: 1.6;
+    }
+  }
+}
+
+th {
+  background-color: var(--lightgray);
+  color: var(--secondary);
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--gray);
+}
+
+td {
+  color: var(--darkgray);
+  border-bottom: 1px solid var(--lightgray);
+}
+
+tr {
+  &:hover {
+    background-color: var(--highlight);
+  }
+  &:last-child td {
+    border-bottom: none;
+  }
+}
+
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5) {
+  text-align: center;
+}
+
+td:nth-child(5) {
+  font-weight: bold;
+  font-size: 1.75em;
+}
+
+/* Progress bar styling */
+td:last-child {
+  .progress-bar {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 2px;
+    background-color: var(--lightgray);
+    border-radius: 2px;
+
+    &.filled {
+      background-color: var(--secondary);
+    }
+  }
+}

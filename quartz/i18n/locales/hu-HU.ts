@@ -78,5 +78,13 @@ export default {
       showingFirst: ({ count }) => `Első ${count} címke megjelenítve.`,
       totalTags: ({ count }) => `Összesen ${count} címke található.`,
     },
+    categoryContent: {
+      category: "Kategória",
+      categoryIndex: "Kategória index",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "1 elem ebben a kategóriában" : `${count} elem ebben a kategóriában`,
+      showingFirst: ({ count }: { count: number }) => `Az első ${count} kategória megjelenítése`,
+      totalCategories: ({ count }: { count: number }) => `Összesen ${count} kategória van`,
+    },
   },
 } as const satisfies Translation

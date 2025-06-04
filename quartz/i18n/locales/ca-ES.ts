@@ -80,5 +80,13 @@ export default {
       showingFirst: ({ count }) => `Mostrant les primeres ${count} etiquetes.`,
       totalTags: ({ count }) => `S'han trobat ${count} etiquetes en total.`,
     },
+    categoryContent: {
+      category: "Categoria",
+      categoryIndex: "Índex de categories",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "1 element en aquesta categoria" : `${count} elements en aquesta categoria`,
+      showingFirst: ({ count }: { count: number }) => `Mostrant les primeres ${count} categories`,
+      totalCategories: ({ count }: { count: number }) => `Hi ha ${count} categories en total`,
+    },
   },
 } as const satisfies Translation

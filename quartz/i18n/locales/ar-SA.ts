@@ -85,5 +85,13 @@ export default {
       showingFirst: ({ count }) => `إظهار أول ${count} أوسمة.`,
       totalTags: ({ count }) => `يوجد ${count} أوسمة.`,
     },
+    categoryContent: {
+      category: "فئة",
+      categoryIndex: "فهرس الفئات",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "يوجد عنصر واحد في هذه الفئة" : `يوجد ${count} عناصر في هذه الفئة`,
+      showingFirst: ({ count }: { count: number }) => `إظهار أول ${count} فئات`,
+      totalCategories: ({ count }: { count: number }) => `يوجد ${count} فئات`,
+    },
   },
 } as const satisfies Translation

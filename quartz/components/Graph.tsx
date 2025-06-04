@@ -57,12 +57,28 @@ const defaultOptions: GraphOptions = {
 }
 
 export default ((opts?: GraphOptions) => {
-  const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
+  const Graph: QuartzComponent = ({ fileData, displayClass, cfg }: QuartzComponentProps) => {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
     return (
       <div class={classNames(displayClass, "graph")}>
-        <h3>{i18n(cfg.locale).components.graph.title}</h3>
+        <button type="button" id="graph">
+          <h3>{i18n(cfg.locale).components.graph.title}</h3>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="fold"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
         <div class="graph-outer">
           <div id="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
           <button id="global-graph-icon" aria-label="Global Graph">
@@ -100,7 +116,35 @@ export default ((opts?: GraphOptions) => {
   }
 
   Graph.css = style
-  Graph.afterDOMLoaded = script
+  Graph.afterDOMLoaded =
+    script +
+    `
+function setupGraphToggle() {
+  const graphButton = document.getElementById('graph');
+  const graphDiv = graphButton.closest('.graph');
+  let manuallyCollapsed = false;
+
+  if (graphButton && graphDiv) {
+    graphButton.addEventListener('click', () => {
+      manuallyCollapsed = !manuallyCollapsed;
+      toggleGraphVisibility(graphDiv);
+    });
+  }
+}
+
+function toggleGraphVisibility(graphDiv, collapse = null) {
+  if (collapse === null) {
+    graphDiv.classList.toggle('collapsed');
+  } else if (collapse) {
+    graphDiv.classList.add('collapsed');
+  } else {
+    graphDiv.classList.remove('collapsed');
+  }
+}
+
+// Call the function after the DOM is loaded
+document.addEventListener('DOMContentLoaded', setupGraphToggle);
+`
 
   return Graph
 }) satisfies QuartzComponentConstructor

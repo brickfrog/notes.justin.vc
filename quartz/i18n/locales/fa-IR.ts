@@ -80,5 +80,13 @@ export default {
       showingFirst: ({ count }) => `در حال نمایش ${count} برچسب.`,
       totalTags: ({ count }) => `${count} برچسب یافت شد.`,
     },
+    categoryContent: {
+      category: "دسته‌بندی",
+      categoryIndex: "فهرست دسته‌بندی‌ها",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "۱ مورد در این دسته‌بندی" : `${count} مورد در این دسته‌بندی`,
+      showingFirst: ({ count }: { count: number }) => `نمایش ${count} دسته‌بندی اول`,
+      totalCategories: ({ count }: { count: number }) => `${count} دسته‌بندی وجود دارد`,
+    },
   },
 } as const satisfies Translation

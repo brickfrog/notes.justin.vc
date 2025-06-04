@@ -11,6 +11,14 @@ async function mouseEnterHandler(
     return
   }
 
+  // Check if the link is on the same page
+  const currentUrl = new URL(document.location.href)
+  const targetUrl = new URL(link.href)
+
+  if (currentUrl.pathname === targetUrl.pathname) {
+    return // Exit the function if it's a same-page link
+  }
+
   async function setPosition(popoverElement: HTMLElement) {
     const { x, y } = await computePosition(link, popoverElement, {
       middleware: [inline({ x: clientX, y: clientY }), shift(), flip()],
@@ -29,10 +37,6 @@ async function mouseEnterHandler(
     return setPosition(link.lastChild as HTMLElement)
   }
 
-  const thisUrl = new URL(document.location.href)
-  thisUrl.hash = ""
-  thisUrl.search = ""
-  const targetUrl = new URL(link.href)
   const hash = decodeURIComponent(targetUrl.hash)
   targetUrl.hash = ""
   targetUrl.search = ""

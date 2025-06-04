@@ -80,5 +80,13 @@ export default {
       showingFirst: ({ count }) => `Prime ${count} etichette.`,
       totalTags: ({ count }) => `Trovate ${count} etichette totali.`,
     },
+    categoryContent: {
+      category: "Categoria",
+      categoryIndex: "Indice delle categorie",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "1 elemento in questa categoria" : `${count} elementi in questa categoria`,
+      showingFirst: ({ count }: { count: number }) => `Mostrando le prime ${count} categorie`,
+      totalCategories: ({ count }: { count: number }) => `Ci sono ${count} categorie in totale`,
+    },
   },
 } as const satisfies Translation

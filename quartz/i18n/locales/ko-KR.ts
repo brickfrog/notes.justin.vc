@@ -78,5 +78,13 @@ export default {
       showingFirst: ({ count }) => `처음 ${count}개의 태그`,
       totalTags: ({ count }) => `총 ${count}개의 태그를 찾았습니다.`,
     },
+    categoryContent: {
+      category: "카테고리",
+      categoryIndex: "카테고리 색인",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "이 카테고리에 1개 항목" : `이 카테고리에 ${count}개 항목`,
+      showingFirst: ({ count }: { count: number }) => `처음 ${count}개의 카테고리 표시`,
+      totalCategories: ({ count }: { count: number }) => `총 ${count}개의 카테고리가 있습니다`,
+    },
   },
 } as const satisfies Translation

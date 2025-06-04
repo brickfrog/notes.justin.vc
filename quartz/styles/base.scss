@@ -3,7 +3,6 @@
 @use "./callouts.scss";
 
 html {
-  scroll-behavior: smooth;
   text-size-adjust: none;
   overflow-x: hidden;
   width: 100vw;
@@ -79,16 +78,21 @@ a {
 
   &.internal {
     text-decoration: none;
-    background-color: var(--highlight);
     padding: 0 0.1rem;
     border-radius: 5px;
-    line-height: 1.4rem;
 
     &:has(> img) {
       background-color: none;
       border-radius: 0;
       padding: 0;
     }
+    
+    &.category-link {
+      &::before {
+        content: "@";
+      }
+    }
+
     &.tag-link {
       &::before {
         content: "#";
@@ -97,13 +101,18 @@ a {
   }
 
   &.external .external-icon {
-    height: 1ex;
-    margin: 0 0.15em;
+    height: 1.5ex;
+    margin-left: 5px;
 
     > path {
-      fill: var(--dark);
+        fill: var(--dark);
+
+        &:nth-of-type(2) {
+            fill: var(--light);
+        }
     }
-  }
+}
+
 }
 
 .desktop-only {
@@ -275,9 +284,9 @@ a {
 input[type="checkbox"] {
   transform: translateY(2px);
   color: var(--secondary);
-  border: 1px solid var(--lightgray);
+  border: 1px solid var(--darkgray);
   border-radius: 3px;
-  background-color: var(--light);
+  background-color: var(--gray);
   position: relative;
   margin-inline-end: 0.2rem;
   margin-inline-start: -1.4rem;
@@ -379,22 +388,26 @@ h6 {
 figure[data-rehype-pretty-code-figure] {
   margin: 0;
   position: relative;
-  line-height: 1.6rem;
-  position: relative;
+  line-height: 1.2rem;
 
   & > [data-rehype-pretty-code-title] {
     font-family: var(--codeFont);
     font-size: 0.9rem;
     padding: 0.1rem 0.5rem;
-    border: 1px solid var(--lightgray);
+    border: 1px solid var(--gray);
     width: max-content;
     border-radius: 5px;
     margin-bottom: -0.5rem;
-    color: var(--darkgray);
+    color: var(--dark);
+    background-color: var(--lightgray);
+    position: relative;
+    z-index: 2;
   }
 
   & > pre {
     padding: 0;
+    border-radius: 5px;
+    overflow: hidden;
   }
 }
 
@@ -403,8 +416,9 @@ pre {
   padding: 0 0.5rem;
   border-radius: 5px;
   overflow-x: auto;
-  border: 1px solid var(--lightgray);
+  border: 1px solid var(--gray);
   position: relative;
+  background-color: var(--lightgray);
 
   &:has(> code.mermaid) {
     border: none;
@@ -426,7 +440,7 @@ pre {
     }
 
     & > [data-line] {
-      padding: 0 0.25rem;
+      padding: 0 1rem;
       box-sizing: border-box;
       border-left: 3px solid transparent;
 
@@ -436,13 +450,11 @@ pre {
       }
 
       &::before {
-        content: counter(line);
-        counter-increment: line;
         width: 1rem;
         margin-right: 1rem;
         display: inline-block;
         text-align: right;
-        color: rgba(115, 138, 148, 0.6);
+        color: var(--gray);
       }
     }
 
@@ -457,18 +469,13 @@ pre {
 }
 
 code {
-  font-size: 0.9em;
-  color: var(--dark);
   font-family: var(--codeFont);
-  border-radius: 5px;
-  padding: 0.1rem 0.2rem;
-  background: var(--lightgray);
 }
 
 tbody,
 li,
 p {
-  line-height: 1.6rem;
+  line-height: 1.6;
 }
 
 .table-container {

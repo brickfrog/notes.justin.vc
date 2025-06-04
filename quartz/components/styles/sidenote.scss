@@ -1,0 +1,67 @@
+@use "../../styles/variables.scss" as *;
+
+.center {
+  position: relative;
+}
+
+.sidenote-anchor {
+  display: inline;
+  position: relative;
+  z-index: 1;
+}
+
+.sidenote-container {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 15px; // Adjust as needed
+  height: 100%;
+  pointer-events: none;
+}
+
+.sidenote-item {
+  position: absolute;
+  width: 230px; // Adjust as needed
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  pointer-events: auto;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+
+  sup {
+    margin-right: 0.25rem;
+    font-weight: bold;
+  }
+
+  &.highlight {
+    border: 1px solid var(--gray);
+    background-color: var(--light);
+    z-index: 999;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); // Optional shadow for better visibility
+  }
+}
+
+// Media query to handle responsiveness
+@media all and ($desktop) {
+  .sidenote-container {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+  }
+
+  .sidenote-item {
+    position: static;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+a[data-footnote-ref] {
+  cursor: pointer;
+  color: var(--secondary);
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}

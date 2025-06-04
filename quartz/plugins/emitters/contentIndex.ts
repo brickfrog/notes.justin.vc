@@ -14,6 +14,7 @@ export type ContentDetails = {
   title: string
   links: SimpleSlug[]
   tags: string[]
+  categories: string[]
   content: string
   richContent?: string
   date?: Date
@@ -57,6 +58,8 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndex, limit?: nu
     <guid>https://${joinSegments(base, encodeURI(slug))}</guid>
     <description>${content.richContent ?? content.description}</description>
     <pubDate>${content.date?.toUTCString()}</pubDate>
+    ${content.tags.map((tag) => `<category>${escapeHTML(tag)}</category>`).join("")}
+    ${content.categories.map((category) => `<category>${escapeHTML(category)}</category>`).join("")}
   </item>`
 
   const items = Array.from(idx)
@@ -124,7 +127,10 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
           linkIndex.set(slug, {
             title: file.data.frontmatter?.title!,
             links: file.data.links ?? [],
-            tags: file.data.frontmatter?.tags ?? [],
+            tags: Array.isArray(file.data.frontmatter?.tags) ? file.data.frontmatter.tags : [],
+            categories: Array.isArray(file.data.frontmatter?.categories)
+              ? file.data.frontmatter.categories
+              : [],
             content: file.data.text ?? "",
             richContent: opts?.rssFullHtml
               ? escapeHTML(toHtml(tree as Root, { allowDangerousHtml: true }))

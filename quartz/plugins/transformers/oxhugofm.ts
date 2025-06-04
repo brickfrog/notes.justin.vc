@@ -9,17 +9,19 @@ export interface Options {
   removeHugoShortcode: boolean
   /** Replace <figure/> with ![]() */
   replaceFigureWithMdImg: boolean
-
   /** Replace org latex fragments with $ and $$ */
   replaceOrgLatex: boolean
+  /** Blah */
+  anchorTransformation: boolean
 }
 
 const defaultOptions: Options = {
   wikilinks: true,
   removePredefinedAnchor: true,
-  removeHugoShortcode: true,
+  removeHugoShortcode: false,
   replaceFigureWithMdImg: true,
   replaceOrgLatex: true,
+  anchorTransformation: false,
 }
 
 const relrefRegex = new RegExp(/\[([^\]]+)\]\(\{\{< relref "([^"]+)" >\}\}\)/, "g")
@@ -56,7 +58,12 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
         src = src.toString()
         src = src.replaceAll(relrefRegex, (value, ...capture) => {
           const [text, link] = capture
-          return `[${text}](${link})`
+
+          // If the link is just a filename (no slashes), prepend 'main/'
+          // I don't know why it wasn't doing this already
+          const fullLink = link.includes("/") ? link : `main/${link}`
+
+          return `[${text}](${fullLink})`
         })
       }
 
@@ -99,6 +106,19 @@ export const OxHugoFlavouredMarkdown: QuartzTransformerPlugin<Partial<Options>> 
         src = src.replaceAll(quartzLatexRegex, (value) => {
           return value.replaceAll("\\_", "_")
         })
+      }
+
+      if (opts.anchorTransformation) {
+        const anchorRegex = /^(#{2,6})\s*(.+?)\s*\{#([\w-]+)\}\s*$/gm
+
+        src = src.toString()
+        src = src.replace(
+          anchorRegex,
+          (match: string, hashes: string, title: string, id: string) => {
+            const level = hashes.length
+            return `<h${level} id="${id}">${title}<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#${id}" class="internal">🔗</a></h${level}>`
+          },
+        )
       }
       return src
     },

@@ -80,5 +80,13 @@ export default {
       showingFirst: ({ count }) => `Pokazuje ${count} pierwszych znaczników.`,
       totalTags: ({ count }) => `Znalezionych wszystkich znaczników: ${count}.`,
     },
+    categoryContent: {
+      category: "Kategoria",
+      categoryIndex: "Indeks kategorii",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "1 element w tej kategorii" : `${count} elementów w tej kategorii`,
+      showingFirst: ({ count }: { count: number }) => `Pokazywanie pierwszych ${count} kategorii`,
+      totalCategories: ({ count }: { count: number }) => `Łącznie jest ${count} kategorii`,
+    },
   },
 } as const satisfies Translation

@@ -1,4 +1,5 @@
 import Content from "./pages/Content"
+import CategoryContent from "./pages/CategoryContent"
 import TagContent from "./pages/TagContent"
 import FolderContent from "./pages/FolderContent"
 import NotFound from "./pages/404"
@@ -19,11 +20,15 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
+import LinkList from "./LinkList"
+import Frontmatter from "./Frontmatter"
+import Sidenote from "./Sidenote"
 import Comments from "./Comments"
 
 export {
   ArticleTitle,
   Content,
+  CategoryContent,
   TagContent,
   FolderContent,
   Darkmode,
@@ -43,5 +48,8 @@ export {
   RecentNotes,
   NotFound,
   Breadcrumbs,
+  LinkList,
+  Frontmatter,
+  Sidenote,
   Comments,
 }

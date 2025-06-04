@@ -78,5 +78,13 @@ export default {
       showingFirst: ({ count }) => `のうち最初の${count}件を表示しています`,
       totalTags: ({ count }) => `全${count}個のタグを表示中`,
     },
+    categoryContent: {
+      category: "カテゴリー",
+      categoryIndex: "カテゴリーインデックス",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "このカテゴリーに1項目" : `このカテゴリーに${count}項目`,
+      showingFirst: ({ count }: { count: number }) => `最初の${count}カテゴリーを表示`,
+      totalCategories: ({ count }: { count: number }) => `合計${count}カテゴリーあります`,
+    },
   },
 } as const satisfies Translation

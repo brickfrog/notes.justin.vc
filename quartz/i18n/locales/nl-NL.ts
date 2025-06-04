@@ -82,5 +82,14 @@ export default {
         count === 1 ? "Eerste label tonen." : `Eerste ${count} labels tonen.`,
       totalTags: ({ count }) => `${count} labels gevonden.`,
     },
+    categoryContent: {
+      category: "Categorie",
+      categoryIndex: "Categorie-index",
+      itemsUnderCategory: ({ count }: { count: number }) =>
+        count === 1 ? "1 item in deze categorie" : `${count} items in deze categorie`,
+      showingFirst: ({ count }: { count: number }) =>
+        `De eerste ${count} categorieën worden getoond`,
+      totalCategories: ({ count }: { count: number }) => `Er zijn ${count} categorieën in totaal`,
+    },
   },
 } as const satisfies Translation
