@@ -8,7 +8,11 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
+<<<<<<< HEAD
     pageTitle: "【ｎｏｔｅｓ．ｊｕｓｔｉｎ．ｖｃ】",
+=======
+    pageTitle: "【ｎｏｔｅｓ．ｊｕｓｔｉｎ．ｖｃ】",
+>>>>>>> v4
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,

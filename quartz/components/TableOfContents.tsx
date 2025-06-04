@@ -40,8 +40,13 @@ const TableOfContents: QuartzComponent = ({
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
+<<<<<<< HEAD
       <div class="toc-progress-bar"></div>
       <div id="toc-content">
+=======
+      <div class="toc-progress-bar"></div>
+      <div id="toc-content" class={fileData.collapseToc ? "collapsed" : ""}>
+>>>>>>> v4
         <ul class="overflow">
           {fileData.toc.map((tocEntry) => (
             <li key={tocEntry.slug} class={`depth-${tocEntry.depth}`}>

@@ -48,23 +48,65 @@
   function scrollTocToView(element: Element) {
     if (!tocContent) return
 
-    const tocRect = tocContent.getBoundingClientRect()
-    const elementRect = element.getBoundingClientRect()
+    const tocRect = tocContent.getBoundingClientRect();
+    const elementRect = element.getBoundingClientRect();
 
-    const relativeTop = elementRect.top - tocRect.top
-    const relativeBottom = elementRect.bottom - tocRect.top
+    const relativeTop = elementRect.top - tocRect.top;
+    const relativeBottom = elementRect.bottom - tocRect.top;
 
     if (relativeTop < 0 || relativeBottom > tocRect.height) {
       const scrollTarget =
-        tocContent.scrollTop + relativeTop - tocRect.height / 2 + elementRect.height / 2
+        tocContent.scrollTop + relativeTop - tocRect.height / 2 + elementRect.height / 2;
 
       requestAnimationFrame(() => {
         tocContent?.scrollTo({
           top: scrollTarget,
-          behavior: "smooth",
-        })
-      })
+          behavior: "smooth"
+        });
+      });
     }
+  }
+  // Bring in v4 TOC toggle setup.
+  function toggleToc(this: HTMLElement) {
+    this.classList.toggle("collapsed");
+    this.setAttribute(
+      "aria-expanded",
+      this.getAttribute("aria-expanded") === "true" ? "false" : "true"
+    );
+    const content = this.nextElementSibling as HTMLElement | undefined;
+    if (!content) return;
+    content.classList.toggle("collapsed");
+  }
+  function setupToc() {
+    const toc = document.getElementById("toc");
+    if (toc) {
+      const collapsed = toc.classList.contains("collapsed");
+      const content = toc.nextElementSibling as HTMLElement | undefined;
+      if (!content) return;
+      toc.addEventListener("click", toggleToc);
+      window.addCleanup(() => toc.removeEventListener("click", toggleToc));
+    }
+  }
+function toggleToc(this: HTMLElement) {
+  this.classList.toggle("collapsed")
+  this.setAttribute(
+    "aria-expanded",
+    this.getAttribute("aria-expanded") === "true" ? "false" : "true",
+  )
+  const content = this.nextElementSibling as HTMLElement | undefined
+  if (!content) return
+  content.classList.toggle("collapsed")
+}
+
+function setupToc() {
+  const toc = document.getElementById("toc")
+  if (toc) {
+    const collapsed = toc.classList.contains("collapsed")
+    const content = toc.nextElementSibling as HTMLElement | undefined
+    if (!content) return
+    toc.addEventListener("click", toggleToc)
+    window.addCleanup(() => toc.removeEventListener("click", toggleToc))
+>>>>>>> v4
   }
 
   function updateProgressBar() {

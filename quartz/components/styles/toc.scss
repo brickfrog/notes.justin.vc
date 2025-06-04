@@ -1,10 +1,32 @@
 .toc {
-  position: sticky;
-  font-size: 0.9rem;
-  top: 20px;
-  border-radius: 8px;
-  padding: 0.5rem;
-  transition: max-height 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  &.desktop-only {
+    display: flex;
+    max-height: 40%;
+  }
+}
+button#toc {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+}
+
+button#toc {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+>>>>>>> v4
 
   // Styles for the scrollbar
   & #toc-content ul {
@@ -26,15 +48,138 @@
     }
   }
 
+  & .fold {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+  }
+
+  &.collapsed .fold {
+    transform: rotateZ(-90deg);
+  }
+}
+
+#toc-content {
+  list-style: none;
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 100%;
+  transition:
+    max-height 0.35s ease,
+    visibility 0s linear 0s;
+  position: relative;
+  visibility: visible;
 
   &.collapsed {
-    #toc-content {
+    max-height: 0;
+    transition:
+      max-height 0.35s ease,
+      visibility 0s linear 0.35s;
+    visibility: hidden;
+  }
+
+  .toc-progress-bar {
+    height: 3px;
+    background-color: var(--secondary);
+    transition: width 0.3s ease;
+    margin: 0.25rem 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.25rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: var(--lightgray);
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0.2rem;
+      top: 0;
+      bottom: -0.5em;
+      width: 1px;
+      background-color: var(--lightgray);
+      transition: background-color 0.3s ease;
+    }
+
+    &:last-child::after {
       display: none;
     }
 
-    button#toc .fold {
-      transform: rotate(-90deg);
+    // Styles for when the nested <a> is in view
+    &:has(> a.in-view) {
+      &::before,
+      &::after {
+        background-color: var(--secondary);
+      }
+
+      & + li::before,
+      & + li::after {
+        background-color: var(--secondary);
+      }
     }
+  }
+
+  a {
+    color: var(--dark);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    display: block;
+
+    &.in-view {
+      opacity: 1;
+      color: var(--secondary);
+    }
+  }
+
+  > ul.overflow {
+    max-height: none;
+    width: 100%;
+  }
+
+  @for $i from 0 through 6 {
+    & .depth-#{$i} {
+      padding-left: calc(1rem * #{$i});
+    }
+  }
+}
+
+#toc-content {
+  list-style: none;
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 100%;
+  transition:
+    max-height 0.35s ease,
+    visibility 0s linear 0s;
+  position: relative;
+  visibility: visible;
+
+  &.collapsed {
+    max-height: 0;
+    transition:
+      max-height 0.35s ease,
+      visibility 0s linear 0.35s;
+    visibility: hidden;
+>>>>>>> v4
   }
 
   .toc-progress-bar {
@@ -157,4 +302,18 @@
       }
     }
   }
+<<<<<<< HEAD
 }
+=======
+  > ul.overflow {
+    max-height: none;
+    width: 100%;
+  }
+
+  @for $i from 0 through 6 {
+    & .depth-#{$i} {
+      padding-left: calc(1rem * #{$i});
+    }
+  }
+}
+>>>>>>> v4

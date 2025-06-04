@@ -183,7 +183,11 @@
           flex: 0 0 min(30%, 450px);
         }
 
-        @media all and ($tablet) {
+<<<<<<< HEAD
+        @media all and not ($tablet) {
+=======
+        @media all and not ($tablet) {
+>>>>>>> v4
           &[data-preview] {
             & .result-card > p.preview {
               display: none;

@@ -79,7 +79,11 @@ button#explorer {
 #explorer-content {
   list-style: none;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  overflow-y: auto;
+  max-height: 100%;
+  transition:
+    max-height 0.35s ease,
+    visibility 0s linear 0s;
   margin-top: 0.5rem;
   visibility: visible;
 
@@ -105,12 +109,13 @@ button#explorer {
       opacity: 0.8;
       pointer-events: all;
       text-decoration: none;
-      font-size: 0.9rem;
-
       &:hover {
         color: var(--secondary);
       }
     }
+  }
+  > #explorer-ul {
+    max-height: none;
   }
 }
 
