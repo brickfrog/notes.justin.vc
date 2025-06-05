@@ -213,8 +213,8 @@
 
     .clipboard-button {
       position: absolute;
-      top: 5px;
-      right: 5px;
+      top: -5px;
+      right: -5px;
       padding: 4px;
       background: rgba(255, 255, 255, 0.1);
       border: none;
@@ -982,6 +982,8 @@ figure[data-rehype-pretty-code-figure] {
   }
 
   > pre {
+    padding-top: 1.5rem !important;
+    
     &::after {
       content: attr(data-language);
       font-weight: bold;

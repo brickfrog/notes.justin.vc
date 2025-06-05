@@ -58,7 +58,7 @@ export default ((userOpts?: Partial<HeaderNavOptions>) => {
             })}
           </div>
           <div class="header-utilities">
-            <div id="header-search-trigger">
+            <button type="button" id="search-button" aria-label="Search">
               <svg
                 tabIndex={0}
                 aria-labelledby="title desc"
@@ -74,7 +74,7 @@ export default ((userOpts?: Partial<HeaderNavOptions>) => {
                   <circle cx="8" cy="8" r="7" stroke="currentColor" />
                 </g>
               </svg>
-            </div>
+            </button>
 
             <button type="button" id="darkmode" aria-label="Toggle dark mode">
               <svg
@@ -131,7 +131,7 @@ ${searchScript}
 
 // Header search trigger
 document.addEventListener('DOMContentLoaded', function() {
-  const headerSearchTrigger = document.getElementById('header-search-trigger');
+  const headerSearchTrigger = document.getElementById('search-button');
   if (headerSearchTrigger) {
     headerSearchTrigger.addEventListener('click', function() {
       const realSearchButton = document.getElementById('search-button');
@@ -273,59 +273,70 @@ body:has(#search-container.active) .header-nav {
   display: none;
 }
 
-/* Mobile responsive */
+/* Mobile responsive - Keep everything on one line */
 @media all and (max-width: 800px) {
   .nav-container {
     padding: 0.75rem 1rem;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  
-  .site-title {
-    order: 1;
+    gap: 0.5rem;
   }
   
   .title-link {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .nav-links {
-    order: 2;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex: none;
+    gap: 0.5rem;
   }
   
   .nav-link {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
   
   .header-utilities {
-    order: 3;
+    gap: 0.25rem;
   }
   
-  .search-button {
+  .header-utilities > * {
     padding: 0.4rem;
   }
   
-  .search-icon {
+  .header-utilities svg {
     width: 16px;
     height: 16px;
   }
 }
 
-/* Very small mobile */
+/* Very small mobile - Even more compact */
 @media all and (max-width: 500px) {
+  .nav-container {
+    padding: 0.5rem 0.75rem;
+    gap: 0.25rem;
+  }
+  
+  .title-link {
+    font-size: 0.8rem;
+  }
+  
   .nav-links {
-    gap: 0.5rem;
-    width: 100%;
-    justify-content: space-around;
+    gap: 0.25rem;
   }
   
   .nav-link {
-    font-size: 0.7rem;
-    padding: 0.25rem 0;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.1rem;
+  }
+  
+  .header-utilities {
+    gap: 0.1rem;
+  }
+  
+  .header-utilities > * {
+    padding: 0.3rem;
+  }
+  
+  .header-utilities svg {
+    width: 14px;
+    height: 14px;
   }
 }
 `

@@ -6,7 +6,7 @@ import { mapFn, sortFn } from "./functions.ts"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [Component.HeaderNav()],
-  afterBody: [Component.Backlinks()],
+  afterBody: [Component.Backlinks(), Component.Search()],
   footer: Component.Footer(),
 }
 
@@ -21,10 +21,11 @@ export const defaultContentPageLayout: PageLayout = {
       showReadingTime: true,
       showFootnoteLink: true,
     }),
+    Component.TableOfContents(),
     Component.DesktopOnly(Component.Sidenote({ debug: true })),
   ],
   left: [
-    Component.MobileOnly(Component.Spacer()),
+    Component.ProgressBar(),
     Component.DesktopOnly(
       Component.Explorer({
         title: "Notes",
@@ -39,7 +40,6 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     Component.DesktopOnly(Component.Graph()),
-    Component.DesktopOnly(Component.TableOfContents()),
   ],
 }
 
@@ -48,7 +48,6 @@ export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.Frontmatter()],
   left: [
     Component.MobileOnly(Component.Spacer()),
-    Component.MobileOnly(Component.Search()),
     Component.DesktopOnly(
       Component.Explorer({
         title: "Notes",
@@ -63,6 +62,5 @@ export const defaultListPageLayout: PageLayout = {
   ],
   right: [
     Component.DesktopOnly(Component.Graph()),
-    Component.DesktopOnly(Component.TableOfContents()),
   ],
 }

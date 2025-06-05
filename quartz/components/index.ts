@@ -25,6 +25,7 @@ import Frontmatter from "./Frontmatter"
 import Sidenote from "./Sidenote"
 import Comments from "./Comments"
 import HeaderNav from "./HeaderNav"
+import ProgressBar from "./ProgressBar"
 
 export {
   ArticleTitle,
@@ -54,4 +55,5 @@ export {
   Sidenote,
   Comments,
   HeaderNav,
+  ProgressBar,
 }
