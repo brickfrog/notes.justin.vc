@@ -5,7 +5,7 @@ import { mapFn, sortFn } from "./functions.ts"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
+  header: [Component.HeaderNav()],
   afterBody: [Component.Backlinks()],
   footer: Component.Footer(),
 }
@@ -24,10 +24,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.Sidenote({ debug: true })),
   ],
   left: [
-    Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
-    Component.LinkList(),
     Component.DesktopOnly(
       Component.Explorer({
         title: "Notes",
@@ -50,10 +47,8 @@ export const defaultContentPageLayout: PageLayout = {
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.Frontmatter()],
   left: [
-    Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
-    Component.LinkList(),
+    Component.MobileOnly(Component.Search()),
     Component.DesktopOnly(
       Component.Explorer({
         title: "Notes",

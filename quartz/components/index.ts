@@ -24,6 +24,7 @@ import LinkList from "./LinkList"
 import Frontmatter from "./Frontmatter"
 import Sidenote from "./Sidenote"
 import Comments from "./Comments"
+import HeaderNav from "./HeaderNav"
 
 export {
   ArticleTitle,
@@ -52,4 +53,5 @@ export {
   Frontmatter,
   Sidenote,
   Comments,
+  HeaderNav,
 }
