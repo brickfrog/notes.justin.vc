@@ -86,7 +86,7 @@ a {
       border-radius: 0;
       padding: 0;
     }
-    
+
     &.category-link {
       &::before {
         content: "@";
@@ -105,14 +105,13 @@ a {
     margin-left: 5px;
 
     > path {
-        fill: var(--dark);
+      fill: var(--dark);
 
-        &:nth-of-type(2) {
-            fill: var(--light);
-        }
+      &:nth-of-type(2) {
+        fill: var(--light);
+      }
     }
-}
-
+  }
 }
 
 .desktop-only {

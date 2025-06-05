@@ -39,13 +39,11 @@ source stuff but there's the potential for use in workplace / if I'm stuck using
 
 ### Jupyter / Lab {#jupyter-lab}
 
-
 </div>
 
 <div class="outline-2 jvc">
 
 ### Mathematica {#mathematica}
-
 
 </div>
 

@@ -16,8 +16,7 @@ description for series I really like or maybe some linking mechanism.
 
 <div class="outline-2 jvc">
 
-### [Patriot (TV series 2015-2018)](https://en.wikipedia.org/wiki/Patriot_(TV_series)) {#patriot--tv-series-2015-2018}
-
+### [Patriot (TV series 2015-2018)](<https://en.wikipedia.org/wiki/Patriot_(TV_series)>) {#patriot--tv-series-2015-2018}
 
 </div>
 

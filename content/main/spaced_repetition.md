@@ -28,7 +28,7 @@ Just a list of things I think are worth reading on it.
 
 #### <span class="org-priority priority-A">[#A]</span>[Spaced Repetition for Efficient Learning](https://gwern.net/spaced-repetition) {#spaced-repetition-for-efficient-learning}
 
--   Gwern's post on it.[^fn:1]
+- Gwern's post on it.[^fn:1]
 
 </div>
 
@@ -36,7 +36,7 @@ Just a list of things I think are worth reading on it.
 
 #### <span class="org-priority priority-B">[#B]</span>[How To Remember Anything Forever-ish](https://ncase.me/remember/) {#how-to-remember-anything-forever-ish}
 
--   Cute comic.
+- Cute comic.
 
 </div>
 

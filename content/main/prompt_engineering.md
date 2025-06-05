@@ -17,7 +17,7 @@ creator: "Emacs 29.4 (Org mode 9.8 + ox-hugo)"
 
 ### <span class="org-priority priority-B">[#B]</span><span class="org-todo todo TODO">TODO</span> [Welcome to Anthropic's Prompt Engineering Interactive Tutorial](https://github.com/anthropics/courses/tree/master/prompt_engineering_interactive_tutorial) {#welcome-to-anthropic-s-prompt-engineering-interactive-tutorial}
 
--   A series of Jupyter notebooks showing how to prompt Claude.
+- A series of Jupyter notebooks showing how to prompt Claude.
 
 </div>
 

@@ -49,87 +49,118 @@
 // Org Mode Header Vibes
 .jvc {
   margin-left: var(--base-indent);
-  
+
   div.jvc {
     margin-left: var(--base-padding);
   }
-  
-  h2, h3, h4, h5, h6 {
-    font-size: 1.0em;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1em;
     margin-top: var(--base-margin);
     margin-bottom: var(--base-margin);
   }
-  
+
   h2 {
     margin-left: 0;
     padding-left: 0;
     @include heading-style(--orgh2, "◉ ");
-    
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+
+    & ~ p,
+    & ~ ul,
+    & ~ ol,
+    & ~ figure,
+    & ~ div,
+    & ~ blockquote {
       margin-left: var(--heading-indent);
     }
   }
-  
+
   h3 {
     margin-left: var(--heading-indent);
     padding-left: 0;
     @include heading-style(--orgh3, "◎ ");
-    
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+
+    & ~ p,
+    & ~ ul,
+    & ~ ol,
+    & ~ figure,
+    & ~ div,
+    & ~ blockquote {
       margin-left: calc(var(--heading-indent) * 2);
     }
   }
-  
+
   h4 {
     margin-left: calc(var(--heading-indent) * 2);
     padding-left: 0;
     @include heading-style(--orgh4, "◈ ");
-    
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+
+    & ~ p,
+    & ~ ul,
+    & ~ ol,
+    & ~ figure,
+    & ~ div,
+    & ~ blockquote {
       margin-left: calc(var(--heading-indent) * 3);
     }
   }
-  
+
   h5 {
     margin-left: calc(var(--heading-indent) * 3);
     padding-left: 0;
     @include heading-style(--orgh5, "❀ ");
-    
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+
+    & ~ p,
+    & ~ ul,
+    & ~ ol,
+    & ~ figure,
+    & ~ div,
+    & ~ blockquote {
       margin-left: calc(var(--heading-indent) * 4);
     }
   }
-  
+
   h6 {
     margin-left: calc(var(--heading-indent) * 4);
     padding-left: 0;
     @include heading-style(--orgh6, "◇ ");
-    
-    & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div, & ~ blockquote {
+
+    & ~ p,
+    & ~ ul,
+    & ~ ol,
+    & ~ figure,
+    & ~ div,
+    & ~ blockquote {
       margin-left: calc(var(--heading-indent) * 5);
     }
   }
-  
+
   // Lists
-  ul, ol {
+  ul,
+  ol {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     padding-left: var(--base-indent);
     list-style-position: outside;
-    
+
     li {
       margin-bottom: 0.3em;
-      
+
       p {
         margin-left: 0;
       }
     }
-    
-    ul, ol {
+
+    ul,
+    ol {
       padding-left: var(--heading-indent);
     }
   }
-  
+
   // Paragraphs
   > p {
     padding-left: var(--heading-indent);
@@ -140,23 +171,24 @@
     -moz-hyphens: auto;
     word-wrap: break-word;
   }
-  
+
   &::before {
     padding-right: 4px;
     font-size: 12px;
   }
-  
+
   > p:not(:first-of-type) {
     text-indent: 2em;
   }
-  
-  > ul, > ol {
+
+  > ul,
+  > ol {
     margin-left: var(--heading-indent);
     padding-left: var(--base-indent);
-    
+
     > li {
       margin-bottom: 0.5em;
-      
+
       > p {
         margin-left: 0;
       }
@@ -199,22 +231,31 @@
 
 // Outline-5 specific styles
 .outline-5 {
-  ul, ol { margin-left: -10px; }
-  
+  ul,
+  ol {
+    margin-left: -10px;
+  }
+
   p::before {
     content: "◆ ";
     padding-right: 4px;
     font-size: 8px;
   }
-  
-  ul, ul ul, ul ul ul, ul ul ul ul, ul ul ul ul ul {
+
+  ul,
+  ul ul,
+  ul ul ul,
+  ul ul ul ul,
+  ul ul ul ul ul {
     p::before {
       content: "◆ ";
       font-size: 8px;
     }
   }
-  
-  li { list-style-type: none; }
+
+  li {
+    list-style-type: none;
+  }
 }
 
 // Mobile responsiveness
@@ -233,11 +274,19 @@
       margin-left: 0;
     }
 
-    h2, h3, h4, h5, h6 {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       margin-left: 0;
       padding-left: 0;
 
-      & ~ p, & ~ ul, & ~ ol, & ~ figure, & ~ div {
+      & ~ p,
+      & ~ ul,
+      & ~ ol,
+      & ~ figure,
+      & ~ div {
         margin-left: var(--base-indent);
       }
     }
@@ -250,7 +299,8 @@
       text-indent: 1em;
     }
 
-    > ul, > ol {
+    > ul,
+    > ol {
       margin-left: var(--base-indent);
       padding-left: var(--base-indent);
     }
@@ -272,8 +322,9 @@
   }
 
   .outline-5 {
-    ul, ol { 
-      margin-left: 0; 
+    ul,
+    ol {
+      margin-left: 0;
     }
   }
 }
@@ -299,19 +350,34 @@
   }
 
   &.todo {
-    &.TODO, &.IDEA { @include todo-style(var(--todo1)); }
-    &.PROJ { @include todo-style(#939ED2); }
-    &.WAIT, &.HOLD { @include todo-style(var(--todo2)); }
-    &.STRT { @include todo-style(#F3935C, #000000, 1000); }
+    &.TODO,
+    &.IDEA {
+      @include todo-style(var(--todo1));
+    }
+    &.PROJ {
+      @include todo-style(#939ed2);
+    }
+    &.WAIT,
+    &.HOLD {
+      @include todo-style(var(--todo2));
+    }
+    &.STRT {
+      @include todo-style(#f3935c, #000000, 1000);
+    }
   }
 
   &.done {
-    &.DONE { @include todo-style(#303132, #FFFFFF); }
-    &.KILL, &.NO { @include todo-style(var(--todo3)); }
+    &.DONE {
+      @include todo-style(#303132, #ffffff);
+    }
+    &.KILL,
+    &.NO {
+      @include todo-style(var(--todo3));
+    }
   }
 }
 
-@mixin todo-style($bg-color, $text-color: #FFFFFF, $font-weight: 600) {
+@mixin todo-style($bg-color, $text-color: #ffffff, $font-weight: 600) {
   background-color: $bg-color;
   color: $text-color;
   font-weight: $font-weight;
@@ -329,14 +395,13 @@
 
   > span {
     display: inline-block;
-    
+
     &::before,
     &::after {
-      content: ':';
+      content: ":";
     }
-    
   }
-  
+
   // Ensure colons are not separated from content on line breaks
   > span,
   > span::before,
@@ -345,7 +410,6 @@
     white-space: nowrap;
   }
 }
-
 
 // Org - Timestamps
 .timestamp-kwd {
@@ -364,12 +428,14 @@ p.timestamp-wrapper {
 }
 
 // Superscript
-sup { margin-left: 2px; }
+sup {
+  margin-left: 2px;
+}
 
 // EOF marker
 .page-footer::after {
   content: "— EOF —";
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.9em;
   color: #666;
   margin-top: 1em;
@@ -392,7 +458,7 @@ sup { margin-left: 2px; }
 }
 
 .article-title::before {
-  font-size: 0.80em;
+  font-size: 0.8em;
   font-weight: 400;
   color: var(--darkgray);
   font-family: var(--codeFont);
@@ -400,13 +466,14 @@ sup { margin-left: 2px; }
 }
 
 p.content-meta a {
-  color: var(--gray); 
+  color: var(--gray);
   text-decoration: underline;
 }
 
 // Explorer
-#explorer-content { 
-  font-size: 0.8em; }
+#explorer-content {
+  font-size: 0.8em;
+}
 
 // Details
 .jvc details {
@@ -430,7 +497,10 @@ p.content-meta a {
   color: var(--darkgray);
   outline: none;
 
-  &:focus, &:hover { color: var(--secondary); }
+  &:focus,
+  &:hover {
+    color: var(--secondary);
+  }
 }
 
 // Content Meta
@@ -452,7 +522,9 @@ p.content-meta a {
 }
 
 // Footer Fixes
-.footer-small { font-size: 0.8em; }
+.footer-small {
+  font-size: 0.8em;
+}
 
 footer {
   text-align: center;
@@ -468,10 +540,11 @@ footer {
   }
 }
 
-hr { margin: 1rem auto !important; }
+hr {
+  margin: 1rem auto !important;
+}
 
 // References
-
 
 [id^="references"],
 .jvc [id^="references"] {
@@ -500,7 +573,6 @@ hr { margin: 1rem auto !important; }
   content: "-";
 }
 
-
 // CSL Bibliography Styling
 .csl-left-margin {
   margin-right: 5px;
@@ -516,9 +588,13 @@ hr { margin: 1rem auto !important; }
     color: var(--text-normal);
     transition: background-color 0.3s ease; // Smooth transition for highlight effect
 
-    &:last-child { border-bottom: none; }
+    &:last-child {
+      border-bottom: none;
+    }
 
-    a[id^="citeproc_bib_item_"] { display: none; }
+    a[id^="citeproc_bib_item_"] {
+      display: none;
+    }
 
     &.highlight {
       background-color: var(--highlight); // Yellow highlight with fallback
@@ -538,16 +614,22 @@ hr { margin: 1rem auto !important; }
   margin-left: 25px;
   margin-bottom: 2rem;
 
-  ol { padding-left: 1.5em; }
+  ol {
+    padding-left: 1.5em;
+  }
 
   li {
     font-weight: normal;
     color: var(--secondary);
 
-    &:last-child { border-bottom: none; }
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
-  a[id^="user-content-fn-"] { display: none; }
+  a[id^="user-content-fn-"] {
+    display: none;
+  }
 
   .data-footnote-backref {
     font-size: 0.8em;
@@ -559,7 +641,6 @@ hr { margin: 1rem auto !important; }
 .sr-only {
   font-size: 1rem !important;
   content: none !important;
-
 
   &::before {
     padding-right: 0px;
@@ -577,9 +658,9 @@ hr { margin: 1rem auto !important; }
   margin-left: 25px;
 
   & > h2 {
-
     &::before {
-      content: "-";}
+      content: "-";
+    }
   }
 
   & > ul {
@@ -603,50 +684,50 @@ h2 + .footnotes {
 /* CUSTOM LLM CSS */
 
 aside {
-  background-color: var(--primary);  
-  border-left: 4px solid var(--secondary); 
-  padding: 10px 0px 10px 25px; 
-  margin: 25px;  
-  font-family: var(--codeFont);  
-  font-size: 0.75em;  
-  color: #333;  
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-  border-radius: 5px;  
+  background-color: var(--primary);
+  border-left: 4px solid var(--secondary);
+  padding: 10px 0px 10px 25px;
+  margin: 25px;
+  font-family: var(--codeFont);
+  font-size: 0.75em;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 
   h2 {
-    font-size: 1.2em;  
-    margin-top: 0;  
-    color: #007acc;  
+    font-size: 1.2em;
+    margin-top: 0;
+    color: #007acc;
   }
 
   p {
-    margin-bottom: 1em; 
-    line-height: 1.5;  
+    margin-bottom: 1em;
+    line-height: 1.5;
   }
 
   a {
-    color: #007acc;  
-    text-decoration: none; 
-    border-bottom: 1px dotted #007acc; 
+    color: #007acc;
+    text-decoration: none;
+    border-bottom: 1px dotted #007acc;
     &:hover {
-      text-decoration: underline;  
+      text-decoration: underline;
     }
   }
 
-  ul, ol {
-    margin: 0;  // Reset margin
-    padding-left: 20px;  // Space for list items
-    list-style-position: outside;  // Standard list styling
+  ul,
+  ol {
+    margin: 0; // Reset margin
+    padding-left: 20px; // Space for list items
+    list-style-position: outside; // Standard list styling
   }
 
   blockquote {
-    margin: 1em 0;  // Space around the blockquote
-    padding-left: 1em;  // Indentation for the blockquote
-    border-left: 4px solid #ccc;  // Grey left border
-    color: #666;  // Slightly lighter text color
+    margin: 1em 0; // Space around the blockquote
+    padding-left: 1em; // Indentation for the blockquote
+    border-left: 4px solid #ccc; // Grey left border
+    color: #666; // Slightly lighter text color
   }
 }
-
 
 /* Graph Button */
 
@@ -681,7 +762,9 @@ aside {
 
   .graph-outer,
   #global-graph-outer {
-    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+    transition:
+      opacity 0.5s ease-in-out,
+      max-height 0.5s ease-in-out;
     opacity: 1;
     max-height: 1000px; /* Adjust this value based on your graph's maximum height */
     overflow: hidden;
@@ -710,7 +793,6 @@ aside {
   background-color: var(--light) !important;
 }
 
-
 /* FOOTNOTE REORDERING */
 
 /* Target the container that holds references, footnotes, and backlinks */
@@ -735,7 +817,10 @@ aside {
 }
 
 /* Ensure other content stays at the top */
-.page-footer > *:not(:has(h2:contains("References"))):not(section.footnotes):not(:has(h2:contains("Backlinks"))) {
+.page-footer
+  > *:not(:has(h2:contains("References"))):not(section.footnotes):not(
+    :has(h2:contains("Backlinks"))
+  ) {
   order: 1;
 }
 
@@ -768,42 +853,41 @@ aside {
 }
 
 // Specific priority styles
-.priority-A, .priority-1 {
-  @include priority-style(#d9534f);  // Red
+.priority-A,
+.priority-1 {
+  @include priority-style(#d9534f); // Red
 }
 
-.priority-B, .priority-2 {
-  @include priority-style(#f0ad4e);  // Orange
+.priority-B,
+.priority-2 {
+  @include priority-style(#f0ad4e); // Orange
 }
 
-.priority-C, .priority-3 {
-  @include priority-style(#5bc0de);  // Blue
+.priority-C,
+.priority-3 {
+  @include priority-style(#5bc0de); // Blue
 }
 
 // Additional priorities if needed
 @for $i from 4 through 9 {
   .priority-#{$i} {
-    @include priority-style(#5cb85c);  // Green
+    @include priority-style(#5cb85c); // Green
   }
 }
-
 
 // Removing strikethrough for checkboxes
 
 .page {
   & article {
-
     & li:has(> input[type="checkbox"]:checked) {
       text-decoration: none;
     }
   }
 }
 
-
 .org-indent {
-  margin-left: calc(var(--heading-indent) * 3)
+  margin-left: calc(var(--heading-indent) * 3);
 }
-
 
 // Results!
 
@@ -862,7 +946,6 @@ li > code {
   font-size: smaller;
 }
 
-
 // The rehype code fixes
 
 figure[data-rehype-pretty-code-figure] {
@@ -897,7 +980,7 @@ figure[data-rehype-pretty-code-figure] {
     background: linear-gradient(to bottom, var(--tertiary), var(--secondary));
     z-index: 1;
   }
-  
+
   > pre {
     &::after {
       content: attr(data-language);
@@ -915,7 +998,7 @@ figure[data-rehype-pretty-code-figure] {
     }
 
     &[data-language="python"]::after {
-      background-color: #3572A5 !important;
+      background-color: #3572a5 !important;
     }
 
     &[data-language="text"]::after {
@@ -935,7 +1018,7 @@ figure[data-rehype-pretty-code-figure] {
     }
 
     &[data-language="r"]::after {
-      background-color: #198CE7 !important;
+      background-color: #198ce7 !important;
     }
 
     &[data-language="markdown"]::after {
@@ -943,11 +1026,10 @@ figure[data-rehype-pretty-code-figure] {
     }
 
     &[data-language="org"]::after {
-      background-color: #77AA99 !important;
+      background-color: #77aa99 !important;
     }
   }
 }
-
 
 /* Fixing Tags */
 
@@ -968,7 +1050,7 @@ figure[data-rehype-pretty-code-figure] {
 .section-li > .section > .tags {
   justify-content: flex-end;
 }
-  
+
 .tags > li {
   display: inline-block;
   white-space: nowrap;
@@ -1037,12 +1119,20 @@ pre {
 
         // Specific node colors
         .node#flowchart-A-0 rect,
-        .node[id^="flowchart-"][id$="-0"] rect { fill: var(--tertiary) !important; } // Start node: Purple
+        .node[id^="flowchart-"][id$="-0"] rect {
+          fill: var(--tertiary) !important;
+        } // Start node: Purple
         .node#flowchart-J-25 rect,
-        .node[id^="flowchart-"][id$="-25"] rect { fill: var(--orgh3) !important; } // End node: Green
-        .node[id^="flowchart-"]:not([id$="-0"]):not([id$="-25"]) rect { fill: var(--secondary) !important; } // Process nodes: Blue
+        .node[id^="flowchart-"][id$="-25"] rect {
+          fill: var(--orgh3) !important;
+        } // End node: Green
+        .node[id^="flowchart-"]:not([id$="-0"]):not([id$="-25"]) rect {
+          fill: var(--secondary) !important;
+        } // Process nodes: Blue
         .node#flowchart-D-5 polygon,
-        .node polygon { fill: var(--orgh5) !important; } // Decision node: Orange
+        .node polygon {
+          fill: var(--orgh5) !important;
+        } // Decision node: Orange
 
         // Ensure text is visible
         .nodeLabel {
@@ -1061,16 +1151,14 @@ pre {
   }
 }
 
-
 /* tromp */
 
 div.tromp {
-  > pre
-  {
+  > pre {
     border: none;
     background-color: var(--light);
     font-size: 0.3rem !important;
-}
+  }
 }
 
 /* overflow edits */
@@ -1126,7 +1214,6 @@ ol.overflow {
   opacity: 0;
 }
 
-
 /* TABLE stuff */
 
 .table-container {
@@ -1140,7 +1227,7 @@ ol.overflow {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.9rem;
 
     th,

@@ -104,6 +104,7 @@ print("\nDetailed plan:", result["detailed_plan"])
 print("\nSolution:", result["solution"])
 print("\nFinal answer:", result["final_answer"])
 ```
+
 </div>
 </details>
 
@@ -141,6 +142,7 @@ kind of problems. Don't dive into small details only provide high-level plan."
         :transform (lambda ( )
              "Provide short final answer based on final solution.")))))
 ```
+
 </div>
 </details>
 

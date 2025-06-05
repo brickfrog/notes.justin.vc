@@ -43,19 +43,19 @@ Amazon.
 
 ### DARPA's "Accelerated Learning" {#darpa-s-accelerated-learning}
 
--   Specifically, I use the DARPA "accelerated learning"
-    montage for ~30 minutes a day at 2.0mA,
-    usually before doing my language studies or tinkering around with new code /
-    reading a new codebase.<a href="#citeproc_bib_item_2">[2]</a>
--   All of the DARPA tDCS studies were meant for acquisition of new skills related
-    for military use (of course) - sniping/shooting skills, etc. You can see more
-    information about it in the following
-    [page](<https://totaltdcs.com/tdcs-montages/accelerated-learning-darpa-montage/>).
-    It's pointed out there, but I find it interesting that it got popular enough
-    to have podcasts about the topic years later, but then the military
-    essentially scrubbed it from its website. I'm not too conspiratorally minded
-    so I'm (jokingly) curious if it's either a "this doesn't matter anymore" measure vs. "oh
-    no the soldier's brains got damaged".[^fn:1]
+- Specifically, I use the DARPA "accelerated learning"
+  montage for ~30 minutes a day at 2.0mA,
+  usually before doing my language studies or tinkering around with new code /
+  reading a new codebase.<a href="#citeproc_bib_item_2">[2]</a>
+- All of the DARPA tDCS studies were meant for acquisition of new skills related
+  for military use (of course) - sniping/shooting skills, etc. You can see more
+  information about it in the following
+  [page](https://totaltdcs.com/tdcs-montages/accelerated-learning-darpa-montage/).
+  It's pointed out there, but I find it interesting that it got popular enough
+  to have podcasts about the topic years later, but then the military
+  essentially scrubbed it from its website. I'm not too conspiratorally minded
+  so I'm (jokingly) curious if it's either a "this doesn't matter anymore" measure vs. "oh
+  no the soldier's brains got damaged".[^fn:1]
 
 </div>
 
@@ -63,13 +63,13 @@ Amazon.
 
 ### Caveats {#caveats}
 
--   Just more of a covering my bases for anyone who wanders in here, but...
--   The wikipedia article covers most of the concerns but I'd also like to
-    reiterate if you wander across this and try it to follow all the instructions.
-    -   for example, using salt water and proper electrode placement
-    -   gradual burns are difficult to notice when they're happening so if you
-        bork things up you might get a small burn without noticing - there's the
-        potential for scarring.[^fn:2]
+- Just more of a covering my bases for anyone who wanders in here, but...
+- The wikipedia article covers most of the concerns but I'd also like to
+  reiterate if you wander across this and try it to follow all the instructions.
+  - for example, using salt water and proper electrode placement
+  - gradual burns are difficult to notice when they're happening so if you
+    bork things up you might get a small burn without noticing - there's the
+    potential for scarring.[^fn:2]
 
 ## References
 
@@ -87,8 +87,11 @@ Amazon.
 
 </div>
 
-[^fn:1]: I would also note that I did not in way spend time trying to figure out if they
+[^fn:1]:
+    I would also note that I did not in way spend time trying to figure out if they
     simply moved things or not.
-[^fn:2]: I did zap myself once after forgetting to reup on salt but that was about
+
+[^fn:2]:
+    I did zap myself once after forgetting to reup on salt but that was about
     the worst of it. Basically red skin for an hour or two. Also I'm using this to
     test out footnotes.

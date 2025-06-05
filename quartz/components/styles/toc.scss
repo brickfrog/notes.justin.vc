@@ -96,7 +96,7 @@ button#toc {
     margin-bottom: 0.25rem;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0.7em;
@@ -108,7 +108,7 @@ button#toc {
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0.2rem;
       top: 0;
@@ -140,7 +140,9 @@ button#toc {
     color: var(--dark);
     text-decoration: none;
     opacity: 0.7;
-    transition: opacity 0.3s ease, color 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      color 0.3s ease;
     display: block;
 
     &.in-view {
@@ -225,14 +227,13 @@ button#toc {
       margin: 0;
     }
 
-    
     li {
       position: relative;
       padding-left: 1rem;
       margin-bottom: 0.25rem;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0.7em;
@@ -244,7 +245,7 @@ button#toc {
       }
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 0.2rem;
         top: 0;
@@ -276,7 +277,9 @@ button#toc {
       color: var(--dark);
       text-decoration: none;
       opacity: 0.7;
-      transition: opacity 0.3s ease, color 0.3s ease;
+      transition:
+        opacity 0.3s ease,
+        color 0.3s ease;
       display: block;
 
       &.in-view {
@@ -284,8 +287,6 @@ button#toc {
         color: var(--secondary);
       }
     }
-
-
 
     @for $i from 0 through 5 {
       .depth-#{$i} {

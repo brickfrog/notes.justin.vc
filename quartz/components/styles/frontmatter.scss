@@ -1,7 +1,8 @@
 .popover {
   .content-meta-box {
-  display: none;
-}}
+    display: none;
+  }
+}
 
 .frontmatter {
   border-bottom: 1px solid var(--dark);
@@ -9,7 +10,7 @@
   margin: 5px 0 25px;
   transition: all 0.3s ease-in-out;
   font-family: var(--codeFont);
- 
+
   summary {
     font-weight: 500;
     margin-bottom: 5px;
@@ -19,12 +20,16 @@
     font-family: var(--codeFont);
     outline: none;
 
-  &:focus, &:hover { color: var(--secondary); }
+    &:focus,
+    &:hover {
+      color: var(--secondary);
+    }
 
-  &::marker{
-    color: var(--tertiary)
+    &::marker {
+      color: var(--tertiary);
+    }
   }
-}}
+}
 
 .content-meta-box {
   display: flex;
@@ -65,7 +70,7 @@
         color: lighten(#f5c2e7, 10%);
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           width: 100%;
           height: 2px;
@@ -98,7 +103,7 @@
 .section-li > .section > .fm-categories {
   justify-content: flex-end;
 }
-  
+
 .fm-tags > li,
 .fm-categories > li {
   display: inline-block;

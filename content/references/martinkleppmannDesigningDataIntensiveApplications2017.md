@@ -27,7 +27,6 @@ notes for the first edition.
 
 ##### Thinking About Data Systems {#thinking-about-data-systems}
 
-
 </div>
 
 <div class="outline-4 jvc">
@@ -38,13 +37,11 @@ notes for the first edition.
 
 ###### Hardware Faults {#hardware-faults}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Software Errors {#software-errors}
-
 
 </div>
 
@@ -52,13 +49,11 @@ notes for the first edition.
 
 ###### Human Errors {#human-errors}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### How Important Is Reliability? {#how-important-is-reliability}
-
 
 </div>
 
@@ -72,20 +67,17 @@ notes for the first edition.
 
 ###### Describing Load {#describing-load}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Describing Performance {#describing-performance}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Approaches for Coping with Load {#approaches-for-coping-with-load}
-
 
 </div>
 
@@ -99,20 +91,17 @@ notes for the first edition.
 
 ###### Operability: Making Life Easy for Operations {#operability-making-life-easy-for-operations}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Simplicity: Managing Complexity {#simplicity-managing-complexity}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Evolvability: Making Change Easy {#evolvability-making-change-easy}
-
 
 </div>
 
@@ -121,7 +110,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -139,13 +127,11 @@ notes for the first edition.
 
 ###### The Birth of NoSQL {#the-birth-of-nosql}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### The Object-Relational Mismatch {#the-object-relational-mismatch}
-
 
 </div>
 
@@ -153,20 +139,17 @@ notes for the first edition.
 
 ###### Many-to-One and Many-to-Many Relationships {#many-to-one-and-many-to-many-relationships}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Are Document Databases Repeating History? {#are-document-databases-repeating-history}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Relational Versus Document Databases Today {#relational-versus-document-databases-today}
-
 
 </div>
 
@@ -180,13 +163,11 @@ notes for the first edition.
 
 ###### Declarative Queries on the Web {#declarative-queries-on-the-web}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### MapReduce Querying {#mapreduce-querying}
-
 
 </div>
 
@@ -200,13 +181,11 @@ notes for the first edition.
 
 ###### Property Graphs {#property-graphs}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### The Cypher Query Language {#the-cypher-query-language}
-
 
 </div>
 
@@ -214,20 +193,17 @@ notes for the first edition.
 
 ###### Graph Queries in SQL {#graph-queries-in-sql}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Triple-Stores and SPARQL {#triple-stores-and-sparql}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### The Foundation: Datalog {#the-foundation-datalog}
-
 
 </div>
 
@@ -236,7 +212,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -254,13 +229,11 @@ notes for the first edition.
 
 ###### Hash Indexes {#hash-indexes}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### SSTables and LSM-Trees {#sstables-and-lsm-trees}
-
 
 </div>
 
@@ -268,20 +241,17 @@ notes for the first edition.
 
 ###### B-Trees {#b-trees}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Comparing B-Trees and LSM-Trees {#comparing-b-trees-and-lsm-trees}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Other Indexing Structures {#other-indexing-structures}
-
 
 </div>
 
@@ -295,13 +265,11 @@ notes for the first edition.
 
 ###### Data Warehousing {#data-warehousing}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Stars and Snowflakes: Schemas for Analytics {#stars-and-snowflakes-schemas-for-analytics}
-
 
 </div>
 
@@ -315,13 +283,11 @@ notes for the first edition.
 
 ###### Column Compression {#column-compression}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Sort Order in Column Storage {#sort-order-in-column-storage}
-
 
 </div>
 
@@ -329,13 +295,11 @@ notes for the first edition.
 
 ###### Writing to Column-Oriented Storage {#writing-to-column-oriented-storage}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Aggregation: Data Cubes and Materialized Views {#aggregation-data-cubes-and-materialized-views}
-
 
 </div>
 
@@ -344,7 +308,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -362,13 +325,11 @@ notes for the first edition.
 
 ###### Language-Specific Formats {#language-specific-formats}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### JSON, XML, and Binary Variants {#json-xml-and-binary-variants}
-
 
 </div>
 
@@ -376,20 +337,17 @@ notes for the first edition.
 
 ###### Thrift and Protocol Buffers {#thrift-and-protocol-buffers}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Avro {#avro}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### The Merits of Schemas {#the-merits-of-schemas}
-
 
 </div>
 
@@ -403,20 +361,17 @@ notes for the first edition.
 
 ###### Dataflow Through Databases {#dataflow-through-databases}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Dataflow Through Services: REST and RPC {#dataflow-through-services-rest-and-rpc}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Message-Passing Dataflow {#message-passing-dataflow}
-
 
 </div>
 
@@ -425,7 +380,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -449,13 +403,11 @@ notes for the first edition.
 
 ###### Synchronous Versus Asynchronous Replication {#synchronous-versus-asynchronous-replication}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Setting Up New Followers {#setting-up-new-followers}
-
 
 </div>
 
@@ -463,13 +415,11 @@ notes for the first edition.
 
 ###### Handling Node Outages {#handling-node-outages}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Implementation of Replication Logs {#implementation-of-replication-logs}
-
 
 </div>
 
@@ -483,13 +433,11 @@ notes for the first edition.
 
 ###### Reading Your Own Writes {#reading-your-own-writes}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Monotonic Reads {#monotonic-reads}
-
 
 </div>
 
@@ -497,13 +445,11 @@ notes for the first edition.
 
 ###### Consistent Prefix Reads {#consistent-prefix-reads}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Solutions for Replication Lag {#solutions-for-replication-lag}
-
 
 </div>
 
@@ -517,20 +463,17 @@ notes for the first edition.
 
 ###### Use Cases for Multi-Leader Replication {#use-cases-for-multi-leader-replication}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Handling Write Conflicts {#handling-write-conflicts}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Multi-Leader Replication Topologies {#multi-leader-replication-topologies}
-
 
 </div>
 
@@ -544,13 +487,11 @@ notes for the first edition.
 
 ###### Writing to the Database When a Node Is Down {#writing-to-the-database-when-a-node-is-down}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Limitations of Quorum Consistency {#limitations-of-quorum-consistency}
-
 
 </div>
 
@@ -558,13 +499,11 @@ notes for the first edition.
 
 ###### Sloppy Quorums and Hinted Handoff {#sloppy-quorums-and-hinted-handoff}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Detecting Concurrent Writes {#detecting-concurrent-writes}
-
 
 </div>
 
@@ -573,7 +512,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -587,7 +525,6 @@ notes for the first edition.
 
 ##### Partitioning and Replication {#partitioning-and-replication}
 
-
 </div>
 
 <div class="outline-4 jvc">
@@ -598,20 +535,17 @@ notes for the first edition.
 
 ###### Partitioning by Key Range {#partitioning-by-key-range}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Partitioning by Hash of Key {#partitioning-by-hash-of-key}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Skewed Workloads and Relieving Hot Spots {#skewed-workloads-and-relieving-hot-spots}
-
 
 </div>
 
@@ -625,13 +559,11 @@ notes for the first edition.
 
 ###### Partitioning Secondary Indexes by Document {#partitioning-secondary-indexes-by-document}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Partitioning Secondary Indexes by Term {#partitioning-secondary-indexes-by-term}
-
 
 </div>
 
@@ -645,13 +577,11 @@ notes for the first edition.
 
 ###### Strategies for Rebalancing {#strategies-for-rebalancing}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Operations: Automatic or Manual Rebalancing {#operations-automatic-or-manual-rebalancing}
-
 
 </div>
 
@@ -665,7 +595,6 @@ notes for the first edition.
 
 ###### Parallel Query Execution {#parallel-query-execution}
 
-
 </div>
 
 </div>
@@ -673,7 +602,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -691,13 +619,11 @@ notes for the first edition.
 
 ###### The Meaning of ACID {#the-meaning-of-acid}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Single-Object and Multi-Object Operations {#single-object-and-multi-object-operations}
-
 
 </div>
 
@@ -711,13 +637,11 @@ notes for the first edition.
 
 ###### Read Committed {#read-committed}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Snapshot Isolation and Repeatable Read {#snapshot-isolation-and-repeatable-read}
-
 
 </div>
 
@@ -725,13 +649,11 @@ notes for the first edition.
 
 ###### Preventing Lost Updates {#preventing-lost-updates}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Write Skew and Phantoms {#write-skew-and-phantoms}
-
 
 </div>
 
@@ -745,20 +667,17 @@ notes for the first edition.
 
 ###### Actual Serial Execution {#actual-serial-execution}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Two-Phase Locking (2PL) {#two-phase-locking--2pl}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Serializable Snapshot Isolation (SSI) {#serializable-snapshot-isolation--ssi}
-
 
 </div>
 
@@ -767,7 +686,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -785,7 +703,6 @@ notes for the first edition.
 
 ###### Cloud Computing and Supercomputing {#cloud-computing-and-supercomputing}
 
-
 </div>
 
 </div>
@@ -798,13 +715,11 @@ notes for the first edition.
 
 ###### Network Faults in Practice {#network-faults-in-practice}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Detecting Faults {#detecting-faults}
-
 
 </div>
 
@@ -812,13 +727,11 @@ notes for the first edition.
 
 ###### Timeouts and Unbounded Delays {#timeouts-and-unbounded-delays}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Synchronous Versus Asynchronous Networks {#synchronous-versus-asynchronous-networks}
-
 
 </div>
 
@@ -832,13 +745,11 @@ notes for the first edition.
 
 ###### Monotonic Versus Time-of-Day Clocks {#monotonic-versus-time-of-day-clocks}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Clock Synchronization and Accuracy {#clock-synchronization-and-accuracy}
-
 
 </div>
 
@@ -846,13 +757,11 @@ notes for the first edition.
 
 ###### Relying on Synchronized Clocks {#relying-on-synchronized-clocks}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Process Pauses {#process-pauses}
-
 
 </div>
 
@@ -866,20 +775,17 @@ notes for the first edition.
 
 ###### The Truth Is Defined by the Majority {#the-truth-is-defined-by-the-majority}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Byzantine Faults {#byzantine-faults}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### System Model and Reality {#system-model-and-reality}
-
 
 </div>
 
@@ -888,7 +794,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -902,7 +807,6 @@ notes for the first edition.
 
 ##### Consistency Guarantees {#consistency-guarantees}
 
-
 </div>
 
 <div class="outline-4 jvc">
@@ -913,13 +817,11 @@ notes for the first edition.
 
 ###### What Makes a System Linearizable? {#what-makes-a-system-linearizable}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Relying on Linearizability {#relying-on-linearizability}
-
 
 </div>
 
@@ -927,13 +829,11 @@ notes for the first edition.
 
 ###### Implementing Linearizable Systems {#implementing-linearizable-systems}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### The Cost of Linearizability {#the-cost-of-linearizability}
-
 
 </div>
 
@@ -947,20 +847,17 @@ notes for the first edition.
 
 ###### Ordering and Causality {#ordering-and-causality}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Sequence Number Ordering {#sequence-number-ordering}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Total Order Broadcast {#total-order-broadcast}
-
 
 </div>
 
@@ -974,13 +871,11 @@ notes for the first edition.
 
 ###### Atomic Commit and Two-Phase Commit (2PC) {#atomic-commit-and-two-phase-commit--2pc}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Distributed Transactions in Practice {#distributed-transactions-in-practice}
-
 
 </div>
 
@@ -988,13 +883,11 @@ notes for the first edition.
 
 ###### Fault-Tolerant Consensus {#fault-tolerant-consensus}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Membership and Coordination Services {#membership-and-coordination-services}
-
 
 </div>
 
@@ -1003,7 +896,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -1027,13 +919,11 @@ notes for the first edition.
 
 ###### Simple Log Analysis {#simple-log-analysis}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### The Unix Philosophy {#the-unix-philosophy}
-
 
 </div>
 
@@ -1047,13 +937,11 @@ notes for the first edition.
 
 ###### MapReduce Job Execution {#mapreduce-job-execution}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Reduce-Side Joins and Grouping {#reduce-side-joins-and-grouping}
-
 
 </div>
 
@@ -1061,20 +949,17 @@ notes for the first edition.
 
 ###### Map-Side Joins {#map-side-joins}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### The Output of Batch Workflows {#the-output-of-batch-workflows}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Comparing Hadoop to Distributed Databases {#comparing-hadoop-to-distributed-databases}
-
 
 </div>
 
@@ -1088,20 +973,17 @@ notes for the first edition.
 
 ###### Materialization of Intermediate State {#materialization-of-intermediate-state}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Graphs and Iterative Processing {#graphs-and-iterative-processing}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### High-Level APIs and Languages {#high-level-apis-and-languages}
-
 
 </div>
 
@@ -1110,7 +992,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -1128,13 +1009,11 @@ notes for the first edition.
 
 ###### Messaging Systems {#messaging-systems}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Partitioned Logs {#partitioned-logs}
-
 
 </div>
 
@@ -1148,13 +1027,11 @@ notes for the first edition.
 
 ###### Keeping Systems in Sync {#keeping-systems-in-sync}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Change Data Capture {#change-data-capture}
-
 
 </div>
 
@@ -1162,13 +1039,11 @@ notes for the first edition.
 
 ###### Event Sourcing {#event-sourcing}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### State, Streams, and Immutability {#state-streams-and-immutability}
-
 
 </div>
 
@@ -1182,13 +1057,11 @@ notes for the first edition.
 
 ###### Uses of Stream Processing {#uses-of-stream-processing}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Reasoning About Time {#reasoning-about-time}
-
 
 </div>
 
@@ -1196,13 +1069,11 @@ notes for the first edition.
 
 ###### Stream Joins {#stream-joins}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Fault Tolerance {#fault-tolerance}
-
 
 </div>
 
@@ -1211,7 +1082,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 
@@ -1229,13 +1099,11 @@ notes for the first edition.
 
 ###### Combining Specialized Tools by Deriving Data {#combining-specialized-tools-by-deriving-data}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Batch and Stream Processing {#batch-and-stream-processing}
-
 
 </div>
 
@@ -1249,20 +1117,17 @@ notes for the first edition.
 
 ###### Composing Data Storage Technologies {#composing-data-storage-technologies}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Designing Applications Around Dataflow {#designing-applications-around-dataflow}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Observing Derived State {#observing-derived-state}
-
 
 </div>
 
@@ -1276,13 +1141,11 @@ notes for the first edition.
 
 ###### The End-to-End Argument for Databases {#the-end-to-end-argument-for-databases}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Enforcing Constraints {#enforcing-constraints}
-
 
 </div>
 
@@ -1290,13 +1153,11 @@ notes for the first edition.
 
 ###### Timeliness and Integrity {#timeliness-and-integrity}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Trust, but Verify {#trust-but-verify}
-
 
 </div>
 
@@ -1310,13 +1171,11 @@ notes for the first edition.
 
 ###### Predictive Analytics {#predictive-analytics}
 
-
 </div>
 
 <div class="outline-5 jvc">
 
 ###### Privacy and Tracking {#privacy-and-tracking}
-
 
 </div>
 
@@ -1325,7 +1184,6 @@ notes for the first edition.
 <div class="outline-4 jvc">
 
 ##### Summary {#summary}
-
 
 </div>
 

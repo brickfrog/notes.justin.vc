@@ -244,6 +244,7 @@ install (on `doom sync`) and configuration to be applied. The modules can also
 have flags applied to tweak their behavior.
 
 <a id="code-snippet--init.el"></a>
+
 ```emacs-lisp { collapsed="t" }
 ;;; init.el -*- lexical-binding: t; -*-
 
@@ -300,6 +301,7 @@ along with the bindings and smart-parens behavior (the flags aren't documented,
 but they exist).
 
 <a id="code-snippet--doom-config"></a>
+
 ```emacs-lisp
 literate
 (default +bindings +smartparens)
@@ -315,6 +317,7 @@ There's a lot that can be done to enhance Emacs' capabilities.
 I reckon enabling half the modules Doom provides should do it.
 
 <a id="code-snippet--doom-completion"></a>
+
 ```emacs-lisp
 (company                     ; the ultimate code completion backend
  +childframe)                ; ... when your children are better than you
@@ -327,6 +330,7 @@ I reckon enabling half the modules Doom provides should do it.
 ```
 
 <a id="code-snippet--doom-ui"></a>
+
 ```emacs-lisp
 deft                         ; notational velocity for Emacs
 doom                         ; what makes DOOM look the way it does
@@ -357,6 +361,7 @@ zen                          ; distraction-free coding or writing
 ```
 
 <a id="code-snippet--doom-editor"></a>
+
 ```emacs-lisp
 (evil +everywhere)           ; come to the dark side, we have cookies
 file-templates               ; auto-snippets for empty files
@@ -373,6 +378,7 @@ word-wrap                  ; soft wrapping with language-aware indent
 ```
 
 <a id="code-snippet--doom-emacs"></a>
+
 ```emacs-lisp
 (dired +icons)               ; making dired pretty [functional]
 electric                     ; smarter, keyword-based electric-indent
@@ -382,6 +388,7 @@ vc                           ; version-control and Emacs, sitting in a tree
 ```
 
 <a id="code-snippet--doom-term"></a>
+
 ```emacs-lisp
 ;;eshell                     ; the elisp shell that works everywhere
 ;;shell                      ; simple shell REPL for Emacs
@@ -390,6 +397,7 @@ vterm                        ; the best terminal emulation in Emacs
 ```
 
 <a id="code-snippet--doom-checkers"></a>
+
 ```emacs-lisp
 syntax                       ; tasing you for every semicolon you forget
 spell                        ; tasing you for misspelling mispelling
@@ -397,6 +405,7 @@ grammar                      ; tasing grammar mistake every you make
 ```
 
 <a id="code-snippet--doom-tools"></a>
+
 ```emacs-lisp
 ansible                      ; a crucible for infrastructure as code
 biblio
@@ -428,6 +437,7 @@ upload                       ; map local to remote projects via ssh/ftp
 ```
 
 <a id="code-snippet--doom-os"></a>
+
 ```emacs-lisp
 tty                          ; improve the terminal Emacs experience
 ```
@@ -443,6 +453,7 @@ packages/configuration are (usually) only loaded when first opening an
 associated file.
 
 <a id="code-snippet--doom-lang"></a>
+
 ```emacs-lisp
 ;;agda                       ; types of types of types of types...
 ;;beancount                  ; mind the GAAP
@@ -531,6 +542,7 @@ It's just too convenient being able to have everything in Emacs.
 I couldn't resist the Email and Feed modules.
 
 <a id="code-snippet--doom-email"></a>
+
 ```emacs-lisp
 (:if (executable-find "mu") (mu4e +org +gmail))
 ;;notmuch
@@ -538,6 +550,7 @@ I couldn't resist the Email and Feed modules.
 ```
 
 <a id="code-snippet--doom-app"></a>
+
 ```emacs-lisp
 calendar                     ; A dated approach to timetabling
 emms                         ; Multimedia in Emacs is music to my ears
@@ -560,7 +573,7 @@ everywhere                   ; *leave* Emacs!? You must be joking.
 ##### Font Face {#font-face}
 
 'Fira Code' is nice, and 'Overpass' makes for a nice sans companion. We just need to
-fiddle with the font sizes a tad so that they visually match.  🕵🏽
+fiddle with the font sizes a tad so that they visually match. 🕵🏽
 
 ```emacs-lisp
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16)
@@ -578,6 +591,7 @@ Because we care about how things look let's add a check to make sure we're told
 if the system doesn't have any of those fonts.
 
 <a id="code-snippet--detect-missing-fonts"></a>
+
 ```emacs-lisp
 (defvar required-fonts '("FiraCode Nerd Font" "Overpass" "JuliaMono" "IBM Plex Mono" "Merriweather" "Alegreya"))
 
@@ -681,11 +695,11 @@ I'd like some slightly nicer default buffer names
 
 There are a few handy macros added by doom, namely
 
--   `load!` for loading external `.el` files relative to this one
--   `use-package!` for configuring packages
--   `add-load-path!` for adding directories to the `load-path` where `Emacs` looks when
-    you load packages with `require` or `use-package`
--   `map!` for binding new keys
+- `load!` for loading external `.el` files relative to this one
+- `use-package!` for configuring packages
+- `add-load-path!` for adding directories to the `load-path` where `Emacs` looks when
+  you load packages with `require` or `use-package`
+- `map!` for binding new keys
 
 </div>
 
@@ -1076,6 +1090,7 @@ At the end, we have a minimal but rather nice splash screen.
 For running a systemd service for a Emacs server I have the following
 
 <a id="code-snippet--emacsclient service"></a>
+
 ```systemd
 [Unit]
 Description=Emacs server daemon
@@ -1132,6 +1147,7 @@ new Emacsclient frames start on the `*scratch*` buffer instead of the dashboard.
 I prefer the dashboard, so let's ensure that's always switched to in new frames.
 
 <a id="code-snippet--daemon initialization"></a>
+
 ```emacs-lisp
 (defun greedily-do-daemon-setup ()
   (require 'org)
@@ -1165,19 +1181,20 @@ However, a little convenience script in `~/.local/bin` can have the same effect,
 be available beyond the specific shell I plop the alias in, then also allow me
 to add a few bells and whistles --- namely:
 
--   Accepting stdin by putting it in a temporary file and immediately opening it.
--   Guessing that the `tty` is a good idea when `$DISPLAY` is unset (relevant with SSH
-    sessions, among other things).
--   With a whiff of 24-bit color support, sets `TERM` variable to a `terminfo` that
-    (probably) announces 24-bit color support.
--   Changes GUI `emacsclient` instances to be non-blocking by default (`--no-wait`),
-    and instead take a flag to suppress this behavior (`-w`).
+- Accepting stdin by putting it in a temporary file and immediately opening it.
+- Guessing that the `tty` is a good idea when `$DISPLAY` is unset (relevant with SSH
+  sessions, among other things).
+- With a whiff of 24-bit color support, sets `TERM` variable to a `terminfo` that
+  (probably) announces 24-bit color support.
+- Changes GUI `emacsclient` instances to be non-blocking by default (`--no-wait`),
+  and instead take a flag to suppress this behavior (`-w`).
 
 I would use `sh`, but using arrays for argument manipulation is just too
 convenient, so I'll raise the requirement to `bash`. Since arrays are the only
 'extra' compared to `sh`, other shells like `ksh` etc. should work too.
 
 <a id="code-snippet--e"></a>
+
 ```shell
 #!/usr/bin/env bash
 force_tty=false
@@ -1969,7 +1986,8 @@ prompt recognition.
 ```emacs-lisp
 (after! tramp
   (setenv "SHELL" "/bin/bash")
-  (setq tramp-shell-prompt-pattern "\\(?:^\\|\\)[^]#$%>\n]*#?[]#$%>] *\\(\\[[0-9;]*[a-zA-Z] *\\)*")) ;; default + 
+  (setq tramp-shell-prompt-pattern "\\(?:^\\|
+\\)[^]#$%>\n]*#?[]#$%>] *\\(\\[[0-9;]*[a-zA-Z] *\\)*")) ;; default + 
 ```
 
 </div>
@@ -2369,8 +2387,8 @@ directly opening a file with (a new) Emacs `mixed-pitch-mode` runs before UI
 initialization, which is problematic. To resolve this, we create a hook that
 runs after UI initialization and both
 
--   conditionally enables `mixed-pitch-mode`
--   sets up the mixed pitch hooks
+- conditionally enables `mixed-pitch-mode`
+- sets up the mixed pitch hooks
 
 <!--listend-->
 
@@ -2441,11 +2459,11 @@ Thankfully, it isn't to hard to add these to the `composition-function-table`.
 Marginalia is nice, but the file metadata annotations are a little too plain.
 Specifically, I have these gripes
 
--   File attributes would be nicer if colored
--   I don't care about the user/group information if the user/group is me
--   When a file time is recent, a relative age (e.g. `2h ago`) is more useful than
-    the date
--   An indication of file fatness would be nice
+- File attributes would be nicer if colored
+- I don't care about the user/group information if the user/group is me
+- When a file time is recent, a relative age (e.g. `2h ago`) is more useful than
+  the date
+- An indication of file fatness would be nice
 
 Thanks to the `marginalia-annotator-registry`, we don't have to advise, we can
 just add a new `file` annotator.
@@ -2551,12 +2569,12 @@ For starters, I think Doom is a bit over-zealous when zooming in
 Then, when using Org it would be nice to make a number of other aesthetic
 tweaks. Namely:
 
--   Use a serifed variable-pitch font
--   Hiding headline leading stars
--   Using fleurons as headline bullets
--   Hiding line numbers
--   Removing outline indentation
--   Centring the text
+- Use a serifed variable-pitch font
+- Hiding headline leading stars
+- Using fleurons as headline bullets
+- Hiding line numbers
+- Removing outline indentation
+- Centring the text
 
 <!--listend-->
 
@@ -5196,10 +5214,10 @@ Thanks to alphapapa's [unpackaged.el](https://github.com/alphapapa/unpackaged.el
 By default, Org generated heading IDs like `#org80fc2a5` which ... works, but has
 two issues
 
--   It's uninformative, I have no idea what's referenced
--   If I export the same file, everything will change.
-    Now, while without hardcoded values it's impossible to set references in
-    stone, it would be nice for there to be a decent chance of staying the same.
+- It's uninformative, I have no idea what's referenced
+- If I export the same file, everything will change.
+  Now, while without hardcoded values it's impossible to set references in
+  stone, it would be nice for there to be a decent chance of staying the same.
 
 Both of these issues can be addressed by generating IDs like
 `#language-configuration`, which is what I'll do here.
@@ -5529,23 +5547,23 @@ appropriate.  In tables, insert a new row or end the table."
 
 I often want to set `src-block` headers, and it's a pain to
 
--   type them out
--   remember what the accepted values are
--   oh, and specifying the same language again and again
+- type them out
+- remember what the accepted values are
+- oh, and specifying the same language again and again
 
 We can solve this in three steps
 
--   having one-letter snippets, conditioned on `(point)` being within a src header
--   creating a nice prompt showing accepted values and the current default
--   pre-filling the `src-block` language with the last language used
+- having one-letter snippets, conditioned on `(point)` being within a src header
+- creating a nice prompt showing accepted values and the current default
+- pre-filling the `src-block` language with the last language used
 
 For header args, the keys I'll use are
 
--   `r` for `:results`
--   `e` for `:exports`
--   `v` for `:eval`
--   `s` for `:session`
--   `d` for `:dir`
+- `r` for `:results`
+- `e` for `:exports`
+- `v` for `:eval`
+- `s` for `:session`
+- `d` for `:dir`
 
 <!--listend-->
 
@@ -6006,7 +6024,7 @@ We can either render from a `dvi` or `pdf` file, so let's benchmark `latex` and
 `pdflatex`.
 
 | `latex` time      | `pdflatex` time   |
-|-------------------|-------------------|
+| ----------------- | ----------------- |
 | 135 &plusmn; 2 ms | 215 &plusmn; 3 ms |
 
 On the rendering side, there are two `.dvi`-to-image converters which I am
@@ -6017,13 +6035,13 @@ size and prefer a vector graphic.
 Using the above latex expression and benchmarking lead to the following results:
 
 | `dvipng` time    | `dvisvgm` time    | `pdf2svg` time   |
-|------------------|-------------------|------------------|
+| ---------------- | ----------------- | ---------------- |
 | 89 &plusmn; 2 ms | 178 &plusmn; 2 ms | 12 &plusmn; 2 ms |
 
 Now let's combine this to see what's best
 
 | Tool chain             | Total time        | Resultant file size |
-|------------------------|-------------------|---------------------|
+| ---------------------- | ----------------- | ------------------- |
 | `latex` + `dvipng`     | 226 &plusmn; 2 ms | 7 KiB               |
 | `latex` + `dvisvgm`    | 392 &plusmn; 4 ms | 8 KiB               |
 | `pdflatex` + `pdf2svg` | 230 &plusmn; 2 ms | 16 KiB              |
@@ -6267,12 +6285,12 @@ used by default.
 There are two caveats to `ob-async`:
 
 1.  It does not support `:session`
-    -   So, we don't want `:async` used when `:session` is set
+    - So, we don't want `:async` used when `:session` is set
 2.  It adds a fixed delay to execution
-    -   This is undesirable in a number of cases, for example it's generally
-        unwanted with `emacs-lisp` code
-    -   As such, I also introduce a async language blacklist to control when it's
-        automatically enabled
+    - This is undesirable in a number of cases, for example it's generally
+      unwanted with `emacs-lisp` code
+    - As such, I also introduce a async language blacklist to control when it's
+      automatically enabled
 
 Due to the nuance in the desired behavior, instead of just adding `:async` to
 `org-babel-default-header-args`, I advice `org-babel-get-src-block-info` to add
@@ -6280,7 +6298,7 @@ Due to the nuance in the desired behavior, instead of just adding `:async` to
 indication that `:async` should not be added.
 
 I did originally have this enabled for everything except for `emacs-lisp` and
-`LaTeX` (there were weird issues), but this added  a ~3s "startup" cost to every
+`LaTeX` (there were weird issues), but this added a ~3s "startup" cost to every
 src block evaluation, which was a bit of a pain. Since `:async` can be added
 easily with `#+properties`, I've turned this behavior from a blacklist to a
 whitelist.

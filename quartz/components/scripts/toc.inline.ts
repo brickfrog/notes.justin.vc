@@ -48,22 +48,22 @@
   function scrollTocToView(element: Element) {
     if (!tocContent) return
 
-    const tocRect = tocContent.getBoundingClientRect();
-    const elementRect = element.getBoundingClientRect();
+    const tocRect = tocContent.getBoundingClientRect()
+    const elementRect = element.getBoundingClientRect()
 
-    const relativeTop = elementRect.top - tocRect.top;
-    const relativeBottom = elementRect.bottom - tocRect.top;
+    const relativeTop = elementRect.top - tocRect.top
+    const relativeBottom = elementRect.bottom - tocRect.top
 
     if (relativeTop < 0 || relativeBottom > tocRect.height) {
       const scrollTarget =
-        tocContent.scrollTop + relativeTop - tocRect.height / 2 + elementRect.height / 2;
+        tocContent.scrollTop + relativeTop - tocRect.height / 2 + elementRect.height / 2
 
       requestAnimationFrame(() => {
         tocContent?.scrollTo({
           top: scrollTarget,
-          behavior: "smooth"
-        });
-      });
+          behavior: "smooth",
+        })
+      })
     }
   }
   function setupTocToggle() {

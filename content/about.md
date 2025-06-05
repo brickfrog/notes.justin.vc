@@ -69,8 +69,8 @@ non-linear personal web notebook](https://tiddlywiki.com) and [sobjornstad (Sore
 
 ###### <span class="org-priority priority-B">[#B]</span>Citar and Zotero {#citar-and-zotero}
 
--   (Mostly) out-of-the-box via: [Org Cite Citations — ox-hugo - Org to Hugo exporter](https://ox-hugo.scripter.co/doc/org-cite-citations/)
--   `citar-insert-citation` to insert citations using the bibkey associated with
+- (Mostly) out-of-the-box via: [Org Cite Citations — ox-hugo - Org to Hugo exporter](https://ox-hugo.scripter.co/doc/org-cite-citations/)
+- `citar-insert-citation` to insert citations using the bibkey associated with
 
 Zotero.
 
@@ -125,7 +125,6 @@ example would be like thus:
 
 ###### <span class="org-priority priority-A">[#A]</span>Crime and Punishment {#crime-and-punishment}
 
-
 </div>
 
 </div>
@@ -177,11 +176,11 @@ the DOM loading order / inline scripts.
 
 ##### <span class="org-todo todo TODO">TODO</span> Body {#body}
 
--   [X] Anchors seem to affix TODO's, etc. to the #
-    -   Had to modify the rehype slugger for gfm
-        -   I might've caused it to do it to non-TODOs, unsure if this happened before.
-            -   [ ] Maybe a regression?
--   [X] priority doesn't seem to export
+- [x] Anchors seem to affix TODO's, etc. to the #
+  - Had to modify the rehype slugger for gfm
+    - I might've caused it to do it to non-TODOs, unsure if this happened before.
+      - [ ] Maybe a regression?
+- [x] priority doesn't seem to export
 
 </div>
 
@@ -189,8 +188,8 @@ the DOM loading order / inline scripts.
 
 ##### <span class="org-todo todo TODO">TODO</span> Explorer {#explorer}
 
--   [ ] Get really fancy with the map, maybe different folders based on
-    categories or something
+- [ ] Get really fancy with the map, maybe different folders based on
+      categories or something
 
 </div>
 
@@ -198,7 +197,7 @@ the DOM loading order / inline scripts.
 
 ##### <span class="org-todo todo TODO">TODO</span> 'Frontmatter' {#frontmatter}
 
--   [ ] Conditionally remove the search stuff when on an index/tag page
+- [ ] Conditionally remove the search stuff when on an index/tag page
 
 </div>
 
@@ -206,7 +205,7 @@ the DOM loading order / inline scripts.
 
 ##### <span class="org-priority priority-C">[#C]</span><span class="org-todo todo TODO">TODO</span> Graph {#graph}
 
--   [ ] Low priority, but add categories into the graph
+- [ ] Low priority, but add categories into the graph
 
 </div>
 
@@ -214,7 +213,7 @@ the DOM loading order / inline scripts.
 
 ##### <span class="org-todo todo TODO">TODO</span> Linklist {#linklist}
 
--   [ ] Maybe remove Dailies from the random button?
+- [ ] Maybe remove Dailies from the random button?
 
 </div>
 
@@ -222,9 +221,9 @@ the DOM loading order / inline scripts.
 
 ##### <span class="org-todo todo TODO">TODO</span> Popover {#popover}
 
--   [ ] Crib some design from Gwern - a la persistence + popovers for
-    non-internal content
--   [ ] The CSS gets weird and headers become janky, but only sometimes
+- [ ] Crib some design from Gwern - a la persistence + popovers for
+      non-internal content
+- [ ] The CSS gets weird and headers become janky, but only sometimes
 
 </div>
 
@@ -232,12 +231,12 @@ the DOM loading order / inline scripts.
 
 ##### <span class="org-todo todo TODO">TODO</span> Sidenote / Footnote {#sidenote-footnote}
 
--   [ ] If in same viewport, change visibility of sidenotes as to not duplicate
--   [ ] Figure more elegant way of having ToC un-minimized + sidenotes?
--   [ ] Figure out how to swap references and footnotes? Maybe emacs side
-    -   low priority, couldn't figure it out since they export differently
--   [ ] Figure out what I want to do in situations where I have really long
-    footnotes and they overlap placement.
+- [ ] If in same viewport, change visibility of sidenotes as to not duplicate
+- [ ] Figure more elegant way of having ToC un-minimized + sidenotes?
+- [ ] Figure out how to swap references and footnotes? Maybe emacs side
+  - low priority, couldn't figure it out since they export differently
+- [ ] Figure out what I want to do in situations where I have really long
+      footnotes and they overlap placement.
 
 </div>
 
@@ -247,7 +246,7 @@ the DOM loading order / inline scripts.
 
 #### <span class="org-todo todo TODO">TODO</span> CSS Fixes {#css-fixes}
 
--   [ ] Codeblock indentation
+- [ ] Codeblock indentation
 
 </div>
 
@@ -255,12 +254,12 @@ the DOM loading order / inline scripts.
 
 #### <span class="org-todo todo IDEA">IDEA</span> New Features {#new-features}
 
--   [ ] Comments? Giscus was added on mainline, not sure if too useful - maybe
-    for specific notes only?
--   [ ] Menu sidebar for mobile (hamburger menu, etc.)
--   [ ] LLM integration with Frontmatter - this is more of an emacs side thing
-    but I'll make a note of it here
--   [ ] Button in LinkList that increases/decreases fonts - lets you change it?
+- [ ] Comments? Giscus was added on mainline, not sure if too useful - maybe
+      for specific notes only?
+- [ ] Menu sidebar for mobile (hamburger menu, etc.)
+- [ ] LLM integration with Frontmatter - this is more of an emacs side thing
+      but I'll make a note of it here
+- [ ] Button in LinkList that increases/decreases fonts - lets you change it?
 
 </div>
 

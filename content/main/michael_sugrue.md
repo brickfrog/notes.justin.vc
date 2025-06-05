@@ -32,15 +32,17 @@ His full list of vidoes: [Michael Sugrue](https://www.youtube.com/@dr.michaelsug
 
 #### <span class="org-priority priority-C">[#C]</span><span class="org-todo todo TODO">TODO</span> Watch his video(s) {#watch-his-video--s}
 
-
 </div>
 
 </div>
 
 </div>
 
-[^fn:1]: [Michael
+[^fn:1]:
+    [Michael
     Sugrue, 66, Dies; His Talks on Philosophy Were a YouTube Hit](https://www.nytimes.com/2024/05/25/education/michael-sugrue-dead.html)
-[^fn:2]: [Is Michael Sugrue reliable? : askphilosophy](https://old.reddit.com/r/askphilosophy/comments/soeabx/is_michael_sugrue_reliable/) - A commentator in this thread
+
+[^fn:2]:
+    [Is Michael Sugrue reliable? : askphilosophy](https://old.reddit.com/r/askphilosophy/comments/soeabx/is_michael_sugrue_reliable/) - A commentator in this thread
     instead uses the term "Catholic angst over the downfall of western civilization"
     which is probably apt.

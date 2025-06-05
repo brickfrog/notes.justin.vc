@@ -26,7 +26,9 @@
   border-radius: 4px;
   font-size: 0.9rem;
   pointer-events: auto;
-  transition: opacity 0.3s ease, background-color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    background-color 0.3s ease;
 
   sup {
     margin-right: 0.25rem;
@@ -60,7 +62,7 @@
 a[data-footnote-ref] {
   cursor: pointer;
   color: var(--secondary);
-  
+
   &:hover {
     text-decoration: underline;
   }

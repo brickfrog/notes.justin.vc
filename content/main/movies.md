@@ -29,26 +29,26 @@ disappointed if they came into it purely as a 'horror' fan.
 
 #### Watching Notes {#watching-notes}
 
--   A24! I feel like I see them everywhere now.
--   Are you afraid of the dark analogue? Campfire scene thingymajig
--   I'm curious if we're going to get more 90's nostalgia like we did with the
-    80's
--   Unsure what the pink opaque itself could be a reference to
-    -   monster of the week? (was mentioned after - yeah)
-    -   musical choice and framing reminds me of twin peaks
--   identity discussion, not feeling anything, asexuality?
-    -   (after watching) oh.
--   the time skips aren't as distracting as I was worried about
--   okay, so the uh..  "i need to leave" was literal
--   the overlays feel a bit off, I'm not sure if that was intended?
--   if this was a real show, and I watched it as a kid, I probably would've been traumatized
--   I think I get what it's going for, but uh..
--   I caught a glimpse of the reviews mentioning the trans identity issues - as of
-    writing this I didn't expect it to be that object-level? I am curious where it's
-    going to go with it
--   soup party
--   so, uh, it was literal, huh
--   okay, working that job is more dread inducing than
+- A24! I feel like I see them everywhere now.
+- Are you afraid of the dark analogue? Campfire scene thingymajig
+- I'm curious if we're going to get more 90's nostalgia like we did with the
+  80's
+- Unsure what the pink opaque itself could be a reference to
+  - monster of the week? (was mentioned after - yeah)
+  - musical choice and framing reminds me of twin peaks
+- identity discussion, not feeling anything, asexuality?
+  - (after watching) oh.
+- the time skips aren't as distracting as I was worried about
+- okay, so the uh.. "i need to leave" was literal
+- the overlays feel a bit off, I'm not sure if that was intended?
+- if this was a real show, and I watched it as a kid, I probably would've been traumatized
+- I think I get what it's going for, but uh..
+- I caught a glimpse of the reviews mentioning the trans identity issues - as of
+  writing this I didn't expect it to be that object-level? I am curious where it's
+  going to go with it
+- soup party
+- so, uh, it was literal, huh
+- okay, working that job is more dread inducing than
 
 </div>
 
@@ -58,7 +58,7 @@ disappointed if they came into it purely as a 'horror' fan.
 
 ### Robot Dreams {#robot-dreams}
 
-[Robot Dreams (film)](https://en.wikipedia.org/wiki/Robot_Dreams_(film)) - I liked this. Excluding music lyrics, it's
+[Robot Dreams (film)](<https://en.wikipedia.org/wiki/Robot_Dreams_(film)>) - I liked this. Excluding music lyrics, it's
 silent. Vibes heavy and full of NYC references. You can see the Guardian
 Angels on the subway, and things like that. Came to my surprise that it was a
 Spanish director/studio that made this. I don't have any deep thoughts on the
@@ -91,7 +91,7 @@ futzing about without AI shenanigans would've been a fun time.
 
 ### Mind Games <span class="tag"><span class="anime">anime</span></span> {#mind-games}
 
-[Mind Game (film)](https://en.wikipedia.org/wiki/Mind_Game_(film)) - This was a trip. I love experimental films, and generally
+[Mind Game (film)](<https://en.wikipedia.org/wiki/Mind_Game_(film)>) - This was a trip. I love experimental films, and generally
 anything with the overarching theme of not living with regret.
 
 </div>
@@ -103,7 +103,7 @@ anything with the overarching theme of not living with regret.
 [Penguin Highway](https://en.wikipedia.org/wiki/Penguin_Highway) - I guess this was originally a novel that got adapted. I'd like
 to read it, I'm curious if it's a 1:1 adaptation. I enjoyed the beginning and
 end the most, essentially a slice of life just hanging with your friends and
-someone  you have a crush on. That'll always be a trope that gets me, of
+someone you have a crush on. That'll always be a trope that gets me, of
 the mysterious mentor-figure that <span class="spoiler"> eventually has to leave you </span> .
 Also, I like the notebooks he keeps. I need to get the new years [HOBONICHI](https://www.1101.com/hoboid/en/). Also
 I need to start drawing again.
@@ -131,7 +131,6 @@ Bolt(?). Man, the academy really hated / hates anime, huh.
 <div class="outline-3 jvc">
 
 #### Goals {#goals}
-
 
 </div>
 

@@ -33,13 +33,13 @@ button#explorer {
   width: 100%;
   margin-bottom: 0.5rem;
   position: relative;
-  
+
   &:hover {
     background-color: var(--lightgray);
   }
 
   & h2 {
-    font-size: 1.0rem;
+    font-size: 1rem;
     margin: 0;
     font-weight: 600;
     text-align: center; // Ensure text is centered within h1
@@ -135,7 +135,7 @@ button#explorer {
     line-height: 1.5rem;
     display: inline-block;
     text-decoration: none;
-    
+
     &:hover {
       color: var(--tertiary);
     }

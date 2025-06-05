@@ -25,9 +25,9 @@ the tin, I suppose. I don't have much experience with it (yet) - but i hear good
 
 ### [Practical Applications for DuckDB (with Simon Aubury &amp; Ned Letcher)](https://www.youtube.com/watch?v=_nA3uDx1rlg) {#practical-applications-for-duckdb--with-simon-aubury-and-ned-letcher}
 
--   An interview with the authors of a book on DuckDB - 'Getting Started with
-    DuckDB' - I'll turn this into a node if I end up reading it. The one downside
-    is it's [Packt]({{< relref "packt.md" >}})
+- An interview with the authors of a book on DuckDB - 'Getting Started with
+  DuckDB' - I'll turn this into a node if I end up reading it. The one downside
+  is it's [Packt]({{< relref "packt.md" >}})
 
 </div>
 

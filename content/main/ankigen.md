@@ -72,11 +72,11 @@ generation as an artifact for people to wander into and maybe leave
 comments.[^fn:2] I'm not entirely sure if it would just be all babel-blocks or
 maybe a package that builds on something like [gptel.](https://github.com/karthink/gptel/blob/master/gptel-ollama.el)
 
- It's also worth pondering the usage of something like gpt4o-mini. While it's
+It's also worth pondering the usage of something like gpt4o-mini. While it's
 not free, it's cheap enough that I think the cost of an entire deck on a topic
 would be less than a dollar or two. I certainly spend money on dumber things.
 
- I could do this more easily in Python, I suppose, but I kind of wanted to
+I could do this more easily in Python, I suppose, but I kind of wanted to
 tinker around with elisp more. Maybe use it to interact with the anki packages
 that exist.
 
@@ -212,14 +212,19 @@ Maybe let's try it in Python just for ease..
 
 </div>
 
-[^fn:1]: Why pay for a fancy UI if you can write the prompts yourself? This is why I
+[^fn:1]:
+    Why pay for a fancy UI if you can write the prompts yourself? This is why I
     love LLMs but am a bit bearish on a lot of their costs are just an abstraction
     over someone being clever with a prompt. The average populace probably doesn't
     care, though.
-[^fn:2]: Ideally something like "Hey, I'm an expert in this and this question is
+
+[^fn:2]:
+    Ideally something like "Hey, I'm an expert in this and this question is
     totally wrong! Here's why!" - They say that expertise is knowing all the
     footguns, but I've also noticed people will closely guard things that give them
     an edge: "It's not my job to educate you!"
-[^fn:3]: Okay, so uh, I had some trouble with callbacks and such for emacs based llms,
+
+[^fn:3]:
+    Okay, so uh, I had some trouble with callbacks and such for emacs based llms,
     might just continue this in Python but keeping the previous parts for posterity
     / showing my chain of thought
