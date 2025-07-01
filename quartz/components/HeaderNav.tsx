@@ -23,8 +23,8 @@ const defaultOptions: HeaderNavOptions = {
   links: [
     { text: "Notes", link: "/" },
     { text: "Tags", link: "/tags" },
-    { text: "Recent", link: "/tags" },
-    { text: "Archive", link: "/tags" },
+    { text: "Recent", link: "/log" },
+    { text: "Archive", link: "/categories" },
   ],
 }
 
