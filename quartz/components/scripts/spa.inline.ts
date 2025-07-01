@@ -67,6 +67,12 @@ async function navigate(url: URL, isBack: boolean = false) {
   const html = p.parseFromString(contents, "text/html")
   normalizeRelativeURLs(html, url)
 
+  // preserve theme during navigation to prevent white flash
+  const currentTheme = document.documentElement.getAttribute("saved-theme")
+  if (currentTheme) {
+    html.documentElement.setAttribute("saved-theme", currentTheme)
+  }
+
   let title = html.querySelector("title")?.textContent
   if (title) {
     document.title = title
