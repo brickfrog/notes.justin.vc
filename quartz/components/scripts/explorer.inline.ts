@@ -133,3 +133,6 @@ function toggleCollapsedByPath(array: FolderState[], path: string) {
     entry.collapsed = !entry.collapsed
   }
 }
+
+// Initialize on page load
+setupExplorer()
