@@ -355,20 +355,20 @@
       @include todo-style(var(--todo1));
     }
     &.PROJ {
-      @include todo-style(#939ed2);
+      @include todo-style(#CC33FF);
     }
     &.WAIT,
     &.HOLD {
       @include todo-style(var(--todo2));
     }
     &.STRT {
-      @include todo-style(#f3935c, #000000, 1000);
+      @include todo-style(#FFCC00, var(--light), 1000);
     }
   }
 
   &.done {
     &.DONE {
-      @include todo-style(#303132, #ffffff);
+      @include todo-style(var(--gray), var(--dark));
     }
     &.KILL,
     &.NO {
@@ -377,7 +377,7 @@
   }
 }
 
-@mixin todo-style($bg-color, $text-color: #ffffff, $font-weight: 600) {
+@mixin todo-style($bg-color, $text-color: var(--light), $font-weight: 600) {
   background-color: $bg-color;
   color: $text-color;
   font-weight: $font-weight;
@@ -690,14 +690,14 @@ aside {
   margin: 25px;
   font-family: var(--codeFont);
   font-size: 0.75em;
-  color: #333;
+  color: var(--darkgray);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 
   h2 {
     font-size: 1.2em;
     margin-top: 0;
-    color: #007acc;
+    color: var(--secondary);
   }
 
   p {
@@ -706,9 +706,9 @@ aside {
   }
 
   a {
-    color: #007acc;
+    color: var(--secondary);
     text-decoration: none;
-    border-bottom: 1px dotted #007acc;
+    border-bottom: 1px dotted var(--secondary);
     &:hover {
       text-decoration: underline;
     }
@@ -724,8 +724,8 @@ aside {
   blockquote {
     margin: 1em 0; // Space around the blockquote
     padding-left: 1em; // Indentation for the blockquote
-    border-left: 4px solid #ccc; // Grey left border
-    color: #666; // Slightly lighter text color
+    border-left: 4px solid var(--gray); // Grey left border
+    color: var(--gray); // Slightly lighter text color
   }
 }
 
@@ -1000,35 +1000,35 @@ figure[data-rehype-pretty-code-figure] {
     }
 
     &[data-language="python"]::after {
-      background-color: #3572a5 !important;
+      background-color: #1A8CFF !important;
     }
 
     &[data-language="text"]::after {
-      background-color: #ccc !important;
+      background-color: #6B7D8C !important;
     }
 
     &[data-language="shell"]::after {
-      background-color: #89e051 !important;
+      background-color: #00CC99 !important;
     }
 
     &[data-language="elisp"]::after {
-      background-color: #c065db !important;
+      background-color: #CC33FF !important;
     }
 
     &[data-language="emacs-lisp"]::after {
-      background-color: #c065db !important;
+      background-color: #CC33FF !important;
     }
 
     &[data-language="r"]::after {
-      background-color: #198ce7 !important;
+      background-color: #1A8CFF !important;
     }
 
     &[data-language="markdown"]::after {
-      background-color: #083fa1 !important;
+      background-color: #1A8CFF !important;
     }
 
     &[data-language="org"]::after {
-      background-color: #77aa99 !important;
+      background-color: #00CC99 !important;
     }
   }
 }
@@ -1174,7 +1174,7 @@ ol.overflow {
 /* Spoiler */
 
 .spoiler {
-  background-color: #2c3e50;
+  background-color: var(--lightgray);
   color: transparent;
   border-radius: 5px;
   padding: 0 5px 0 5px;
@@ -1190,7 +1190,7 @@ ol.overflow {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #ecf0f1;
+  color: var(--darkgray);
   font-size: 0.8em;
   font-weight: bold;
   opacity: 0.7;
@@ -1198,7 +1198,7 @@ ol.overflow {
 }
 
 .spoiler:hover {
-  background-color: #34495e;
+  background-color: var(--gray);
 }
 
 .spoiler:hover::before {
@@ -1207,7 +1207,7 @@ ol.overflow {
 
 .spoiler:active,
 .spoiler:focus {
-  color: #fff;
+  color: var(--dark);
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
