@@ -18,14 +18,14 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "notes.justin.vc",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian", "config.md"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Exo 2",
-        body: "Exo 2",
+        header: "Atkinson Hyperlegible",
+        body: "Atkinson Hyperlegible",
         code: "IBM Plex Mono",
       },
       colors: {

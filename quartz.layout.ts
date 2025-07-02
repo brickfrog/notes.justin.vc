@@ -38,9 +38,7 @@ export const defaultContentPageLayout: PageLayout = {
       }),
     ),
   ],
-  right: [
-    Component.DesktopOnly(Component.Graph()),
-  ],
+  right: [Component.DesktopOnly(Component.Graph())],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
@@ -60,7 +58,5 @@ export const defaultListPageLayout: PageLayout = {
       }),
     ),
   ],
-  right: [
-    Component.DesktopOnly(Component.Graph()),
-  ],
+  right: [Component.DesktopOnly(Component.Graph())],
 }

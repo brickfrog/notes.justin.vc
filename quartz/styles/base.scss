@@ -194,6 +194,8 @@ a {
       display: flex;
       height: 100vh;
       position: sticky;
+      overflow: hidden;
+      will-change: auto; /* Prevent unnecessary compositing */
     }
 
     & .sidebar.left {

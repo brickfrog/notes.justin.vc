@@ -29,6 +29,17 @@ const getOpts = ({ target }: Event): { url: URL; scroll?: boolean } | undefined 
   const a = target.closest("a")
   if (!a) return
   if ("routerIgnore" in a.dataset) return
+
+  // Skip explorer folder buttons and icons to prevent conflicts
+  if (
+    target.closest(".folder-button") ||
+    target.closest(".folder-icon") ||
+    target.classList.contains("folder-button") ||
+    target.classList.contains("folder-icon")
+  ) {
+    return
+  }
+
   const { href } = a
   if (!isLocalUrl(href)) return
   return { url: new URL(href), scroll: "routerNoscroll" in a.dataset ? false : undefined }
@@ -43,7 +54,12 @@ const cleanupFns: Set<(...args: any[]) => void> = new Set()
 window.addCleanup = (fn) => cleanupFns.add(fn)
 
 let p: DOMParser
+let isNavigating = false
+
 async function navigate(url: URL, isBack: boolean = false) {
+  if (isNavigating) return
+  isNavigating = true
+
   p = p || new DOMParser()
   const contents = await fetch(`${url}`)
     .then((res) => {
@@ -58,7 +74,10 @@ async function navigate(url: URL, isBack: boolean = false) {
       window.location.assign(url)
     })
 
-  if (!contents) return
+  if (!contents) {
+    isNavigating = false
+    return
+  }
 
   // cleanup old
   cleanupFns.forEach((fn) => fn())
@@ -110,6 +129,8 @@ async function navigate(url: URL, isBack: boolean = false) {
   if (!isBack) {
     history.pushState({}, "", url)
   }
+
+  isNavigating = false
   notifyNav(getFullSlug(window))
   delete announcer.dataset.persist
 }
@@ -121,7 +142,7 @@ function createRouter() {
     window.addEventListener("click", async (event) => {
       const { url } = getOpts(event) ?? {}
       // dont hijack behaviour, just let browser act normally
-      if (!url || event.ctrlKey || event.metaKey) return
+      if (!url || event.ctrlKey || event.metaKey || isNavigating) return
       event.preventDefault()
 
       if (isSamePage(url) && url.hash) {
@@ -132,17 +153,18 @@ function createRouter() {
       }
 
       try {
-        navigate(url, false)
+        await navigate(url, false)
       } catch (e) {
         window.location.assign(url)
       }
     })
 
-    window.addEventListener("popstate", (event) => {
+    window.addEventListener("popstate", async (event) => {
+      if (isNavigating) return
       const { url } = getOpts(event) ?? {}
       if (window.location.hash && window.location.pathname === url?.pathname) return
       try {
-        navigate(new URL(window.location.toString()), true)
+        await navigate(new URL(window.location.toString()), true)
       } catch (e) {
         window.location.reload()
       }
@@ -151,9 +173,9 @@ function createRouter() {
   }
 
   return new (class Router {
-    go(pathname: RelativeURL) {
+    async go(pathname: RelativeURL) {
       const url = new URL(pathname, window.location.toString())
-      return navigate(url, false)
+      return await navigate(url, false)
     }
 
     back() {

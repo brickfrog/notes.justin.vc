@@ -4,6 +4,10 @@
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
+  position: relative;
+  height: 100%;
+  min-height: 0; /* Allow shrinking */
+
   &.desktop-only {
     @media all and not ($mobile) {
       display: flex;
@@ -33,6 +37,7 @@ button#explorer {
   width: 100%;
   margin-bottom: 0.5rem;
   position: relative;
+  flex-shrink: 0; /* Prevent shrinking */
 
   &:hover {
     background-color: var(--lightgray);
@@ -72,6 +77,11 @@ button#explorer {
   grid-template-rows: 1fr;
 }
 
+/* Disable transitions during navigation to prevent flicker */
+.explorer.no-transition .folder-outer {
+  transition: none !important;
+}
+
 .folder-outer > ul {
   overflow: hidden;
 }
@@ -79,13 +89,14 @@ button#explorer {
 #explorer-content {
   list-style: none;
   overflow: hidden;
-  overflow-y: auto;
-  max-height: 100%;
+  flex: 1; /* Take remaining space */
+  min-height: 0; /* Allow shrinking */
   transition:
     max-height 0.35s ease,
     visibility 0s linear 0s;
   margin-top: 0.5rem;
   visibility: visible;
+  position: relative;
 
   &.collapsed {
     max-height: 0;
@@ -116,6 +127,7 @@ button#explorer {
   }
   > #explorer-ul {
     max-height: none;
+    height: 100%;
   }
 }
 
@@ -181,22 +193,54 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   color: var(--tertiary);
 }
 
-// Styles for the scrollbar
+// Styles for the scrollbar - subtle and integrated
 #explorer-ul {
   scrollbar-width: thin;
-  scrollbar-color: var(--lightgray) var(--light);
+  scrollbar-color: transparent transparent;
 
   &::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+    height: 6px; // For horizontal scrollbar
   }
 
   &::-webkit-scrollbar-track {
-    background: var(--light);
+    background: transparent;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--lightgray);
-    border-radius: 4px;
-    border: 2px solid var(--light);
+    background-color: transparent;
+    border-radius: 3px;
+    border: none;
+    transition: background-color 0.2s ease;
   }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  // Show scrollbar on hover
+  &:hover {
+    scrollbar-color: var(--gray) transparent;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--gray);
+
+      &:hover {
+        background-color: var(--darkgray);
+      }
+    }
+  }
+}
+
+#explorer-ul:not(.no-background):after {
+  pointer-events: none;
+  content: "";
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(transparent 0px, var(--light));
 }

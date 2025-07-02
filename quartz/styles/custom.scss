@@ -355,14 +355,14 @@
       @include todo-style(var(--todo1));
     }
     &.PROJ {
-      @include todo-style(#CC33FF);
+      @include todo-style(#cc33ff);
     }
     &.WAIT,
     &.HOLD {
       @include todo-style(var(--todo2));
     }
     &.STRT {
-      @include todo-style(#FFCC00, var(--light), 1000);
+      @include todo-style(#ffcc00, var(--light), 1000);
     }
   }
 
@@ -983,7 +983,7 @@ figure[data-rehype-pretty-code-figure] {
 
   > pre {
     padding-top: 1.5rem !important;
-    
+
     &::after {
       content: attr(data-language);
       font-weight: bold;
@@ -1000,35 +1000,35 @@ figure[data-rehype-pretty-code-figure] {
     }
 
     &[data-language="python"]::after {
-      background-color: #1A8CFF !important;
+      background-color: #1a8cff !important;
     }
 
     &[data-language="text"]::after {
-      background-color: #6B7D8C !important;
+      background-color: #6b7d8c !important;
     }
 
     &[data-language="shell"]::after {
-      background-color: #00CC99 !important;
+      background-color: #00cc99 !important;
     }
 
     &[data-language="elisp"]::after {
-      background-color: #CC33FF !important;
+      background-color: #cc33ff !important;
     }
 
     &[data-language="emacs-lisp"]::after {
-      background-color: #CC33FF !important;
+      background-color: #cc33ff !important;
     }
 
     &[data-language="r"]::after {
-      background-color: #1A8CFF !important;
+      background-color: #1a8cff !important;
     }
 
     &[data-language="markdown"]::after {
-      background-color: #1A8CFF !important;
+      background-color: #1a8cff !important;
     }
 
     &[data-language="org"]::after {
-      background-color: #00CC99 !important;
+      background-color: #00cc99 !important;
     }
   }
 }

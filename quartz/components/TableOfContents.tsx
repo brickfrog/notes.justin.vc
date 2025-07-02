@@ -22,12 +22,12 @@ const TableOfContents: QuartzComponent = ({
           {fileData.toc
             .filter((entry) => entry.depth <= 3)
             .map((tocEntry, index) => (
-            <li key={tocEntry.slug} class={`toc-item depth-${tocEntry.depth}`}>
-              <a href={`#${tocEntry.slug}`} data-for={tocEntry.slug}>
-                {index + 1}. {tocEntry.text}
-              </a>
-            </li>
-          ))}
+              <li key={tocEntry.slug} class={`toc-item depth-${tocEntry.depth}`}>
+                <a href={`#${tocEntry.slug}`} data-for={tocEntry.slug}>
+                  {index + 1}. {tocEntry.text}
+                </a>
+              </li>
+            ))}
         </ol>
       </div>
     </div>

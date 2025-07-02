@@ -13,15 +13,15 @@ export default ((userOpts?: Partial<ProgressBarOptions>) => {
   const opts = { ...defaultOptions, ...userOpts }
 
   const ProgressBar: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-    if (!fileData.toc || fileData.toc.length === 0) {
-      return null
-    }
+    // Always render to prevent layout shifts, but show title when no TOC
+    const hasHeaders = fileData.toc && fileData.toc.length > 0
+    const displayTitle = fileData.frontmatter?.title || "Reading..."
 
     return (
       <div class={classNames(displayClass, "progress-bar-container")}>
         {opts.showSectionName && (
-          <div class="current-section" id="current-section">
-            {fileData.frontmatter?.title || "Reading..."}
+          <div class="current-section" id="current-section" data-initial-title={displayTitle}>
+            {displayTitle}
           </div>
         )}
         <div class="progress-bar">
@@ -64,12 +64,18 @@ export default ((userOpts?: Partial<ProgressBarOptions>) => {
           const cleanText = headerText.replace(/^[\\d\\.\\s]+/, '').trim();
           currentSection.textContent = cleanText || 'Reading...';
         } else {
-          // If no headers found, show article title
-          const articleTitle = document.querySelector('h1.article-title, .frontmatter h1');
+          // If no headers found, show article title or keep initial title
+          const articleTitle = document.querySelector('h1.article-title, .frontmatter h1, article h1');
           if (articleTitle) {
             currentSection.textContent = articleTitle.textContent || 'Reading...';
           } else {
-            currentSection.textContent = 'Reading...';
+            // Keep the initial title from frontmatter if no headers exist
+            const initialTitle = currentSection.getAttribute('data-initial-title');
+            if (initialTitle) {
+              currentSection.textContent = initialTitle;
+            } else {
+              currentSection.textContent = 'Reading...';
+            }
           }
         }
       }
@@ -118,4 +124,4 @@ export default ((userOpts?: Partial<ProgressBarOptions>) => {
   `
 
   return ProgressBar
-}) satisfies QuartzComponentConstructor 
+}) satisfies QuartzComponentConstructor

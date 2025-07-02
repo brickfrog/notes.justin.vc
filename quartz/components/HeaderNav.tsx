@@ -23,16 +23,27 @@ const defaultOptions: HeaderNavOptions = {
   links: [
     { text: "Notes", link: "/" },
     { text: "Tags", link: "/tags" },
+    { text: "Categories", link: "/categories" },
     { text: "Recent", link: "/log" },
-    { text: "Archive", link: "/categories" },
   ],
 }
 
 export default ((userOpts?: Partial<HeaderNavOptions>) => {
   const opts = { ...defaultOptions, ...userOpts }
 
-  const HeaderNav: QuartzComponent = ({ fileData, cfg, displayClass }: QuartzComponentProps) => {
+  const HeaderNav: QuartzComponent = ({
+    fileData,
+    cfg,
+    displayClass,
+    allFiles,
+  }: QuartzComponentProps) => {
     const baseDir = pathToRoot(fileData.slug!)
+
+    // Prepare minimal file data for random button
+    const minimalFiles = allFiles.map((file) => ({
+      slug: file.slug,
+    }))
+    const serializedFiles = encodeURIComponent(JSON.stringify(minimalFiles))
 
     return (
       <nav class={classNames(displayClass, "header-nav")}>
@@ -44,7 +55,9 @@ export default ((userOpts?: Partial<HeaderNavOptions>) => {
           </div>
           <div class="nav-links">
             {opts.links.map((link) => {
-              const resolvedLink = link.external ? link.link : resolveRelative(baseDir, link.link)
+              const resolvedLink = link.external
+                ? link.link
+                : (baseDir + link.link).replace("//", "/")
 
               return (
                 <a
@@ -97,7 +110,7 @@ export default ((userOpts?: Partial<HeaderNavOptions>) => {
               type="button"
               id="random-btn"
               title="Go to a random note"
-              data-files={JSON.stringify([])}
+              data-files={serializedFiles}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 100 100">
                 <path
@@ -145,19 +158,46 @@ document.addEventListener('DOMContentLoaded', function() {
 // Dark mode functionality  
 ${darkmodeScript}
 
+// Navigation links SPA functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link.internal');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if (href && window.spaNavigate) {
+        window.spaNavigate(new URL(href, window.location.origin));
+      } else {
+        window.location.href = href;
+      }
+    });
+  });
+});
+
 // Random page functionality
 document.addEventListener('DOMContentLoaded', function() {
   var btn = document.getElementById('random-btn');
   if (btn) {
     btn.onclick = function() {
-      // Get all internal links on the page
-      const internalLinks = Array.from(document.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"]'))
-        .map(link => link.href)
-        .filter(href => !href.includes('#') && href !== window.location.href);
-      
-      if (internalLinks.length > 0) {
-        const randomLink = internalLinks[Math.floor(Math.random() * internalLinks.length)];
-        window.location.href = randomLink;
+      // Get file data from the button's data attribute
+      const filesData = btn.getAttribute('data-files');
+      if (filesData) {
+        try {
+          const allFiles = JSON.parse(decodeURIComponent(filesData));
+          if (allFiles.length > 0) {
+            const randomIndex = Math.floor(Math.random() * allFiles.length);
+            const randomFile = allFiles[randomIndex];
+            const randomUrl = "/" + randomFile.slug;
+            
+            if (window.spaNavigate) {
+              window.spaNavigate(new URL(randomUrl, window.location.origin));
+            } else {
+              window.location.href = randomUrl;
+            }
+          }
+        } catch (e) {
+          console.error('Error parsing files data:', e);
+        }
       }
     };
   }

@@ -80,7 +80,11 @@ export default (() => {
         var randomFile = allFiles[randomIndex];
         
         // Navigate to the article using the slug
-        window.location.href = "/" + randomFile.slug;
+        if (window.spaNavigate) {
+          window.spaNavigate(new URL("/" + randomFile.slug, window.location.origin));
+        } else {
+          window.location.href = "/" + randomFile.slug;
+        }
       };
     } else {
       console.error('Button not found!');
