@@ -158,22 +158,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // Dark mode functionality  
 ${darkmodeScript}
 
-// Navigation links SPA functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const navLinks = document.querySelectorAll('.nav-link.internal');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const href = this.getAttribute('href');
-      if (href && window.spaNavigate) {
-        window.spaNavigate(new URL(href, window.location.origin));
-      } else {
-        window.location.href = href;
-      }
-    });
-  });
-});
-
 // Random page functionality
 document.addEventListener('DOMContentLoaded', function() {
   var btn = document.getElementById('random-btn');
@@ -189,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const randomFile = allFiles[randomIndex];
             const randomUrl = "/" + randomFile.slug;
             
+            // Use SPA navigation for random button
             if (window.spaNavigate) {
               window.spaNavigate(new URL(randomUrl, window.location.origin));
             } else {
